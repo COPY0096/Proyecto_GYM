@@ -18,12 +18,12 @@ public class InicioSeccion extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButtonSalir = new javax.swing.JButton();
+        jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonSalir.setBackground(new java.awt.Color(204, 204, 255));
@@ -36,6 +36,9 @@ public class InicioSeccion extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
+
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
+        jPanel1.add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 260));
 
@@ -72,6 +75,7 @@ public class InicioSeccion extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new InicioSeccion().setVisible(true);
             }
@@ -80,6 +84,7 @@ public class InicioSeccion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonSalir;
+    private javax.swing.JLabel jLabelFondo;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
