@@ -5,6 +5,8 @@
  */
 package proyecto.gym;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jerem
@@ -27,21 +29,221 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem_MUsuario = new javax.swing.JMenuItem();
+        jMenuItem_MEntrenador = new javax.swing.JMenuItem();
+        jMenuItem_MLocalizacion = new javax.swing.JMenuItem();
+        jMenuItem_MSalas = new javax.swing.JMenuItem();
+        jMenuItem_MActividades = new javax.swing.JMenuItem();
+        jMenuItem_MHorarioActividades = new javax.swing.JMenuItem();
+        jMenuItem_MClientes = new javax.swing.JMenuItem();
+        jMenuItem_MEstadoReservas = new javax.swing.JMenuItem();
+        jMenuItem_MReservas = new javax.swing.JMenuItem();
+        jMenuItem_MReversaActividades = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
+        jMenuItem14 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem15 = new javax.swing.JMenuItem();
+        jMenuItem16 = new javax.swing.JMenuItem();
+        jMenuItem17 = new javax.swing.JMenuItem();
+        jMenuItem18 = new javax.swing.JMenuItem();
+        jMenuItem19 = new javax.swing.JMenuItem();
+        jMenuItem20 = new javax.swing.JMenuItem();
+        jMenuItem21 = new javax.swing.JMenuItem();
+        jMenuItem22 = new javax.swing.JMenuItem();
+        jMenuItem23 = new javax.swing.JMenuItem();
+        jMenuItem24 = new javax.swing.JMenuItem();
+        jMenuItem25 = new javax.swing.JMenuItem();
+        jMenuItem26 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+
+        jPanel1.setBackground(new java.awt.Color(0, 153, 204));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        jLabel1.setText("Bienvenido!");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(556, 556, 556)
+                .addComponent(jLabel1)
+                .addContainerGap(566, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(337, 337, 337)
+                .addComponent(jLabel1)
+                .addContainerGap(444, Short.MAX_VALUE))
+        );
+
+        jMenu1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/mantenimiento-web.png"))); // NOI18N
+        jMenu1.setText("Mantenimientos");
+        jMenu1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+
+        jMenuItem_MUsuario.setText("De Usuario");
+        jMenu1.add(jMenuItem_MUsuario);
+
+        jMenuItem_MEntrenador.setText("De Entrenador");
+        jMenu1.add(jMenuItem_MEntrenador);
+
+        jMenuItem_MLocalizacion.setText("De Localizacion");
+        jMenu1.add(jMenuItem_MLocalizacion);
+
+        jMenuItem_MSalas.setText("De Salas");
+        jMenu1.add(jMenuItem_MSalas);
+
+        jMenuItem_MActividades.setText("De Actividades");
+        jMenu1.add(jMenuItem_MActividades);
+
+        jMenuItem_MHorarioActividades.setText("De Horarios Actividades");
+        jMenu1.add(jMenuItem_MHorarioActividades);
+
+        jMenuItem_MClientes.setText("Clientes");
+        jMenu1.add(jMenuItem_MClientes);
+
+        jMenuItem_MEstadoReservas.setText("Estado Reservas");
+        jMenu1.add(jMenuItem_MEstadoReservas);
+
+        jMenuItem_MReservas.setText("De Reservas");
+        jMenu1.add(jMenuItem_MReservas);
+
+        jMenuItem_MReversaActividades.setText("Reversa Actividades");
+        jMenu1.add(jMenuItem_MReversaActividades);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cuota.png"))); // NOI18N
+        jMenu2.setText("Movimientos");
+        jMenu2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+
+        jMenuItem11.setText("jMenuItem11");
+        jMenu2.add(jMenuItem11);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/procesamiento-por-lotes.png"))); // NOI18N
+        jMenu3.setText("Procesos");
+        jMenu3.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+
+        jMenuItem12.setText("jMenuItem12");
+        jMenu3.add(jMenuItem12);
+
+        jMenuItem13.setText("jMenuItem13");
+        jMenu3.add(jMenuItem13);
+
+        jMenuItem14.setText("jMenuItem14");
+        jMenu3.add(jMenuItem14);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta.png"))); // NOI18N
+        jMenu5.setText("Consultas");
+        jMenu5.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+
+        jMenuItem15.setText("jMenuItem15");
+        jMenu5.add(jMenuItem15);
+
+        jMenuItem16.setText("jMenuItem16");
+        jMenu5.add(jMenuItem16);
+
+        jMenuItem17.setText("jMenuItem17");
+        jMenu5.add(jMenuItem17);
+
+        jMenuItem18.setText("jMenuItem18");
+        jMenu5.add(jMenuItem18);
+
+        jMenuItem19.setText("jMenuItem19");
+        jMenu5.add(jMenuItem19);
+
+        jMenuItem20.setText("jMenuItem20");
+        jMenu5.add(jMenuItem20);
+
+        jMenuItem21.setText("jMenuItem21");
+        jMenu5.add(jMenuItem21);
+
+        jMenuItem22.setText("jMenuItem22");
+        jMenu5.add(jMenuItem22);
+
+        jMenuItem23.setText("jMenuItem23");
+        jMenu5.add(jMenuItem23);
+
+        jMenuItem24.setText("jMenuItem24");
+        jMenu5.add(jMenuItem24);
+
+        jMenuItem25.setText("jMenuItem25");
+        jMenu5.add(jMenuItem25);
+
+        jMenuItem26.setText("jMenuItem26");
+        jMenu5.add(jMenuItem26);
+
+        jMenuBar1.add(jMenu5);
+
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar-sesion.png"))); // NOI18N
+        jMenu4.setText("Cerrar sesion");
+        jMenu4.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu4);
+
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida.png"))); // NOI18N
+        jMenu6.setText("Salir");
+        jMenu6.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu6);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+    int a=JOptionPane.showConfirmDialog(null,"¿Desea cerrar la sesion?","Seleccione",JOptionPane.YES_NO_OPTION);
+    if(a==0){
+        setVisible(false);
+        new InicioSesion().setVisible(true);
+    }
+    
+    }//GEN-LAST:event_jMenu4MouseClicked
+
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+    int a=JOptionPane.showConfirmDialog(null,"¿Desea cerrar la aplicacion?","Seleccione",JOptionPane.YES_NO_OPTION);
+    if(a==0){
+        System.exit(0);
+    }
+    }//GEN-LAST:event_jMenu6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -79,5 +281,40 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem16;
+    private javax.swing.JMenuItem jMenuItem17;
+    private javax.swing.JMenuItem jMenuItem18;
+    private javax.swing.JMenuItem jMenuItem19;
+    private javax.swing.JMenuItem jMenuItem20;
+    private javax.swing.JMenuItem jMenuItem21;
+    private javax.swing.JMenuItem jMenuItem22;
+    private javax.swing.JMenuItem jMenuItem23;
+    private javax.swing.JMenuItem jMenuItem24;
+    private javax.swing.JMenuItem jMenuItem25;
+    private javax.swing.JMenuItem jMenuItem26;
+    private javax.swing.JMenuItem jMenuItem_MActividades;
+    private javax.swing.JMenuItem jMenuItem_MClientes;
+    private javax.swing.JMenuItem jMenuItem_MEntrenador;
+    private javax.swing.JMenuItem jMenuItem_MEstadoReservas;
+    private javax.swing.JMenuItem jMenuItem_MHorarioActividades;
+    private javax.swing.JMenuItem jMenuItem_MLocalizacion;
+    private javax.swing.JMenuItem jMenuItem_MReservas;
+    private javax.swing.JMenuItem jMenuItem_MReversaActividades;
+    private javax.swing.JMenuItem jMenuItem_MSalas;
+    private javax.swing.JMenuItem jMenuItem_MUsuario;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
