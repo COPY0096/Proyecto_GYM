@@ -1,11 +1,11 @@
 
 package proyecto.gym;
 
+import java.io.File;
+import java.io.FileWriter;
+
 public class InicioSesion extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InicioSeccion
-     */
     public InicioSesion() {
         initComponents();
         
@@ -31,6 +31,7 @@ public class InicioSesion extends javax.swing.JFrame {
         txtApellidos = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -117,6 +118,12 @@ public class InicioSesion extends javax.swing.JFrame {
         txtCorreo.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 260, 30));
 
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Registro");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 80, 30));
+
         jLabelFondo.setBackground(new java.awt.Color(204, 204, 204));
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
         jPanel1.add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, -1, -1));
@@ -131,8 +138,10 @@ public class InicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirActionPerformed
 
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
-        // TODO add your handling code here:
-        if(txtUsuario.getText().equals("admin")&& txtPassword.getText().equals("1234"))
+        
+        
+        
+        if(txtNivelAcceso.getText().equals("0"))
         {
             setVisible(false);
             new MenuPrincipal().setVisible(true);
@@ -189,6 +198,7 @@ public class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtApellidos;
