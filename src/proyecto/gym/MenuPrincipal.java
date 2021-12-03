@@ -151,6 +151,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu3.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
 
         jMenuItem12.setText("jMenuItem12");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem12);
 
         jMenuItem13.setText("jMenuItem13");
@@ -254,6 +259,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }
     }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     /**
      * @param args the command line arguments
