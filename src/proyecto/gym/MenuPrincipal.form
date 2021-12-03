@@ -266,9 +266,17 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="556" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="556" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="287" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" pref="194" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <EmptySpace pref="566" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -276,7 +284,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="337" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="444" max="32767" attributes="0"/>
               </Group>
@@ -290,6 +300,11 @@
               <Font name="Times New Roman" size="48" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Bienvenido!"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Prueba"/>
           </Properties>
         </Component>
       </SubComponents>
