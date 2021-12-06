@@ -1,14 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyecto.gym;
 
-/**
- *
- * @author jerem
- */
+import java.io.*;
+import java.util.ArrayList;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.FilterOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.Scanner;
+import java.awt.event.ActionEvent;
+import javax.swing.JButton;
+
 public class MantenimientoUsuario extends javax.swing.JFrame {
 
     /**
@@ -17,6 +32,9 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
     public MantenimientoUsuario() {
         initComponents();
     }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,8 +52,6 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         Pass_Usuario = new javax.swing.JTextField();
         jLabel_NivelAcceso = new javax.swing.JLabel();
-        NivelAcceso0 = new javax.swing.JRadioButton();
-        NivelAcceso1 = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
         Nombre_Usuario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -43,6 +59,10 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         Correo_Usuario = new javax.swing.JTextField();
         Login_Usuario = new javax.swing.JTextField();
+        NivelAcceso_Usuario = new javax.swing.JTextField();
+        Status = new javax.swing.JTextField();
+        Limpiar = new javax.swing.JButton();
+        Guardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 110));
@@ -70,12 +90,6 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         jLabel_NivelAcceso.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel_NivelAcceso.setText("Nivel de acceso:");
 
-        NivelAcceso0.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        NivelAcceso0.setText("0");
-
-        NivelAcceso1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        NivelAcceso1.setText("1");
-
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("Nombre:");
 
@@ -84,6 +98,28 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setText("Correo:");
+
+        Login_Usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Login_UsuarioActionPerformed(evt);
+            }
+        });
+
+        Status.setEnabled(false);
+
+        Limpiar.setText("Limpiar");
+        Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimpiarActionPerformed(evt);
+            }
+        });
+
+        Guardar.setText("Guardar");
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -104,25 +140,26 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel_NivelAcceso))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(NivelAcceso0)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(NivelAcceso1))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Correo_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(Login_Usuario)
-                                                .addComponent(Pass_Usuario)
-                                                .addComponent(Nombre_Usuario)
-                                                .addComponent(Apeliidos_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Correo_Usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                                    .addComponent(Login_Usuario)
+                                    .addComponent(Pass_Usuario)
+                                    .addComponent(Nombre_Usuario)
+                                    .addComponent(Apeliidos_Usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                                    .addComponent(NivelAcceso_Usuario)))
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING))))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(142, 142, 142)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Limpiar)
+                            .addComponent(Guardar))))
                 .addContainerGap(302, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Status, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(387, 387, 387))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,20 +171,28 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addComponent(jButton1)))
-                .addGap(62, 62, 62)
+                .addGap(40, 40, 40)
+                .addComponent(Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(Login_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Pass_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_NivelAcceso)
-                    .addComponent(NivelAcceso0)
-                    .addComponent(NivelAcceso1))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel4)
+                    .addComponent(Limpiar))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel_NivelAcceso))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(NivelAcceso_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(Guardar)))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(Nombre_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -159,7 +204,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(Correo_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(719, Short.MAX_VALUE))
+                .addGap(721, 721, 721))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -176,14 +221,154 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    Boolean crear = false;
+   public static String Satigualinea="";
+    
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
          System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+    
+    private void Login_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_UsuarioActionPerformed
+        // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+  
+        cod=Integer.parseInt(Login_Usuario.getText());
+  
+        Scanner s;
+ 
+        try {
+            File f = new File("E:archivo1.txt");
+            s = new Scanner(f);
+            if(!f.exists())
+                {
+                    f.createNewFile();
+                }
+            else
+                {
+                    while (s.hasNextLine() && !encontrado)
+                    {
+                        String linea = s.nextLine();
+                    
+                        Scanner sl = new Scanner(linea);
+  
+                        sl.useDelimiter("\\s*;\\s*");
+                        try {
+                                if(cod==Integer.parseInt(sl.next()))
+                            {
+                                Pass_Usuario.setText(sl.next());
+                                NivelAcceso_Usuario.setText(sl.next());
+                                Nombre_Usuario.setText(sl.next());
+                                Apeliidos_Usuario.setText(sl.next());
+                                Correo_Usuario.setText(sl.next());
+                                
+                                encontrado=true;
+                                crear = true;
+                                Satigualinea=(Login_Usuario.getText() + "; " +Pass_Usuario.getText()+ "; " +NivelAcceso_Usuario.getText()+ "; " + Nombre_Usuario.getText()+ "; " +Apeliidos_Usuario.getText()+ "; " + Correo_Usuario.getText());
+                                Status.setText("Modificando");
+                            }
+                        else
+                            {  //Salida.setText("Este registro no existe");
+                                Pass_Usuario.setText("");
+                                NivelAcceso_Usuario.setText("");
+                                Nombre_Usuario.setText("");
+                                Apeliidos_Usuario.setText("");
+                                Correo_Usuario.setText("");
+                                encontrado=false;
+                                crear = false;
+                                Status.setText("Creando");
+                            }
+                            } // fin try
+                            catch (Exception  e1)
+                               {
+             // JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                                e1.printStackTrace();
+                               }
+                    } // fin while
+                }
+             
+  s.close();
+  } // fin try
+                 catch (FileNotFoundException e1)
 
-    /**
-     * @param args the command line arguments
-     */
+
+                  {
+                    JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                    //e1.printStackTrace();
+                  }
+                 catch (IOException e1)
+                  {
+    // TODO Auto-generated catch block
+    e1.printStackTrace();
+  }
+             
+    }//GEN-LAST:event_Login_UsuarioActionPerformed
+
+    
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
+        Login_Usuario.setText("");
+        Pass_Usuario.setText("");
+        NivelAcceso_Usuario.setText("");
+        Nombre_Usuario.setText("");
+        Apeliidos_Usuario.setText("");
+        Correo_Usuario.setText("");
+    }//GEN-LAST:event_LimpiarActionPerformed
+
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
+        // TODO add your handling code here:
+        String login="";
+        String pass="";
+        String nivelacceso="";
+        String nombre="";
+        String apellidos="";
+        String correo="";
+        String Snuevalinea="";
+        
+        
+        ManejoArchivoUsuario MAU=new ManejoArchivoUsuario();
+        login=Login_Usuario.getText();
+        pass=Pass_Usuario.getText();
+        nivelacceso=NivelAcceso_Usuario.getText();
+        nombre=Nombre_Usuario.getText();
+        apellidos=Apeliidos_Usuario.getText();
+        correo=Correo_Usuario.getText();
+        
+                                        try {
+ 
+                     if (crear==false)
+ {
+   MAU.GuardarDatos (login,pass,nivelacceso,nombre,apellidos,correo);
+ }
+                     else
+ {
+   Snuevalinea=(login + "; " + pass + "; " + nivelacceso + "; " + nombre + "; " + apellidos + "; " + correo);
+                           MAU.ModificaDatos(Satigualinea,Snuevalinea);
+                         }
+                    Login_Usuario.setText("");
+                    Pass_Usuario.setText("");
+                    NivelAcceso_Usuario.setText("");
+                    Nombre_Usuario.setText("");
+                    Apeliidos_Usuario.setText("");
+                    Correo_Usuario.setText("");
+                    Status.setText("");
+                    //Salida.setText("");
+ } // fin try
+                 catch (IOException e1)
+                   {
+                     e1.printStackTrace();
+                   }
+ 
+         
+        
+    }//GEN-LAST:event_GuardarActionPerformed
+
+    
+ 
+
+
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -219,11 +404,13 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Apeliidos_Usuario;
     private javax.swing.JTextField Correo_Usuario;
+    private javax.swing.JButton Guardar;
+    private javax.swing.JButton Limpiar;
     private javax.swing.JTextField Login_Usuario;
-    private javax.swing.JRadioButton NivelAcceso0;
-    private javax.swing.JRadioButton NivelAcceso1;
+    private javax.swing.JTextField NivelAcceso_Usuario;
     private javax.swing.JTextField Nombre_Usuario;
     private javax.swing.JTextField Pass_Usuario;
+    private javax.swing.JTextField Status;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
