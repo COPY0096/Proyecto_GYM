@@ -242,7 +242,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         System.exit(0);
+         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
     
     
@@ -299,85 +299,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
             e1.printStackTrace();
         }
     }//GEN-LAST:event_GuardarActionPerformed
-    
-    
-    
-   /* public void actionPerformed(ActionEvent e) {
-        int cod;
-        boolean encontrado=false;
 
-        cod=Integer.parseInt(Login_Usuario.getText());
-
-        Scanner s;
-
-        try {
-            File f = new File("C:archivo1.txt");
-            s = new Scanner(f);
-            if(!f.exists())
-            {
-                f.createNewFile();
-            }
-            else
-            {
-                while (s.hasNextLine() && !encontrado)
-                {
-                    String linea = s.nextLine();
-
-                    Scanner sl = new Scanner(linea);
-
-                    sl.useDelimiter("\\s*;\\s*");
-                    try {
-                        if(cod==Integer.parseInt(sl.next()))
-                        {
-                            Pass_Usuario.setText(sl.next());
-                            NivelAcceso_Usuario.setText(sl.next());
-                            Nombre_Usuario.setText(sl.next());
-                            Apeliidos_Usuario.setText(sl.next());
-                            Correo_Usuario.setText(sl.next());
-
-                            encontrado=true;
-                            crear = true;
-                            Satigualinea=(Login_Usuario.getText() + "; " +Pass_Usuario.getText()+ "; " +NivelAcceso_Usuario.getText()+ "; " + Nombre_Usuario.getText()+ "; " +Apeliidos_Usuario.getText()+ "; " + Correo_Usuario.getText());
-                            Status.setText("Modificando");
-                        }
-                        else
-                        {  //Salida.setText("Este registro no existe");
-                            Pass_Usuario.setText("");
-                            NivelAcceso_Usuario.setText("");
-                            Nombre_Usuario.setText("");
-                            Apeliidos_Usuario.setText("");
-                            Correo_Usuario.setText("");
-                            encontrado=false;
-                            crear = false;
-                            Status.setText("Creando");
-                        }
-                    } // fin try
-                    catch (Exception  e1)
-                    {
-                        JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
-                       
-                    }
-                } // fin while
-            }
-
-            s.close();
-        } // fin try
-        catch (FileNotFoundException e1)
-
-        {
-            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
-            //e1.printStackTrace();
-        }
-        catch (IOException e1)
-        {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-        
-    }*/
-
-    
-    
     private void Login_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_UsuarioActionPerformed
         // TODO add your handling code here:
          

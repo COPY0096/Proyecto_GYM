@@ -106,6 +106,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
 
         jMenuItem_MUsuario.setText("De Usuario");
+        jMenuItem_MUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_MUsuarioActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem_MUsuario);
 
         jMenuItem_MEntrenador.setText("De Entrenador");
@@ -263,6 +268,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem_MUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_MUsuarioActionPerformed
+        // TODO add your handling code here:
+        
+        new MantenimientoUsuario().setVisible(true);
+    }//GEN-LAST:event_jMenuItem_MUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
