@@ -133,7 +133,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
                         .addGap(91, 91, 91)
                         .addComponent(jButton1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(390, 390, 390)
+                        .addGap(393, 393, 393)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,8 +325,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         String apellidos="";
         String correo="";
         String Snuevalinea="";
-        
-        
+
         ManejoArchivoUsuario MAU=new ManejoArchivoUsuario();
         login=Login_Usuario.getText();
         pass=Pass_Usuario.getText();
@@ -334,34 +333,32 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         nombre=Nombre_Usuario.getText();
         apellidos=Apeliidos_Usuario.getText();
         correo=Correo_Usuario.getText();
-        
-                                        try {
- 
-                     if (crear==false)
- {
-   MAU.GuardarDatos (login,pass,nivelacceso,nombre,apellidos,correo);
- }
-                     else
- {
-   Snuevalinea=(login + "; " + pass + "; " + nivelacceso + "; " + nombre + "; " + apellidos + "; " + correo);
-                           MAU.ModificaDatos(Satigualinea,Snuevalinea);
-                         }
-                    Login_Usuario.setText("");
-                    Pass_Usuario.setText("");
-                    NivelAcceso_Usuario.setText("");
-                    Nombre_Usuario.setText("");
-                    Apeliidos_Usuario.setText("");
-                    Correo_Usuario.setText("");
-                    Status.setText("");
-                    //Salida.setText("");
- } // fin try
-                 catch (IOException e1)
-                   {
-                     e1.printStackTrace();
-                   }
- 
-         
-        
+
+        try {
+
+            if (crear==false)
+            {
+                MAU.GuardarDatos (login,pass,nivelacceso,nombre,apellidos,correo);
+            }
+            else
+            {
+                Snuevalinea=(login + "; " + pass + "; " + nivelacceso + "; " + nombre + "; " + apellidos + "; " + correo);
+                MAU.ModificaDatos(Satigualinea,Snuevalinea);
+            }
+            Login_Usuario.setText("");
+            Pass_Usuario.setText("");
+            NivelAcceso_Usuario.setText("");
+            Nombre_Usuario.setText("");
+            Apeliidos_Usuario.setText("");
+            Correo_Usuario.setText("");
+            Status.setText("");
+            //Salida.setText("");
+        } // fin try
+        catch (IOException e1)
+        {
+            e1.printStackTrace();
+        }
+
     }//GEN-LAST:event_GuardarActionPerformed
 
     

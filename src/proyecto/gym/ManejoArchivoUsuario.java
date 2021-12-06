@@ -41,7 +41,7 @@ public class ManejoArchivoUsuario {
         boolean encontrado=false;
         int cod=Integer.parseInt(id_usuario);
         ArrayList<String> ArrayListArchivo = new ArrayList<String>();
-        File F1 = new File("e:archivoUsuario.txt");
+        File F1 = new File("c:archivoUsuario.txt");
         try {
             if(!F1.exists())
             {
@@ -83,8 +83,8 @@ public class ManejoArchivoUsuario {
     public void ModificaDatos(String id_usuario, String contraseña, String nivel, String nombre, String apellido, String correo)
     {
         boolean encontrado=false;
-        File fNuevo= new File("e:archivoUsuario1.txt");
-        File fAntiguo= new File("e:archivoUsuario.txt");
+        File fNuevo= new File("c:archivoUsuario1.txt");
+        File fAntiguo= new File("c:archivoUsuario.txt");
         String aCadena=(id_usuario + ";" + contraseña + ";" +nivel + ";" + nombre +";"+apellido +";" + correo);
         String nCadena=(id_usuario + ";" + contraseña + ";" +nivel + ";" + nombre +";"+apellido +";" + correo);
         int cod=Integer.parseInt(id_usuario);
