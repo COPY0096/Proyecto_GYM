@@ -18,6 +18,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -29,7 +30,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -64,41 +64,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuItem25 = new javax.swing.JMenuItem();
         jMenuItem26 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 153));
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 204));
+        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo de Bienvenida.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 640));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        jLabel1.setText("Bienvenido!");
-
-        jLabel2.setText("Prueba");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(556, 556, 556)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(287, 287, 287)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(566, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104)
-                .addComponent(jLabel1)
-                .addContainerGap(444, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo de Bienvenida.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, -1, 40, 640));
 
         jMenu1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/mantenimiento-web.png"))); // NOI18N
@@ -146,7 +123,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu2.setText("Movimientos");
         jMenu2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
 
-        jMenuItem11.setText("jMenuItem11");
+        jMenuItem11.setText("Cuota");
         jMenu2.add(jMenuItem11);
 
         jMenuBar1.add(jMenu2);
@@ -155,7 +132,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu3.setText("Procesos");
         jMenu3.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
 
-        jMenuItem12.setText("jMenuItem12");
+        jMenuItem12.setText("Generar Cobro");
         jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem12ActionPerformed(evt);
@@ -163,10 +140,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem12);
 
-        jMenuItem13.setText("jMenuItem13");
+        jMenuItem13.setText("Reversar Cobro");
         jMenu3.add(jMenuItem13);
 
-        jMenuItem14.setText("jMenuItem14");
+        jMenuItem14.setText("Actualiza Cuota");
         jMenu3.add(jMenuItem14);
 
         jMenuBar1.add(jMenu3);
@@ -175,40 +152,45 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu5.setText("Consultas");
         jMenu5.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
 
-        jMenuItem15.setText("jMenuItem15");
+        jMenuItem15.setText("De Usuario");
         jMenu5.add(jMenuItem15);
 
-        jMenuItem16.setText("jMenuItem16");
+        jMenuItem16.setText("De Entrenador");
         jMenu5.add(jMenuItem16);
 
-        jMenuItem17.setText("jMenuItem17");
+        jMenuItem17.setText("De Localización");
+        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem17ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem17);
 
-        jMenuItem18.setText("jMenuItem18");
+        jMenuItem18.setText("De Salas");
         jMenu5.add(jMenuItem18);
 
-        jMenuItem19.setText("jMenuItem19");
+        jMenuItem19.setText("De Actividades");
         jMenu5.add(jMenuItem19);
 
-        jMenuItem20.setText("jMenuItem20");
+        jMenuItem20.setText("De Horarios Actividades");
         jMenu5.add(jMenuItem20);
 
-        jMenuItem21.setText("jMenuItem21");
+        jMenuItem21.setText("De Cobro por Rango de Fecha");
         jMenu5.add(jMenuItem21);
 
-        jMenuItem22.setText("jMenuItem22");
+        jMenuItem22.setText("De Cobro por Cliente");
         jMenu5.add(jMenuItem22);
 
-        jMenuItem23.setText("jMenuItem23");
+        jMenuItem23.setText("De Cuota por Fecha");
         jMenu5.add(jMenuItem23);
 
-        jMenuItem24.setText("jMenuItem24");
+        jMenuItem24.setText("De Cuota por Clientes");
         jMenu5.add(jMenuItem24);
 
-        jMenuItem25.setText("jMenuItem25");
+        jMenuItem25.setText("De Clientes");
         jMenu5.add(jMenuItem25);
 
-        jMenuItem26.setText("jMenuItem26");
+        jMenuItem26.setText("De Clientes con Balance pendiente");
         jMenu5.add(jMenuItem26);
 
         jMenuBar1.add(jMenu5);
@@ -220,50 +202,26 @@ public class MenuPrincipal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu4MouseClicked(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jMenu4MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenu4MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jMenu4MouseReleased(evt);
+            }
         });
         jMenuBar1.add(jMenu4);
 
-        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida.png"))); // NOI18N
-        jMenu6.setText("Salir");
-        jMenu6.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu6MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu6);
-
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-    int a=JOptionPane.showConfirmDialog(null,"¿Desea cerrar la sesion?","Seleccione",JOptionPane.YES_NO_OPTION);
-    if(a==0){
-        setVisible(false);
-        new InicioSesion().setVisible(true);
-    }
-    
+        // TODO add your handling code here:
     }//GEN-LAST:event_jMenu4MouseClicked
-
-    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-    int a=JOptionPane.showConfirmDialog(null,"¿Desea cerrar la aplicacion?","Seleccione",JOptionPane.YES_NO_OPTION);
-    if(a==0){
-        System.exit(0);
-    }
-    }//GEN-LAST:event_jMenu6MouseClicked
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
@@ -271,9 +229,26 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem_MUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_MUsuarioActionPerformed
         // TODO add your handling code here:
-        
         new MantenimientoUsuario().setVisible(true);
     }//GEN-LAST:event_jMenuItem_MUsuarioActionPerformed
+
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem17ActionPerformed
+
+    private void jMenu4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu4MouseExited
+
+    private void jMenu4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu4MouseReleased
+
+    private void jMenu4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MousePressed
+        // TODO add your handling code here:
+        setVisible(false);
+        new InicioSesion().setVisible(true);
+    }//GEN-LAST:event_jMenu4MousePressed
 
     /**
      * @param args the command line arguments
@@ -318,7 +293,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
@@ -346,6 +320,5 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem_MReversaActividades;
     private javax.swing.JMenuItem jMenuItem_MSalas;
     private javax.swing.JMenuItem jMenuItem_MUsuario;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
