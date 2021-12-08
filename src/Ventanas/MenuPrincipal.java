@@ -36,9 +36,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem_MUsuario = new javax.swing.JMenuItem();
-        jMenuItem_MEntrenador = new javax.swing.JMenuItem();
-        jMenuItem_MLocalizacion = new javax.swing.JMenuItem();
-        jMenuItem_MSalas = new javax.swing.JMenuItem();
+        MEntrenador = new javax.swing.JMenuItem();
+        MLocalizacion = new javax.swing.JMenuItem();
+        MSalas = new javax.swing.JMenuItem();
         jMenuItem_MActividades = new javax.swing.JMenuItem();
         jMenuItem_MHorarioActividades = new javax.swing.JMenuItem();
         jMenuItem_MClientes = new javax.swing.JMenuItem();
@@ -91,29 +91,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem_MUsuario);
 
-        jMenuItem_MEntrenador.setText("De Entrenador");
-        jMenuItem_MEntrenador.addActionListener(new java.awt.event.ActionListener() {
+        MEntrenador.setText("De Entrenador");
+        MEntrenador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_MEntrenadorActionPerformed(evt);
+                MEntrenadorActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem_MEntrenador);
+        jMenu1.add(MEntrenador);
 
-        jMenuItem_MLocalizacion.setText("De Localizacion");
-        jMenuItem_MLocalizacion.addActionListener(new java.awt.event.ActionListener() {
+        MLocalizacion.setText("De Localizacion");
+        MLocalizacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_MLocalizacionActionPerformed(evt);
+                MLocalizacionActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem_MLocalizacion);
+        jMenu1.add(MLocalizacion);
 
-        jMenuItem_MSalas.setText("De Salas");
-        jMenuItem_MSalas.addActionListener(new java.awt.event.ActionListener() {
+        MSalas.setText("De Salas");
+        MSalas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_MSalasActionPerformed(evt);
+                MSalasActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem_MSalas);
+        jMenu1.add(MSalas);
 
         jMenuItem_MActividades.setText("De Actividades");
         jMenuItem_MActividades.addActionListener(new java.awt.event.ActionListener() {
@@ -272,25 +272,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
         new InicioSesion().setVisible(true);
     }//GEN-LAST:event_jMenu4MousePressed
 
-    private void jMenuItem_MLocalizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_MLocalizacionActionPerformed
+    private void MLocalizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MLocalizacionActionPerformed
         // TODO add your handling code here:
         new Localizacion().setVisible(true);
-    }//GEN-LAST:event_jMenuItem_MLocalizacionActionPerformed
+    }//GEN-LAST:event_MLocalizacionActionPerformed
 
-    private void jMenuItem_MSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_MSalasActionPerformed
+    private void MSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MSalasActionPerformed
         // TODO add your handling code here:
         new Salas().setVisible(true);
-    }//GEN-LAST:event_jMenuItem_MSalasActionPerformed
+    }//GEN-LAST:event_MSalasActionPerformed
 
     private void jMenuItem_MActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_MActividadesActionPerformed
         // TODO add your handling code here:
         new Actividades().setVisible(true);
     }//GEN-LAST:event_jMenuItem_MActividadesActionPerformed
 
-    private void jMenuItem_MEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_MEntrenadorActionPerformed
+    private void MEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEntrenadorActionPerformed
         // TODO add your handling code here:
         new Entrenador().setVisible(true);
-    }//GEN-LAST:event_jMenuItem_MEntrenadorActionPerformed
+    }//GEN-LAST:event_MEntrenadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,6 +329,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MEntrenador;
+    private javax.swing.JMenuItem MLocalizacion;
+    private javax.swing.JMenuItem MSalas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -355,13 +358,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem26;
     private javax.swing.JMenuItem jMenuItem_MActividades;
     private javax.swing.JMenuItem jMenuItem_MClientes;
-    private javax.swing.JMenuItem jMenuItem_MEntrenador;
     private javax.swing.JMenuItem jMenuItem_MEstadoReservas;
     private javax.swing.JMenuItem jMenuItem_MHorarioActividades;
-    private javax.swing.JMenuItem jMenuItem_MLocalizacion;
     private javax.swing.JMenuItem jMenuItem_MReservas;
     private javax.swing.JMenuItem jMenuItem_MReversaActividades;
-    private javax.swing.JMenuItem jMenuItem_MSalas;
     private javax.swing.JMenuItem jMenuItem_MUsuario;
     // End of variables declaration//GEN-END:variables
 }

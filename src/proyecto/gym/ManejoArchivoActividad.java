@@ -1,31 +1,32 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package proyecto.gym;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 
-
-public class ManejoArchivoUsuario {
-    public void GuardarDatos (String id_usuario,String contraseña,String nivel,String nombre,String apellido, String correo) throws IOException
+/**
+ *
+ * @author jerem
+ */
+public class ManejoArchivoActividad {
+    public void GuardarDatos (String id_actividad,String nombre,String descripcion,String id_localizacion,String id_entrenador) throws IOException
     {
     
         try
         {
-            FileWriter F1=new FileWriter("c:archivoUsuario1.txt", true);
+            FileWriter F1=new FileWriter("c:archivoActividad1.txt", true);
             PrintWriter pw=new PrintWriter(F1);
-            pw.println(id_usuario +";"+ contraseña +";"+ nivel +";"+ nombre +";"+apellido +";"+ correo );
+            pw.println(id_actividad +";"+ nombre +";"+ descripcion +";"+id_localizacion +";"+ id_entrenador );
             pw.close();
         }catch(Exception ex) {
             JOptionPane.showMessageDialog(null,"Error al guardar archivo"+ ex);
@@ -54,8 +55,8 @@ public class ManejoArchivoUsuario {
     public void ModificaDatos(String LineaAntigua, String LineaNueva )
     {
         
-        File fNuevo= new File("c:archivoUsuario2.txt");
-        File fAntiguo= new File("c:archivoUsuario1.txt");
+        File fNuevo= new File("c:archivoActividad2.txt");
+        File fAntiguo= new File("c:archivoActividad1.txt");
         
         String aCadena=LineaAntigua;
         String nCadena=LineaNueva;
@@ -129,4 +130,5 @@ public class ManejoArchivoUsuario {
             e.printStackTrace();
         }
     } // fin metodo delay
+    
 }

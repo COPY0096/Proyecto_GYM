@@ -5,6 +5,12 @@
  */
 package Ventanas;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import proyecto.gym.ManejoArchivoActividad;
 /**
  *
  * @author Jhoan
@@ -18,6 +24,8 @@ public class Actividades extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    Boolean crear = false;
+   public static String Satigualinea="";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,19 +40,20 @@ public class Actividades extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        Nombre_Actividad = new javax.swing.JTextField();
+        Status = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        ID_Entrenador = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        ID_Actividad = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        ID_Localizacion = new javax.swing.JTextField();
         Guardar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        Descripcion_Actividad = new javax.swing.JTextArea();
+        Limpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -71,12 +80,12 @@ public class Actividades extends javax.swing.JFrame {
         jLabel6.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 120, -1));
 
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 450, 30));
+        Nombre_Actividad.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Nombre_Actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 450, 30));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField2.setEnabled(false);
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, 160, -1));
+        Status.setBackground(new java.awt.Color(204, 204, 204));
+        Status.setEnabled(false);
+        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, 160, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Comprobador");
@@ -88,8 +97,8 @@ public class Actividades extends javax.swing.JFrame {
         jLabel7.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 120, -1));
 
-        jTextField4.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 220, -1));
+        ID_Entrenador.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(ID_Entrenador, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 220, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("Descripción Actividad");
@@ -101,16 +110,21 @@ public class Actividades extends javax.swing.JFrame {
         jLabel8.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 90, -1));
 
-        jTextField5.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 220, -1));
+        ID_Actividad.setBackground(new java.awt.Color(204, 204, 204));
+        ID_Actividad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_ActividadActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ID_Actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 220, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setText("ID Localización");
         jLabel9.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 120, -1));
 
-        jTextField6.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 220, -1));
+        ID_Localizacion.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(ID_Localizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 220, -1));
 
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -120,12 +134,20 @@ public class Actividades extends javax.swing.JFrame {
         });
         jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 400, 90, 30));
 
-        jTextArea1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        Descripcion_Actividad.setBackground(new java.awt.Color(204, 204, 204));
+        Descripcion_Actividad.setColumns(20);
+        Descripcion_Actividad.setRows(5);
+        jScrollPane1.setViewportView(Descripcion_Actividad);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 450, 100));
+
+        Limpiar.setText("Limpiar");
+        Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 363, 90, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,7 +175,130 @@ public class Actividades extends javax.swing.JFrame {
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
+                // TODO add your handling code here:
+        String id_actividad="";
+        String nombre="";
+        String descripcion="";
+        String id_localizacion="";
+        String id_entrenador="";
+        String Snuevalinea="";
+
+        ManejoArchivoActividad MAA=new ManejoArchivoActividad();
+        id_actividad=ID_Actividad.getText();
+        nombre=Nombre_Actividad.getText();
+        descripcion=Descripcion_Actividad.getText();
+        id_localizacion=ID_Localizacion.getText();
+        id_entrenador=ID_Entrenador.getText();
+
+
+        try {
+
+            if (crear==false)
+            {
+                MAA.GuardarDatos (id_actividad,nombre,descripcion,id_localizacion,id_entrenador);
+            }
+            else
+            {
+                Snuevalinea=(id_actividad + "; " + nombre + "; " + descripcion + "; " + id_localizacion + "; " + id_entrenador + "; ");
+                MAA.ModificaDatos(Satigualinea,Snuevalinea);
+            }
+            ID_Actividad.setText("");
+            Nombre_Actividad.setText("");
+            Descripcion_Actividad.setText("");
+            ID_Localizacion.setText("");
+            ID_Entrenador.setText("");
+            Status.setText("");
+            //Salida.setText("");
+        } // fin try
+        catch (IOException e1)
+        {
+            e1.printStackTrace();
+        }
     }//GEN-LAST:event_GuardarActionPerformed
+
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
+        // TODO add your handling code here:
+        ID_Actividad.setText("");
+        Nombre_Actividad.setText("");
+        Descripcion_Actividad.setText("");
+        ID_Localizacion.setText("");
+        ID_Entrenador.setText("");
+        Status.setText("");
+    }//GEN-LAST:event_LimpiarActionPerformed
+
+    private void ID_ActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ActividadActionPerformed
+        // TODO add your handling code here:
+                 
+        int cod;
+        boolean encontrado=false;
+
+        cod=Integer.parseInt(ID_Actividad.getText());
+
+        Scanner s;
+
+        try {
+            File f=new File("C:archivoActividad1.txt");
+            s = new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+
+                    Scanner sl = new Scanner(linea);
+
+                    sl.useDelimiter("\\s*;\\s*");
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Nombre_Actividad.setText(sl.next());
+                            Descripcion_Actividad.setText(sl.next());
+                            ID_Localizacion.setText(sl.next());
+                            ID_Entrenador.setText(sl.next());
+
+                            encontrado=true;
+                            crear = true;
+                            Satigualinea=(ID_Actividad.getText() + "; " +Nombre_Actividad.getText()+ "; " +Descripcion_Actividad.getText()+ "; " + ID_Localizacion.getText()+ "; " +ID_Entrenador.getText());
+                            Status.setText("Modificando");
+                        }
+                        else
+                        {  //Salida.setText("Este registro no existe");
+                            Nombre_Actividad.setText("");
+                            Descripcion_Actividad.setText("");
+                            ID_Localizacion.setText("");
+                            ID_Entrenador.setText("");
+                            encontrado=false;
+                            crear = false;
+                            Status.setText("Creando");
+                        }
+                    } // fin try
+                    catch (Exception  e1)
+                    {
+                       // JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                       
+                    }
+                } // fin while
+            }
+
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            //e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_ID_ActividadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,7 +336,14 @@ public class Actividades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Descripcion_Actividad;
     private javax.swing.JButton Guardar;
+    private javax.swing.JTextField ID_Actividad;
+    private javax.swing.JTextField ID_Entrenador;
+    private javax.swing.JTextField ID_Localizacion;
+    private javax.swing.JButton Limpiar;
+    private javax.swing.JTextField Nombre_Actividad;
+    private javax.swing.JTextField Status;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -202,11 +354,5 @@ public class Actividades extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }

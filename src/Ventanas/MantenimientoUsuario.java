@@ -34,9 +34,6 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
     public MantenimientoUsuario() {
         initComponents();
         this.setLocationRelativeTo(null);
-       /* Login_Usuario= new JTextField();
-        Login_Usuario.setBounds(150,20,100,30);
-        jPanel1.add(Login_Usuario);*/
     }
     
     
@@ -106,7 +103,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, 20));
 
         Nombre_Usuario.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Nombre_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 190, 20));
+        jPanel1.add(Nombre_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 190, 30));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("Apellidos");
@@ -136,7 +133,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         jPanel1.add(Login_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 190, -1));
 
         NivelAcceso_Usuario.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(NivelAcceso_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 50, 20));
+        jPanel1.add(NivelAcceso_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 50, 30));
 
         Status.setBackground(new java.awt.Color(204, 204, 204));
         Status.setEnabled(false);
@@ -260,7 +257,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         Scanner s;
 
         try {
-            File f=new File("C:archivo01.txt");
+            File f=new File("C:archivoUsuario1.txt");
             s = new Scanner(f);
             if(!f.exists())
             {

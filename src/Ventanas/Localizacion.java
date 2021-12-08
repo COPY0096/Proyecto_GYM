@@ -5,7 +5,15 @@
  */
 package Ventanas;
 
-import proyecto.gym.*;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import proyecto.gym.ManejoArchivoLocalizacion;
+
+
 
 /**
  *
@@ -21,6 +29,8 @@ public class Localizacion extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    Boolean crear = false;
+   public static String Satigualinea="";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,13 +43,14 @@ public class Localizacion extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Status = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        Tipo_Localizacion = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        ID_Localizacion = new javax.swing.JTextField();
         Guardar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        Limpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -57,25 +68,30 @@ public class Localizacion extends javax.swing.JFrame {
         jLabel2.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, 100, -1));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField1.setEnabled(false);
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 160, -1));
+        Status.setBackground(new java.awt.Color(204, 204, 204));
+        Status.setEnabled(false);
+        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 160, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Tipo");
         jLabel3.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 40, -1));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 510, -1));
+        Tipo_Localizacion.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Tipo_Localizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 510, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("ID Localización");
         jLabel4.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 100, -1));
 
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 160, -1));
+        ID_Localizacion.setBackground(new java.awt.Color(204, 204, 204));
+        ID_Localizacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_LocalizacionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ID_Localizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 160, -1));
 
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +108,14 @@ public class Localizacion extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 40));
+
+        Limpiar.setText("Limpiar");
+        Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 90, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,6 +137,35 @@ public class Localizacion extends javax.swing.JFrame {
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
+        String id_localizacion="";
+        String tipo="";
+        String Snuevalinea="";
+
+        ManejoArchivoLocalizacion MAL=new ManejoArchivoLocalizacion();
+        id_localizacion=ID_Localizacion.getText();
+        tipo=Tipo_Localizacion.getText();
+        
+
+        try {
+
+            if (crear==false)
+            {
+                MAL.GuardarDatos (id_localizacion,tipo);
+            }
+            else
+            {
+                Snuevalinea=(id_localizacion + "; " + tipo);
+                MAL.ModificaDatos(Satigualinea,Snuevalinea);
+            }
+            ID_Localizacion.setText("");
+            Tipo_Localizacion.setText("");
+            Status.setText("");
+            //Salida.setText("");
+        } // fin try
+        catch (IOException e1)
+        {
+            e1.printStackTrace();
+        }
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -120,6 +173,81 @@ public class Localizacion extends javax.swing.JFrame {
         setVisible(false);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ID_LocalizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_LocalizacionActionPerformed
+        // TODO add your handling code here:
+         
+        int cod;
+        boolean encontrado=false;
+
+        cod=Integer.parseInt(ID_Localizacion.getText());
+
+        Scanner s;
+
+        try {
+            File f=new File("C:archivoLocalizacion1.txt");
+            s = new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+
+                    Scanner sl = new Scanner(linea);
+
+                    sl.useDelimiter("\\s*;\\s*");
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Tipo_Localizacion.setText(sl.next());
+                            
+
+                            encontrado=true;
+                            crear = true;
+                            Satigualinea=(ID_Localizacion.getText() + "; " +Tipo_Localizacion.getText());
+                            Status.setText("Modificando");
+                        }
+                        else
+                        {  //Salida.setText("Este registro no existe");
+                            Tipo_Localizacion.setText("");  
+                            encontrado=false;
+                            crear = false;
+                            Status.setText("Creando");
+                        }
+                    } // fin try
+                    catch (Exception  e1)
+                    {
+                       // JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                       
+                    }
+                } // fin while
+            }
+
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            //e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }//GEN-LAST:event_ID_LocalizacionActionPerformed
+
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
+        // TODO add your handling code here:
+        ID_Localizacion.setText("");
+        Tipo_Localizacion.setText("");
+        Status.setText("");
+    }//GEN-LAST:event_LimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,14 +287,15 @@ public class Localizacion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Guardar;
+    private javax.swing.JTextField ID_Localizacion;
+    private javax.swing.JButton Limpiar;
+    private javax.swing.JTextField Status;
+    private javax.swing.JTextField Tipo_Localizacion;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
