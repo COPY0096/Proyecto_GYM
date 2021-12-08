@@ -1,6 +1,7 @@
 
-package proyecto.gym;
+package Ventanas;
 
+import proyecto.gym.*;
 import java.io.File;
 import java.io.FileWriter;
 
@@ -131,6 +132,7 @@ public class InicioSesion extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

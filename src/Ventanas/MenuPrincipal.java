@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto.gym;
+package Ventanas;
 
+import proyecto.gym.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -94,6 +95,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem_MEntrenador);
 
         jMenuItem_MLocalizacion.setText("De Localizacion");
+        jMenuItem_MLocalizacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_MLocalizacionActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem_MLocalizacion);
 
         jMenuItem_MSalas.setText("De Salas");
@@ -250,6 +256,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         new InicioSesion().setVisible(true);
     }//GEN-LAST:event_jMenu4MousePressed
 
+    private void jMenuItem_MLocalizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_MLocalizacionActionPerformed
+        // TODO add your handling code here:
+        new Localizacion().setVisible(true);
+    }//GEN-LAST:event_jMenuItem_MLocalizacionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -275,6 +286,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
