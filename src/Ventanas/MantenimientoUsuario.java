@@ -53,7 +53,6 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -71,67 +70,77 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         Limpiar = new javax.swing.JButton();
         Guardar = new javax.swing.JButton();
         Borrar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 110));
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(1120, 640));
         jPanel1.setPreferredSize(new java.awt.Dimension(1110, 640));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(979, 43, -1, -1));
-
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/mantenimiento-web.png"))); // NOI18N
-        jLabel1.setText("Mantenimiento de Usuario");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 11, -1, -1));
+        jLabel1.setText("Usuario");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel2.setText("Login Usuario:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 174, -1, -1));
+        jLabel2.setText("Login Usuario");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel4.setText("Contraseña:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 212, -1, -1));
-        jPanel1.add(Pass_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 211, 142, -1));
+        jLabel4.setText("Contraseña");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, -1));
+
+        Pass_Usuario.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Pass_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 190, -1));
 
         jLabel_NivelAcceso.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel_NivelAcceso.setText("Nivel de acceso:");
-        jPanel1.add(jLabel_NivelAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 257, -1, 25));
+        jLabel_NivelAcceso.setText("Nivel de acceso");
+        jPanel1.add(jLabel_NivelAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, -1, 25));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel6.setText("Nombre:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 300, -1, -1));
-        jPanel1.add(Nombre_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 142, -1));
+        jLabel6.setText("Nombre ");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, 20));
+
+        Nombre_Usuario.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Nombre_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 190, 20));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel7.setText("Apellidos:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 344, -1, -1));
-        jPanel1.add(Apeliidos_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 343, 142, -1));
+        jLabel7.setText("Apellidos");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, -1));
+
+        Apeliidos_Usuario.setBackground(new java.awt.Color(204, 204, 204));
+        Apeliidos_Usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Apeliidos_UsuarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Apeliidos_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 190, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel8.setText("Correo:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 382, -1, -1));
-        jPanel1.add(Correo_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 381, 142, -1));
+        jLabel8.setText("Correo");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
 
+        Correo_Usuario.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Correo_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 190, -1));
+
+        Login_Usuario.setBackground(new java.awt.Color(204, 204, 204));
         Login_Usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Login_UsuarioActionPerformed(evt);
             }
         });
-        jPanel1.add(Login_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 173, 142, -1));
-        jPanel1.add(NivelAcceso_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 255, 142, 27));
+        jPanel1.add(Login_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 190, -1));
 
+        NivelAcceso_Usuario.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(NivelAcceso_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 50, 20));
+
+        Status.setBackground(new java.awt.Color(204, 204, 204));
         Status.setEnabled(false);
-        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 120, 103, -1));
+        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 120, 20));
 
         Limpiar.setText("Limpiar");
         Limpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +148,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
                 LimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(776, 290, 71, -1));
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, 71, -1));
 
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -147,10 +156,23 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
                 GuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(776, 372, -1, -1));
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, -1, -1));
 
         Borrar.setText("Borrar");
-        jPanel1.add(Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(776, 331, 71, -1));
+        jPanel1.add(Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, 71, -1));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 40));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setText("Comprobador");
+        jLabel3.setPreferredSize(new java.awt.Dimension(91, 17));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 100, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,14 +193,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
     Boolean crear = false;
    public static String Satigualinea="";
     
-    
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-         System.exit(0);
-        // setVisible(false);
-        // new MenuPrincipal().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-    
+        
     
     private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
         Login_Usuario.setText("");
@@ -311,6 +326,16 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Login_UsuarioActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void Apeliidos_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Apeliidos_UsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Apeliidos_UsuarioActionPerformed
+
     
  
 
@@ -364,6 +389,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

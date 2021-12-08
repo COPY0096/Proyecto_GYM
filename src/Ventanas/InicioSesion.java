@@ -35,13 +35,13 @@ public class InicioSesion extends javax.swing.JFrame {
         Salir.setBackground(new java.awt.Color(255, 255, 255));
         Salir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Salir.setForeground(new java.awt.Color(255, 0, 0));
-        Salir.setText("X");
+        Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton.png"))); // NOI18N
         Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SalirActionPerformed(evt);
             }
         });
-        jPanel1.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, 40));
+        jPanel1.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 40));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -73,7 +73,7 @@ public class InicioSesion extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("¡Bienvenido!");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 120, 30));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 120, 30));
 
         jLabelFondo.setBackground(new java.awt.Color(204, 204, 204));
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
@@ -147,6 +147,7 @@ public class InicioSesion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ingresar;
     private javax.swing.JButton Salir;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
