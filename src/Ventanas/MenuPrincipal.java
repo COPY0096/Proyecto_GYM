@@ -127,9 +127,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem_MHorarioActividades);
 
         jMenuItem_MClientes.setText("Clientes");
+        jMenuItem_MClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_MClientesActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem_MClientes);
 
         jMenuItem_MEstadoReservas.setText("Estado Reservas");
+        jMenuItem_MEstadoReservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_MEstadoReservasActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem_MEstadoReservas);
 
         jMenuItem_MReservas.setText("De Reservas");
@@ -291,6 +301,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Entrenador().setVisible(true);
     }//GEN-LAST:event_MEntrenadorActionPerformed
+
+    private void jMenuItem_MEstadoReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_MEstadoReservasActionPerformed
+        // TODO add your handling code here:
+        new EstadoReserva().setVisible(true);
+    }//GEN-LAST:event_jMenuItem_MEstadoReservasActionPerformed
+
+    private void jMenuItem_MClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_MClientesActionPerformed
+        // TODO add your handling code here:
+        new Cliente().setVisible(true);
+    }//GEN-LAST:event_jMenuItem_MClientesActionPerformed
 
     /**
      * @param args the command line arguments
