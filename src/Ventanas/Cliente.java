@@ -265,7 +265,7 @@ public class Cliente extends javax.swing.JFrame {
         jLabel15.setText("Balance");
         jLabel15.setMaximumSize(new java.awt.Dimension(95, 17));
         jLabel15.setMinimumSize(new java.awt.Dimension(95, 17));
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 330, -1, 20));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 330, -1, 20));
 
         jTextField14.setBackground(new java.awt.Color(204, 204, 204));
         jTextField14.addActionListener(new java.awt.event.ActionListener() {
