@@ -64,6 +64,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="De Horarios Actividades"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_MHorarioActividadesActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_MClientes">
               <Properties>
@@ -85,11 +88,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="De Reservas"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_MReservasActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_MReversaActividades">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reversa Actividades"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_MReversaActividadesActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

@@ -63,12 +63,12 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         Correo_Usuario = new javax.swing.JTextField();
         Login_Usuario = new javax.swing.JTextField();
         NivelAcceso_Usuario = new javax.swing.JTextField();
-        Status = new javax.swing.JTextField();
         Limpiar = new javax.swing.JButton();
         Guardar = new javax.swing.JButton();
         Borrar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        Status = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 110));
@@ -81,7 +81,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/mantenimiento-web.png"))); // NOI18N
         jLabel1.setText("Usuario");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("Login Usuario");
@@ -103,7 +103,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, 20));
 
         Nombre_Usuario.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Nombre_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 190, 30));
+        jPanel1.add(Nombre_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 190, 20));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("Apellidos");
@@ -133,11 +133,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         jPanel1.add(Login_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 190, -1));
 
         NivelAcceso_Usuario.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(NivelAcceso_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 50, 30));
-
-        Status.setBackground(new java.awt.Color(204, 204, 204));
-        Status.setEnabled(false);
-        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 120, 20));
+        jPanel1.add(NivelAcceso_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 50, 20));
 
         Limpiar.setText("Limpiar");
         Limpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +165,11 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Comprobador");
         jLabel3.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 100, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 100, -1));
+
+        Status.setBackground(new java.awt.Color(204, 204, 204));
+        Status.setEnabled(false);
+        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 160, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

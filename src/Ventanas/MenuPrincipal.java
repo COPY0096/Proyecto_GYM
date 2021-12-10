@@ -124,6 +124,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem_MActividades);
 
         jMenuItem_MHorarioActividades.setText("De Horarios Actividades");
+        jMenuItem_MHorarioActividades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_MHorarioActividadesActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem_MHorarioActividades);
 
         jMenuItem_MClientes.setText("Clientes");
@@ -143,9 +148,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem_MEstadoReservas);
 
         jMenuItem_MReservas.setText("De Reservas");
+        jMenuItem_MReservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_MReservasActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem_MReservas);
 
         jMenuItem_MReversaActividades.setText("Reversa Actividades");
+        jMenuItem_MReversaActividades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_MReversaActividadesActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem_MReversaActividades);
 
         jMenuBar1.add(jMenu1);
@@ -311,6 +326,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Cliente().setVisible(true);
     }//GEN-LAST:event_jMenuItem_MClientesActionPerformed
+
+    private void jMenuItem_MReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_MReservasActionPerformed
+        // TODO add your handling code here:
+        new Reserva().setVisible(true);
+    }//GEN-LAST:event_jMenuItem_MReservasActionPerformed
+
+    private void jMenuItem_MReversaActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_MReversaActividadesActionPerformed
+        // TODO add your handling code here:
+        new ReservaActividades().setVisible(true);
+    }//GEN-LAST:event_jMenuItem_MReversaActividadesActionPerformed
+
+    private void jMenuItem_MHorarioActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_MHorarioActividadesActionPerformed
+        // TODO add your handling code here:
+        new HorarioActividades().setVisible(true);
+    }//GEN-LAST:event_jMenuItem_MHorarioActividadesActionPerformed
 
     /**
      * @param args the command line arguments

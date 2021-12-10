@@ -117,7 +117,7 @@ public class Salas extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 60, -1));
 
         Nombre_Sala.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Nombre_Sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 440, 30));
+        jPanel1.add(Nombre_Sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 440, 20));
 
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +125,7 @@ public class Salas extends javax.swing.JFrame {
                 GuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, 90, 30));
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 430, 90, 30));
 
         Descripcion_Sala.setBackground(new java.awt.Color(204, 204, 204));
         Descripcion_Sala.setColumns(20);
