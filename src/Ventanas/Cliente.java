@@ -6,6 +6,14 @@
 
 package Ventanas;
 
+import static Ventanas.MantenimientoUsuario.Satigualinea;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import proyecto.gym.ManejoArchivoUsuario;
+
 /**
  *
  * @author Jhoan
@@ -17,6 +25,8 @@ public class Cliente extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    Boolean crear = false;
+   public static String Satigualinea="";
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -31,37 +41,37 @@ public class Cliente extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        ID_Cliente = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        Status = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        Nombre_Cliente = new javax.swing.JTextField();
+        Apellido_P = new javax.swing.JTextField();
+        Apellido_M = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        Direccion_Cliente = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        Celular_Cliente = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        Telefono_Cliente = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        Fecha_Nacimiento_Cliente = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        Fecha_Ingreso = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        Status_Cliente = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
+        Tipo_Cliente = new javax.swing.JTextField();
+        Correo_Cliente = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        Balance_Cliente = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Valor_Cuota_Cliente = new javax.swing.JTextField();
+        Guardar = new javax.swing.JButton();
+        Limpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -89,13 +99,13 @@ public class Cliente extends javax.swing.JFrame {
         jLabel2.setMinimumSize(new java.awt.Dimension(95, 17));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 70, 20));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        ID_Cliente.setBackground(new java.awt.Color(204, 204, 204));
+        ID_Cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                ID_ClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 180, -1));
+        jPanel1.add(ID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 180, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Comprobador");
@@ -103,9 +113,9 @@ public class Cliente extends javax.swing.JFrame {
         jLabel3.setMinimumSize(new java.awt.Dimension(95, 17));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 90, 20));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField2.setEnabled(false);
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 170, -1));
+        Status.setBackground(new java.awt.Color(204, 204, 204));
+        Status.setEnabled(false);
+        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 170, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("Nombre");
@@ -114,40 +124,25 @@ public class Cliente extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 50, 20));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel5.setText("Apellido");
+        jLabel5.setText("Apellido Padre");
         jLabel5.setMaximumSize(new java.awt.Dimension(95, 17));
         jLabel5.setMinimumSize(new java.awt.Dimension(95, 17));
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 50, 20));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 90, 20));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel6.setText("Apellido");
+        jLabel6.setText("Apellido Madre");
         jLabel6.setMaximumSize(new java.awt.Dimension(95, 17));
         jLabel6.setMinimumSize(new java.awt.Dimension(95, 17));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, 20));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, 20));
 
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 180, -1));
+        Nombre_Cliente.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Nombre_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 180, -1));
 
-        jTextField4.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 180, -1));
+        Apellido_P.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Apellido_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 180, -1));
 
-        jTextField5.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 180, -1));
+        Apellido_M.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Apellido_M, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 180, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("Direccion ");
@@ -155,13 +150,8 @@ public class Cliente extends javax.swing.JFrame {
         jLabel7.setMinimumSize(new java.awt.Dimension(95, 17));
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 70, 20));
 
-        jTextField6.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 260, -1));
+        Direccion_Cliente.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Direccion_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 260, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setText("Fecha/Nacimiento");
@@ -169,13 +159,8 @@ public class Cliente extends javax.swing.JFrame {
         jLabel8.setMinimumSize(new java.awt.Dimension(95, 17));
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 110, 20));
 
-        jTextField7.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 260, -1));
+        Celular_Cliente.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Celular_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 260, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setText("Telefono/Casa");
@@ -183,13 +168,8 @@ public class Cliente extends javax.swing.JFrame {
         jLabel9.setMinimumSize(new java.awt.Dimension(95, 17));
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 90, 20));
 
-        jTextField8.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 260, -1));
+        Telefono_Cliente.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Telefono_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 260, -1));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel10.setText("Celular");
@@ -197,13 +177,8 @@ public class Cliente extends javax.swing.JFrame {
         jLabel10.setMinimumSize(new java.awt.Dimension(95, 17));
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 50, 20));
 
-        jTextField9.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 260, -1));
+        Fecha_Nacimiento_Cliente.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Fecha_Nacimiento_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 260, -1));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel11.setText("Fecha/Ingreso");
@@ -211,13 +186,8 @@ public class Cliente extends javax.swing.JFrame {
         jLabel11.setMinimumSize(new java.awt.Dimension(95, 17));
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 90, 20));
 
-        jTextField10.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 180, -1));
+        Fecha_Ingreso.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Fecha_Ingreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 180, -1));
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel12.setText("Status");
@@ -225,13 +195,8 @@ public class Cliente extends javax.swing.JFrame {
         jLabel12.setMinimumSize(new java.awt.Dimension(95, 17));
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 40, 20));
 
-        jTextField11.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, 180, -1));
+        Status_Cliente.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Status_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, 180, -1));
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel13.setText("Tipo");
@@ -245,21 +210,11 @@ public class Cliente extends javax.swing.JFrame {
         jLabel14.setMinimumSize(new java.awt.Dimension(95, 17));
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, -1, 20));
 
-        jTextField12.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, 180, -1));
+        Tipo_Cliente.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Tipo_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, 180, -1));
 
-        jTextField13.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField13ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, 260, -1));
+        Correo_Cliente.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Correo_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, 260, -1));
 
         jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel15.setText("Balance");
@@ -267,13 +222,8 @@ public class Cliente extends javax.swing.JFrame {
         jLabel15.setMinimumSize(new java.awt.Dimension(95, 17));
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 330, -1, 20));
 
-        jTextField14.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField14ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 260, -1));
+        Balance_Cliente.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Balance_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 260, -1));
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel16.setText("Valor/Cuota");
@@ -281,19 +231,24 @@ public class Cliente extends javax.swing.JFrame {
         jLabel16.setMinimumSize(new java.awt.Dimension(95, 17));
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, -1, 20));
 
-        jTextField15.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField15.addActionListener(new java.awt.event.ActionListener() {
+        Valor_Cuota_Cliente.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Valor_Cuota_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 260, -1));
+
+        Guardar.setText("Guardar");
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField15ActionPerformed(evt);
+                GuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 260, -1));
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, -1, 30));
 
-        jButton2.setText("Guardar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, -1, 30));
-
-        jButton3.setText("Limpiar");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 420, -1, 30));
+        Limpiar.setText("Limpiar");
+        Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 420, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -319,61 +274,134 @@ public class Cliente extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void ID_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        int cod;
+        boolean encontrado=false;
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+        cod=Integer.parseInt(ID_Cliente.getText());
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+        Scanner s;
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+        try {
+            File f=new File("C:archivoCliente1.txt");
+            s = new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+                    Scanner sl = new Scanner(linea);
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+                    sl.useDelimiter("\\s*;\\s*");
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Nombre_Cliente.setText(sl.next());
+                            Apellido_P.setText(sl.next());
+                            Apellido_M.setText(sl.next());
+                            Direccion_Cliente.setText(sl.next());
+                            Correo_Usuario.setText(sl.next());
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+                            encontrado=true;
+                            crear = true;
+                            Satigualinea=(ID_Cliente.getText() + "; " +Nombre_Cliente.getText()+ "; " +Apellido_P.getText()+ "; " + Apellido_M.getText()+ "; " +Direccion_Cliente.getText()+ "; " + Correo_Usuario.getText());
+                            Status.setText("Modificando");
+                        }
+                        else
+                        {  //Salida.setText("Este registro no existe");
+                            Nombre_Cliente.setText("");
+                            Apellido_P.setText("");
+                            Apellido_M.setText("");
+                            Direccion_Cliente.setText("");
+                            Correo_Usuario.setText("");
+                            encontrado=false;
+                            crear = false;
+                            Status.setText("Creando");
+                        }
+                    } // fin try
+                    catch (Exception  e1)
+                    {
+                       // JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                       
+                    }
+                } // fin while
+            }
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            //e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }//GEN-LAST:event_ID_ClienteActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+        String login="";
+        String pass="";
+        String nivelacceso="";
+        String nombre="";
+        String apellidos="";
+        String correo="";
+        String Snuevalinea="";
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+        ManejoArchivoUsuario MAU=new ManejoArchivoUsuario();
+        login=ID_Cliente.getText();
+        pass=Nombre_Cliente.getText();
+        nivelacceso=Apellido_P.getText();
+        nombre=Apellido_M.getText();
+        apellidos=Direccion_Cliente.getText();
+        correo=Correo_Usuario.getText();
 
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
+        try {
 
-    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField14ActionPerformed
+            if (crear==false)
+            {
+                MAU.GuardarDatos (login,pass,nivelacceso,nombre,apellidos,correo);
+            }
+            else
+            {
+                Snuevalinea=(login + "; " + pass + "; " + nivelacceso + "; " + nombre + "; " + apellidos + "; " + correo);
+                MAU.ModificaDatos(Satigualinea,Snuevalinea);
+            }
+            ID_Cliente.setText("");
+            Nombre_Cliente.setText("");
+            Apellido_P.setText("");
+            Apellido_M.setText("");
+            Direccion_Cliente.setText("");
+            Correo_Usuario.setText("");
+            Status.setText("");
+            //Salida.setText("");
+        } // fin try
+        catch (IOException e1)
+        {
+            e1.printStackTrace();
+        }
+    }//GEN-LAST:event_GuardarActionPerformed
 
-    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15ActionPerformed
+        ID_Cliente.setText("");
+        Nombre_Cliente.setText("");
+        Apellido_P.setText("");
+        Apellido_M.setText("");
+        Direccion_Cliente.setText("");
+        Correo_Usuario.setText("");
+        Status.setText("");
+    }//GEN-LAST:event_LimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -411,9 +439,24 @@ public class Cliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Apellido_M;
+    private javax.swing.JTextField Apellido_P;
+    private javax.swing.JTextField Balance_Cliente;
+    private javax.swing.JTextField Celular_Cliente;
+    private javax.swing.JTextField Correo_Cliente;
+    private javax.swing.JTextField Direccion_Cliente;
+    private javax.swing.JTextField Fecha_Ingreso;
+    private javax.swing.JTextField Fecha_Nacimiento_Cliente;
+    private javax.swing.JButton Guardar;
+    private javax.swing.JTextField ID_Cliente;
+    private javax.swing.JButton Limpiar;
+    private javax.swing.JTextField Nombre_Cliente;
+    private javax.swing.JTextField Status;
+    private javax.swing.JTextField Status_Cliente;
+    private javax.swing.JTextField Telefono_Cliente;
+    private javax.swing.JTextField Tipo_Cliente;
+    private javax.swing.JTextField Valor_Cuota_Cliente;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -431,21 +474,6 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 
 }

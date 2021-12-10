@@ -5,6 +5,15 @@
  */
 package Ventanas;
 
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import proyecto.gym.ManejoArchivoHorario;
+
+
 /**
  *
  * @author Jhoan
@@ -18,6 +27,8 @@ public class HorarioActividades extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    Boolean crear = false;
+   public static String Satigualinea="";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,13 +46,14 @@ public class HorarioActividades extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        ID_Horario = new javax.swing.JTextField();
+        Dia_Horario = new javax.swing.JTextField();
+        Hora_Horario = new javax.swing.JTextField();
+        ID_Actividad = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        Status = new javax.swing.JTextField();
+        Guardar = new javax.swing.JButton();
+        Limpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -79,33 +91,46 @@ public class HorarioActividades extends javax.swing.JFrame {
         jLabel5.setText("ID Actividad");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 80, 20));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 290, -1));
+        ID_Horario.setBackground(new java.awt.Color(204, 204, 204));
+        ID_Horario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_HorarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ID_Horario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 290, -1));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 290, -1));
+        Dia_Horario.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Dia_Horario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 290, -1));
 
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 290, -1));
+        Hora_Horario.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Hora_Horario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 290, -1));
 
-        jTextField4.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 290, -1));
+        ID_Actividad.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(ID_Actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 290, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("Comprobador");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 120, 90, 20));
 
-        jTextField5.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField5.setEnabled(false);
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 150, 150, -1));
+        Status.setBackground(new java.awt.Color(204, 204, 204));
+        Status.setEnabled(false);
+        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 150, 150, -1));
 
-        jButton2.setText("Guardar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Guardar.setText("Guardar");
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                GuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 293, 100, 30));
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 293, 100, 30));
+
+        Limpiar.setText("Limpiar");
+        Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 253, 100, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,9 +155,127 @@ public class HorarioActividades extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        String id_horario="";
+        String dia="";
+        String hora="";
+        String id_actividad="";
+        String Snuevalinea="";
+
+        ManejoArchivoHorario MAH=new ManejoArchivoHorario();
+        id_horario=ID_Horario.getText();
+        dia=Dia_Horario.getText();
+        hora=Hora_Horario.getText();
+        id_actividad=ID_Actividad.getText();
+        
+
+        try {
+
+            if (crear==false)
+            {
+                MAH.GuardarDatos (id_horario,dia,hora,id_actividad);
+            }
+            else
+            {
+                Snuevalinea=(ID_Horario + "; " + Dia_Horario + "; " + Hora_Horario + "; " + ID_Actividad);
+                MAH.ModificaDatos(Satigualinea,Snuevalinea);
+            }
+            ID_Horario.setText("");
+            Dia_Horario.setText("");
+            Hora_Horario.setText("");
+            ID_Actividad.setText("");
+
+            Status.setText("");
+            //Salida.setText("");
+        } // fin try
+        catch (IOException e1)
+        {
+            e1.printStackTrace();
+        }
+    }//GEN-LAST:event_GuardarActionPerformed
+
+    private void ID_HorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_HorarioActionPerformed
+        // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+
+        cod=Integer.parseInt(ID_Horario.getText());
+
+        Scanner s;
+
+        try {
+            File f=new File("C:archivoHorario1.txt");
+            s = new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+
+                    Scanner sl = new Scanner(linea);
+
+                    sl.useDelimiter("\\s*;\\s*");
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Dia_Horario.setText(sl.next());
+                            Hora_Horario.setText(sl.next());
+                            ID_Actividad.setText(sl.next());
+
+
+                            encontrado=true;
+                            crear = true;
+                            Satigualinea=(ID_Horario.getText() + "; " +Dia_Horario.getText()+ "; " +Hora_Horario.getText()+ "; " + ID_Actividad.getText());
+                            Status.setText("Modificando");
+                        }
+                        else
+                        {  //Salida.setText("Este registro no existe");
+                            Dia_Horario.setText("");
+                            Hora_Horario.setText("");
+                            ID_Actividad.setText("");
+
+                            encontrado=false;
+                            crear = false;
+                            Status.setText("Creando");
+                        }
+                    } // fin try
+                    catch (Exception  e1)
+                    {
+                       // JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                       
+                    }
+                } // fin while
+            }
+
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            //e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }//GEN-LAST:event_ID_HorarioActionPerformed
+
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
+        // TODO add your handling code here:
+        ID_Horario.setText("");
+        Dia_Horario.setText("");
+        Hora_Horario.setText("");
+        ID_Actividad.setText("");
+
+        Status.setText("");
+    }//GEN-LAST:event_LimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,8 +313,14 @@ public class HorarioActividades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Dia_Horario;
+    private javax.swing.JButton Guardar;
+    private javax.swing.JTextField Hora_Horario;
+    private javax.swing.JTextField ID_Actividad;
+    private javax.swing.JTextField ID_Horario;
+    private javax.swing.JButton Limpiar;
+    private javax.swing.JTextField Status;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -179,10 +328,5 @@ public class HorarioActividades extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
