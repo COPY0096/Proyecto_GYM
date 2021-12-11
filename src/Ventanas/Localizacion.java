@@ -155,7 +155,7 @@ public class Localizacion extends javax.swing.JFrame {
             else
             {
                 Snuevalinea=(id_localizacion + "; " + tipo);
-                MAL.ModificaDatos(Satigualinea,Snuevalinea);
+                MAL.ModificaDatos(Satigualinea,Snuevalinea, id_localizacion);
             }
             ID_Localizacion.setText("");
             Tipo_Localizacion.setText("");

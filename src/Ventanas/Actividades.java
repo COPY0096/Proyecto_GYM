@@ -200,7 +200,7 @@ public class Actividades extends javax.swing.JFrame {
             else
             {
                 Snuevalinea=(id_actividad + "; " + nombre + "; " + descripcion + "; " + id_localizacion + "; " + id_entrenador + "; ");
-                MAA.ModificaDatos(Satigualinea,Snuevalinea);
+                MAA.ModificaDatos(Satigualinea,Snuevalinea, id_actividad);
             }
             ID_Actividad.setText("");
             Nombre_Actividad.setText("");

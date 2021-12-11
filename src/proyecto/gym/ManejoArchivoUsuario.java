@@ -53,10 +53,11 @@ public class ManejoArchivoUsuario {
     
     public void ModificaDatos(String LineaAntigua, String LineaNueva,String id_usuario )
     {
-        boolean encontrado = false;
+        
         File fNuevo= new File("c:archivoUsuario2.txt");
         File fAntiguo= new File("c:archivoUsuario1.txt");
         
+        boolean encontrado = false;
         String aCadena=LineaAntigua;
         String nCadena=LineaNueva;
         int cod=Integer.parseInt(id_usuario); 
@@ -119,7 +120,7 @@ public class ManejoArchivoUsuario {
             if(Ffichero.exists())
             {
                 Ffichero.delete();
-                JOptionPane.showMessageDialog(null,"Ficherro Borrado.");
+                //JOptionPane.showMessageDialog(null,"Ficherro Borrado.");
             }
         }catch(Exception e)
     {

@@ -196,7 +196,7 @@ public class Entrenador extends javax.swing.JFrame {
             else
             {
                 Snuevalinea=(id_Entrenador + "; " + nombre + "; " + apellidos + "; " + telef + "; " + correo);
-                MAE.ModificaDatos(Satigualinea,Snuevalinea);
+                MAE.ModificaDatos(Satigualinea,Snuevalinea, id_Entrenador);
             }
             ID_entrenador.setText("");
             Nombre_entrenador.setText("");

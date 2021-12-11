@@ -232,7 +232,7 @@ public class EstadoReserva extends javax.swing.JFrame {
             else
             {
                 Snuevalinea=(id_estado_reserva + "; " + estado);
-                MAER.ModificaDatos(Satigualinea,Snuevalinea);
+                MAER.ModificaDatos(Satigualinea,Snuevalinea, id_estado_reserva);
             }
             ID_Estado_Reserva.setText("");
             Estado.setText("");

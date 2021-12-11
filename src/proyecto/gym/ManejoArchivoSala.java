@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -52,46 +53,54 @@ public class ManejoArchivoSala {
         }
     }
     
-    public void ModificaDatos(String LineaAntigua, String LineaNueva )
+    public void ModificaDatos(String LineaAntigua, String LineaNueva,String id_sala )
     {
         
         File fNuevo= new File("c:archivoSala2.txt");
         File fAntiguo= new File("c:archivoSala1.txt");
         
+        boolean encontrado = false;
         String aCadena=LineaAntigua;
         String nCadena=LineaNueva;
+        int cod=Integer.parseInt(id_sala); 
         
-        
-// Declaro un nuevo buffer de lectura
-//BufferedReader br;
-    BufferedReader br;
+
+       
     try
     {
+        
         if(fAntiguo.exists())
         {
-        br = new BufferedReader(new FileReader(fAntiguo));
+        Scanner s = new Scanner(fAntiguo);
+        
+      //  br = new BufferedReader(new FileReader(fAntiguo));
+      
         String linea;
         
-            while ((linea=br.readLine()) !=null) {
+            while (s.hasNextLine()) {
                 
-                
-                if(linea.equals(aCadena))
-                {
-                    Escribir(fNuevo,nCadena);
-                }
-                else
-                {
-                    Escribir(fNuevo,linea);
-                }
+                linea=s.nextLine();
+                Scanner sl = new Scanner(linea);
+                 sl.useDelimiter("\\s*;\\s*"); 
+                int codigoArc = Integer.parseInt(sl.next()); 
+             if(cod==codigoArc) 
+             { 
+            Escribir(fNuevo,nCadena); 
+                } 
+                else 
+                   { 
+                     Escribir(fNuevo,linea); 
+                   }
             } // fin while
-// Cierro el buffer de lectura
-        br.close();
-// Capturo el nombre del fichero antiguo
-        String nAntiguo = fAntiguo.getName();
-// Borro el fichero antiguo
-        borrar(fAntiguo);
-//Renombro el fichero auxiliar con el nombre del fichero antiguo
-        fNuevo.renameTo(fAntiguo);
+
+             s.close(); 
+             
+              // Capturo el nombre del fichero antiguo 
+            String nAntiguo = fAntiguo.getName(); 
+            // Borro el fichero antiguo 
+            borrar(fAntiguo); 
+            //Renombro el fichero auxiliar con el nombre del fichero antiguo 
+            fNuevo.renameTo(fAntiguo); 
     }
     else
     {
@@ -117,7 +126,7 @@ public class ManejoArchivoSala {
             }
         }catch(Exception e)
     {
-        JOptionPane.showMessageDialog(null,"Error al Borrar." + e);
+       // JOptionPane.showMessageDialog(null,"Error al Borrar." + e);
     }
 
     } // fin metodo borrar

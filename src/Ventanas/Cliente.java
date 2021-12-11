@@ -417,7 +417,7 @@ public class Cliente extends javax.swing.JFrame {
                 Snuevalinea=(id_cliente + "; " + nombre_cliente + "; " + apellido_p + "; " + apellido_m 
                 + "; " + direccion + "; " + celular + "; " + telefono + "; " + fecha_n + "; " +fecha_ingreso
                 + "; " + status_c + "; " + tipo_c + "; " + correo + "; " + balance + "; " +valor_cuota);
-                MAC.ModificaDatos(Satigualinea,Snuevalinea);
+                MAC.ModificaDatos(Satigualinea,Snuevalinea, id_cliente);
             }
             ID_Cliente.setText("");
             Nombre_Cliente.setText("");
