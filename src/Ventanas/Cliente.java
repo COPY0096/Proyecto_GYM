@@ -6,12 +6,13 @@
 
 package Ventanas;
 
-import static Ventanas.MantenimientoUsuario.Satigualinea;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import proyecto.gym.ManejoArchivoCliente;
 import proyecto.gym.ManejoArchivoUsuario;
 
 /**
@@ -306,11 +307,22 @@ public class Cliente extends javax.swing.JFrame {
                             Apellido_P.setText(sl.next());
                             Apellido_M.setText(sl.next());
                             Direccion_Cliente.setText(sl.next());
-                            Correo_Usuario.setText(sl.next());
-
+                            Celular_Cliente.setText(sl.next());
+                            Telefono_Cliente.setText(sl.next());
+                            Fecha_Nacimiento_Cliente.setText(sl.next());
+                            Fecha_Ingreso.setText(sl.next());
+                            Status_Cliente.setText(sl.next());
+                            Tipo_Cliente.setText(sl.next());
+                            Correo_Cliente.setText(sl.next());
+                            Balance_Cliente.setText(sl.next());
+                            Valor_Cuota_Cliente.setText(sl.next());
                             encontrado=true;
                             crear = true;
-                            Satigualinea=(ID_Cliente.getText() + "; " +Nombre_Cliente.getText()+ "; " +Apellido_P.getText()+ "; " + Apellido_M.getText()+ "; " +Direccion_Cliente.getText()+ "; " + Correo_Usuario.getText());
+                            Satigualinea=(ID_Cliente.getText() + "; " +Nombre_Cliente.getText()+ "; " +Apellido_P.getText()
+                            + "; " + Apellido_M.getText()+ "; " +Direccion_Cliente.getText()+ "; " + Celular_Cliente.getText()
+                            + "; " + Telefono_Cliente.getText()+ "; " + Fecha_Nacimiento_Cliente.getText()+ "; " + Fecha_Ingreso.getText()
+                            + "; " + Status_Cliente.getText()+ "; " + Tipo_Cliente.getText()+ "; " + Correo_Cliente.getText()
+                            + "; " + Balance_Cliente.getText()+ "; " + Valor_Cuota_Cliente.getText());
                             Status.setText("Modificando");
                         }
                         else
@@ -319,7 +331,15 @@ public class Cliente extends javax.swing.JFrame {
                             Apellido_P.setText("");
                             Apellido_M.setText("");
                             Direccion_Cliente.setText("");
-                            Correo_Usuario.setText("");
+                            Celular_Cliente.setText("");
+                            Telefono_Cliente.setText("");
+                            Fecha_Nacimiento_Cliente.setText("");
+                            Fecha_Ingreso.setText("");
+                            Status_Cliente.setText("");
+                            Tipo_Cliente.setText("");
+                            Correo_Cliente.setText("");
+                            Balance_Cliente.setText("");
+                            Valor_Cuota_Cliente.setText("");
                             encontrado=false;
                             crear = false;
                             Status.setText("Creando");
@@ -350,39 +370,69 @@ public class Cliente extends javax.swing.JFrame {
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
-        String login="";
-        String pass="";
-        String nivelacceso="";
-        String nombre="";
-        String apellidos="";
+        String id_cliente="";
+        String nombre_cliente="";
+        String apellido_p="";
+        String apellido_m="";
+        String direccion="";
+        String celular="";
+        String telefono="";
+        String fecha_n="";
+        String fecha_ingreso="";
+        String status_c="";
+        String tipo_c="";
         String correo="";
+        String balance="";
+        String valor_cuota="";
+        
+       
         String Snuevalinea="";
 
-        ManejoArchivoUsuario MAU=new ManejoArchivoUsuario();
-        login=ID_Cliente.getText();
-        pass=Nombre_Cliente.getText();
-        nivelacceso=Apellido_P.getText();
-        nombre=Apellido_M.getText();
-        apellidos=Direccion_Cliente.getText();
-        correo=Correo_Usuario.getText();
+        ManejoArchivoCliente MAC=new ManejoArchivoCliente();
+        id_cliente=ID_Cliente.getText();
+        nombre_cliente=Nombre_Cliente.getText();
+        apellido_p=Apellido_P.getText();
+        apellido_m=Apellido_M.getText();
+        direccion=Direccion_Cliente.getText();
+        celular=Celular_Cliente.getText();
+        telefono=Telefono_Cliente.getText();
+        fecha_n=Fecha_Nacimiento_Cliente.getText();
+        fecha_ingreso=Fecha_Ingreso.getText();
+        status_c=Status_Cliente.getText();
+        tipo_c=Tipo_Cliente.getText();
+        correo=Correo_Cliente.getText();
+        balance=Balance_Cliente.getText();
+        valor_cuota=Valor_Cuota_Cliente.getText();
 
         try {
 
             if (crear==false)
             {
-                MAU.GuardarDatos (login,pass,nivelacceso,nombre,apellidos,correo);
+                MAC.GuardarDatos (id_cliente,nombre_cliente,apellido_p,
+                apellido_m,direccion,celular,telefono,fecha_n,
+                fecha_ingreso,status_c,tipo_c,correo,balance,valor_cuota);
             }
             else
             {
-                Snuevalinea=(login + "; " + pass + "; " + nivelacceso + "; " + nombre + "; " + apellidos + "; " + correo);
-                MAU.ModificaDatos(Satigualinea,Snuevalinea);
+                Snuevalinea=(id_cliente + "; " + nombre_cliente + "; " + apellido_p + "; " + apellido_m 
+                + "; " + direccion + "; " + celular + "; " + telefono + "; " + fecha_n + "; " +fecha_ingreso
+                + "; " + status_c + "; " + tipo_c + "; " + correo + "; " + balance + "; " +valor_cuota);
+                MAC.ModificaDatos(Satigualinea,Snuevalinea);
             }
             ID_Cliente.setText("");
             Nombre_Cliente.setText("");
             Apellido_P.setText("");
             Apellido_M.setText("");
             Direccion_Cliente.setText("");
-            Correo_Usuario.setText("");
+            Celular_Cliente.setText("");
+            Telefono_Cliente.setText("");
+            Fecha_Nacimiento_Cliente.setText("");
+            Fecha_Ingreso.setText("");
+            Status_Cliente.setText("");
+            Tipo_Cliente.setText("");
+            Correo_Cliente.setText("");
+            Balance_Cliente.setText("");
+            Valor_Cuota_Cliente.setText("");
             Status.setText("");
             //Salida.setText("");
         } // fin try
@@ -399,7 +449,15 @@ public class Cliente extends javax.swing.JFrame {
         Apellido_P.setText("");
         Apellido_M.setText("");
         Direccion_Cliente.setText("");
-        Correo_Usuario.setText("");
+        Celular_Cliente.setText("");
+        Telefono_Cliente.setText("");
+        Fecha_Nacimiento_Cliente.setText("");
+        Fecha_Ingreso.setText("");
+        Status_Cliente.setText("");
+        Tipo_Cliente.setText("");
+        Correo_Cliente.setText("");
+        Balance_Cliente.setText("");
+        Valor_Cuota_Cliente.setText("");
         Status.setText("");
     }//GEN-LAST:event_LimpiarActionPerformed
 

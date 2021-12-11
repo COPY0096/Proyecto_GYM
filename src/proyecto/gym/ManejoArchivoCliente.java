@@ -1,31 +1,37 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package proyecto.gym;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 
-
-public class ManejoArchivoUsuario {
-    public void GuardarDatos (String id_usuario,String contraseña,String nivel,String nombre,String apellido, String correo) throws IOException
+/**
+ *
+ * @author jerem
+ */
+public class ManejoArchivoCliente {
+    public void GuardarDatos (String id_cliente,String nombre_cliente
+    ,String apellido_p,String apellido_m,String direccion,String celular,String telefono
+    ,String fecha_n,String fecha_ingreso,String status_c,String tipo_c,String correo
+    ,String balance,String valor_cuota) throws IOException
     {
     
         try
         {
-            FileWriter F1=new FileWriter("c:archivoUsuario1.txt", true);
+            FileWriter F1=new FileWriter("c:archivoCliente1.txt", true);
             PrintWriter pw=new PrintWriter(F1);
-            pw.println(id_usuario +";"+ contraseña +";"+ nivel +";"+ nombre +";"+apellido +";"+ correo );
+            pw.println(id_cliente +";"+ nombre_cliente +";"+ apellido_p +";"+ apellido_m 
+            +";"+direccion +";"+ celular+";"+ telefono+";"+ fecha_n+";"+ fecha_ingreso
+            +";"+ status_c+";"+ tipo_c+";"+ correo+";"+ balance+";"+ valor_cuota);
             pw.close();
         }catch(Exception ex) {
             JOptionPane.showMessageDialog(null,"Error al guardar archivo"+ ex);
@@ -51,53 +57,46 @@ public class ManejoArchivoUsuario {
         }
     }
     
-    public void ModificaDatos(String LineaAntigua, String LineaNueva,String id_usuario )
+    public void ModificaDatos(String LineaAntigua, String LineaNueva )
     {
-        boolean encontrado = false;
-        File fNuevo= new File("c:archivoUsuario2.txt");
-        File fAntiguo= new File("c:archivoUsuario1.txt");
+        
+        File fNuevo= new File("c:archivoCliente2.txt");
+        File fAntiguo= new File("c:archivoCliente1.txt");
         
         String aCadena=LineaAntigua;
         String nCadena=LineaNueva;
-        int cod=Integer.parseInt(id_usuario); 
         
-
-       
+        
+// Declaro un nuevo buffer de lectura
+//BufferedReader br;
+    BufferedReader br;
     try
     {
-        
         if(fAntiguo.exists())
         {
-        Scanner s = new Scanner(fAntiguo);
-        
-      //  br = new BufferedReader(new FileReader(fAntiguo));
-      
+        br = new BufferedReader(new FileReader(fAntiguo));
         String linea;
         
-            while (s.hasNextLine()) {
+            while ((linea=br.readLine()) !=null) {
                 
-                linea=s.nextLine();
-                Scanner sl = new Scanner(linea);
-                 sl.useDelimiter("\\s*;\\s*"); 
-                int codigoArc = Integer.parseInt(sl.next()); 
-             if(cod==codigoArc) 
-             { 
-            Escribir(fNuevo,nCadena); 
-                } 
-                else 
-                   { 
-                     Escribir(fNuevo,linea); 
-                   }
+                
+                if(linea.equals(aCadena))
+                {
+                    Escribir(fNuevo,nCadena);
+                }
+                else
+                {
+                    Escribir(fNuevo,linea);
+                }
             } // fin while
-
-             s.close(); 
-             
-              // Capturo el nombre del fichero antiguo 
-            String nAntiguo = fAntiguo.getName(); 
-            // Borro el fichero antiguo 
-            borrar(fAntiguo); 
-            //Renombro el fichero auxiliar con el nombre del fichero antiguo 
-            fNuevo.renameTo(fAntiguo); 
+// Cierro el buffer de lectura
+        br.close();
+// Capturo el nombre del fichero antiguo
+        String nAntiguo = fAntiguo.getName();
+// Borro el fichero antiguo
+        borrar(fAntiguo);
+//Renombro el fichero auxiliar con el nombre del fichero antiguo
+        fNuevo.renameTo(fAntiguo);
     }
     else
     {
@@ -136,4 +135,5 @@ public class ManejoArchivoUsuario {
             e.printStackTrace();
         }
     } // fin metodo delay
+    
 }

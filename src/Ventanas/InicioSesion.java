@@ -105,7 +105,7 @@ public class InicioSesion extends javax.swing.JFrame {
             setVisible(false);
             new MenuPrincipal().setVisible(true);
         }else{
-            new MantenimientoUsuario().setVisible(true);
+            new Usuario().setVisible(true);
         }
         
     }//GEN-LAST:event_IngresarActionPerformed

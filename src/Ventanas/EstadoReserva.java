@@ -5,6 +5,16 @@
  */
 package Ventanas;
 
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import proyecto.gym.ManejoArchivoEstadoReserva;
+
+
 /**
  *
  * @author Jhoan
@@ -18,6 +28,8 @@ public class EstadoReserva extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    Boolean crear = false;
+   public static String Satigualinea="";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,12 +44,13 @@ public class EstadoReserva extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        ID_Estado_Reserva = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        Estado = new javax.swing.JTextField();
+        Guardar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        Status = new javax.swing.JTextField();
+        Limpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -65,8 +78,13 @@ public class EstadoReserva extends javax.swing.JFrame {
         jLabel2.setMinimumSize(new java.awt.Dimension(95, 17));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 120, 20));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 180, -1));
+        ID_Estado_Reserva.setBackground(new java.awt.Color(204, 204, 204));
+        ID_Estado_Reserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_Estado_ReservaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ID_Estado_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 180, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Estado");
@@ -74,11 +92,16 @@ public class EstadoReserva extends javax.swing.JFrame {
         jLabel3.setMinimumSize(new java.awt.Dimension(95, 17));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 40, 20));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 410, -1));
+        Estado.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 410, -1));
 
-        jButton2.setText("Guardar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, -1, 30));
+        Guardar.setText("Guardar");
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("Comprobador");
@@ -86,9 +109,17 @@ public class EstadoReserva extends javax.swing.JFrame {
         jLabel4.setMinimumSize(new java.awt.Dimension(95, 17));
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, 90, 20));
 
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField3.setEnabled(false);
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 180, 180, -1));
+        Status.setBackground(new java.awt.Color(204, 204, 204));
+        Status.setEnabled(false);
+        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 180, 180, -1));
+
+        Limpiar.setText("Limpiar");
+        Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, 80, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,6 +144,113 @@ public class EstadoReserva extends javax.swing.JFrame {
         setVisible(false);
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ID_Estado_ReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_Estado_ReservaActionPerformed
+        // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+
+        cod=Integer.parseInt(ID_Estado_Reserva.getText());
+
+        Scanner s;
+
+        try {
+            File f=new File("C:archivoEstadoReserva1.txt");
+            s = new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+
+                    Scanner sl = new Scanner(linea);
+
+                    sl.useDelimiter("\\s*;\\s*");
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Estado.setText(sl.next());
+                            
+
+                            encontrado=true;
+                            crear = true;
+                            Satigualinea=(ID_Estado_Reserva.getText() + "; " +Estado.getText());
+                            Status.setText("Modificando");
+                        }
+                        else
+                        {  //Salida.setText("Este registro no existe");
+                            Estado.setText("");  
+                            encontrado=false;
+                            crear = false;
+                            Status.setText("Creando");
+                        }
+                    } // fin try
+                    catch (Exception  e1)
+                    {
+                       // JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                       
+                    }
+                } // fin while
+            }
+
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            //e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }//GEN-LAST:event_ID_Estado_ReservaActionPerformed
+
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
+        // TODO add your handling code here:
+        String id_estado_reserva="";
+        String estado="";
+        String Snuevalinea="";
+
+        ManejoArchivoEstadoReserva MAER=new ManejoArchivoEstadoReserva();
+        id_estado_reserva=ID_Estado_Reserva.getText();
+        estado=Estado.getText();
+        
+
+        try {
+
+            if (crear==false)
+            {
+                MAER.GuardarDatos (id_estado_reserva,estado);
+            }
+            else
+            {
+                Snuevalinea=(id_estado_reserva + "; " + estado);
+                MAER.ModificaDatos(Satigualinea,Snuevalinea);
+            }
+            ID_Estado_Reserva.setText("");
+            Estado.setText("");
+            Status.setText("");
+            //Salida.setText("");
+        } // fin try
+        catch (IOException e1)
+        {
+            e1.printStackTrace();
+        }
+    }//GEN-LAST:event_GuardarActionPerformed
+
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
+        // TODO add your handling code here:
+        ID_Estado_Reserva.setText("");
+        Estado.setText("");
+        Status.setText("");
+    }//GEN-LAST:event_LimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,15 +288,16 @@ public class EstadoReserva extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Estado;
+    private javax.swing.JButton Guardar;
+    private javax.swing.JTextField ID_Estado_Reserva;
+    private javax.swing.JButton Limpiar;
+    private javax.swing.JTextField Status;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

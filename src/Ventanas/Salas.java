@@ -5,7 +5,6 @@
  */
 package Ventanas;
 
-import static Ventanas.MantenimientoUsuario.Satigualinea;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;

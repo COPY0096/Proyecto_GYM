@@ -1,1 +1,2 @@
 001;Gimnasio
+1515;Sala

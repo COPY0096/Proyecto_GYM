@@ -32,20 +32,21 @@ public class Reserva extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        ID_Reserva = new javax.swing.JTextField();
+        Status = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        ID_Sala = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        ID_Cliente = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        Fecha_Reserva = new javax.swing.JTextField();
+        ID_Horario_Reserva = new javax.swing.JTextField();
+        ID_Estado_Reserva = new javax.swing.JTextField();
+        Guardar = new javax.swing.JButton();
+        Limpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -72,17 +73,17 @@ public class Reserva extends javax.swing.JFrame {
         jLabel2.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 80, -1));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        ID_Reserva.setBackground(new java.awt.Color(204, 204, 204));
+        ID_Reserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                ID_ReservaActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 190, -1));
+        jPanel1.add(ID_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 190, -1));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField2.setEnabled(false);
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 170, -1));
+        Status.setBackground(new java.awt.Color(204, 204, 204));
+        Status.setEnabled(false);
+        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 170, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Comprobador");
@@ -95,26 +96,26 @@ public class Reserva extends javax.swing.JFrame {
         jLabel4.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 50, -1));
 
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        ID_Sala.setBackground(new java.awt.Color(204, 204, 204));
+        ID_Sala.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                ID_SalaActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 190, -1));
+        jPanel1.add(ID_Sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 190, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("ID Cliente");
         jLabel5.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 70, -1));
 
-        jTextField4.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        ID_Cliente.setBackground(new java.awt.Color(204, 204, 204));
+        ID_Cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                ID_ClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 190, -1));
+        jPanel1.add(ID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 190, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("Fecha");
@@ -131,32 +132,40 @@ public class Reserva extends javax.swing.JFrame {
         jLabel8.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 120, -1));
 
-        jTextField5.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        Fecha_Reserva.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Fecha_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 190, -1));
+
+        ID_Horario_Reserva.setBackground(new java.awt.Color(204, 204, 204));
+        ID_Horario_Reserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                ID_Horario_ReservaActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 190, -1));
+        jPanel1.add(ID_Horario_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 190, -1));
 
-        jTextField6.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        ID_Estado_Reserva.setBackground(new java.awt.Color(204, 204, 204));
+        ID_Estado_Reserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                ID_Estado_ReservaActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 190, -1));
+        jPanel1.add(ID_Estado_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 190, -1));
 
-        jTextField7.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        Guardar.setText("Guardar");
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                GuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 190, -1));
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, -1, 30));
 
-        jButton2.setText("Guardar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, -1, 30));
+        Limpiar.setText("Limpiar");
+        Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 300, 70, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -181,29 +190,33 @@ public class Reserva extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void ID_ReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ReservaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_ID_ReservaActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void ID_SalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_SalaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_ID_SalaActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void ID_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_ID_ClienteActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void ID_Horario_ReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_Horario_ReservaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_ID_Horario_ReservaActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void ID_Estado_ReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_Estado_ReservaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_ID_Estado_ReservaActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_LimpiarActionPerformed
+
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,8 +254,16 @@ public class Reserva extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Fecha_Reserva;
+    private javax.swing.JButton Guardar;
+    private javax.swing.JTextField ID_Cliente;
+    private javax.swing.JTextField ID_Estado_Reserva;
+    private javax.swing.JTextField ID_Horario_Reserva;
+    private javax.swing.JTextField ID_Reserva;
+    private javax.swing.JTextField ID_Sala;
+    private javax.swing.JButton Limpiar;
+    private javax.swing.JTextField Status;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -252,12 +273,5 @@ public class Reserva extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }

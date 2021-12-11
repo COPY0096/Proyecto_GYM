@@ -25,13 +25,13 @@ import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 
-public class MantenimientoUsuario extends javax.swing.JFrame {
+public class Usuario extends javax.swing.JFrame {
 
    /* public JTextField Login_Usuario;*/
     /**
      * Creates new form MantenimientoUsuario
      */
-    public MantenimientoUsuario() {
+    public Usuario() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -65,7 +65,6 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         NivelAcceso_Usuario = new javax.swing.JTextField();
         Limpiar = new javax.swing.JButton();
         Guardar = new javax.swing.JButton();
-        Borrar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         Status = new javax.swing.JTextField();
@@ -92,7 +91,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, -1));
 
         Pass_Usuario.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Pass_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 190, -1));
+        jPanel1.add(Pass_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 200, 30));
 
         jLabel_NivelAcceso.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel_NivelAcceso.setText("Nivel de acceso");
@@ -103,11 +102,11 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, 20));
 
         Nombre_Usuario.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Nombre_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 190, 20));
+        jPanel1.add(Nombre_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 200, 30));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("Apellidos");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
 
         Apeliidos_Usuario.setBackground(new java.awt.Color(204, 204, 204));
         Apeliidos_Usuario.addActionListener(new java.awt.event.ActionListener() {
@@ -115,14 +114,14 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
                 Apeliidos_UsuarioActionPerformed(evt);
             }
         });
-        jPanel1.add(Apeliidos_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 190, -1));
+        jPanel1.add(Apeliidos_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 200, 30));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setText("Correo");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, -1, -1));
 
         Correo_Usuario.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Correo_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 190, -1));
+        jPanel1.add(Correo_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 200, 30));
 
         Login_Usuario.setBackground(new java.awt.Color(204, 204, 204));
         Login_Usuario.addActionListener(new java.awt.event.ActionListener() {
@@ -130,10 +129,10 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
                 Login_UsuarioActionPerformed(evt);
             }
         });
-        jPanel1.add(Login_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 190, -1));
+        jPanel1.add(Login_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 200, 30));
 
         NivelAcceso_Usuario.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(NivelAcceso_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 50, 20));
+        jPanel1.add(NivelAcceso_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 50, 30));
 
         Limpiar.setText("Limpiar");
         Limpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +140,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
                 LimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, 71, -1));
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 71, -1));
 
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -149,10 +148,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
                 GuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, -1, -1));
-
-        Borrar.setText("Borrar");
-        jPanel1.add(Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, 71, -1));
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, -1, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +165,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
 
         Status.setBackground(new java.awt.Color(204, 204, 204));
         Status.setEnabled(false);
-        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 160, -1));
+        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 160, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -229,7 +225,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
             else
             {
                 Snuevalinea=(login + "; " + pass + "; " + nivelacceso + "; " + nombre + "; " + apellidos + "; " + correo);
-                MAU.ModificaDatos(Satigualinea,Snuevalinea);
+                MAU.ModificaDatos(Satigualinea,Snuevalinea,login);
             }
             Login_Usuario.setText("");
             Pass_Usuario.setText("");
@@ -352,13 +348,13 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MantenimientoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MantenimientoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MantenimientoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MantenimientoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -366,7 +362,7 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MantenimientoUsuario().setVisible(true);
+                new Usuario().setVisible(true);
             }
         });
     }
@@ -374,7 +370,6 @@ public class MantenimientoUsuario extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Apeliidos_Usuario;
-    private javax.swing.JButton Borrar;
     private javax.swing.JTextField Correo_Usuario;
     private javax.swing.JButton Guardar;
     private javax.swing.JButton Limpiar;
