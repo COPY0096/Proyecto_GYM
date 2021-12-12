@@ -63,9 +63,6 @@ public class ManejoArchivoLocalizacion {
         String aCadena=LineaAntigua;
         String nCadena=LineaNueva;
         int cod=Integer.parseInt(id_localizacion); 
-        
-
-       
     try
     {
         

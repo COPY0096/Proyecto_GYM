@@ -279,7 +279,7 @@ public class Usuario extends javax.swing.JFrame {
 
                             encontrado=true;
                             crear = true;
-                            Satigualinea=(Login_Usuario.getText() + "; " +Pass_Usuario.getText()+ "; " +NivelAcceso_Usuario.getText()+ "; " + Nombre_Usuario.getText()+ "; " +Apeliidos_Usuario.getText()+ "; " + Correo_Usuario.getText());
+                            Satigualinea=(Login_Usuario.getText() + ";" +Pass_Usuario.getText()+ ";" +NivelAcceso_Usuario.getText()+ ";" + Nombre_Usuario.getText()+ ";" +Apeliidos_Usuario.getText()+ ";" + Correo_Usuario.getText());
                             Status.setText("Modificando");
                         }
                         else

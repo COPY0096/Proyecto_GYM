@@ -1,17 +1,27 @@
 
 package Ventanas;
 
+import java.io.BufferedReader;
 import proyecto.gym.*;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class InicioSesion extends javax.swing.JFrame {
+    private static Scanner sc;
+    private static String user,pwd;
 
     public InicioSesion() {
         initComponents();
         
         this.setLocationRelativeTo(null);
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -99,14 +109,49 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
         
-    
-        if(txtPassword.getText().equals("0"))
-        {
-            setVisible(false);
-            new MenuPrincipal().setVisible(true);
-        }else{
-            new Usuario().setVisible(true);
+        
+        FileReader fr=null;
+        try {
+            int nLineas=0;
+            int i=0;
+            String [] Usuarios = null;
+            String Linea;
+            sc = new Scanner(new File("C:archivoUsuario1.txt"));
+            File f = new File("C:archivoUsuario1.txt");
+            fr = new FileReader(f);
+            BufferedReader br = new BufferedReader(fr);
+            
+            try {
+                while((Linea=br.readLine()) != null){
+                    nLineas++;
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Usuarios = new String[nLineas];
+            
+            while(sc.hasNextLine()){
+                Usuarios[i++] = sc.nextLine();
+            }
+            user = txtUsuario.getText();
+            pwd = txtPassword.getText();
+            Seguridad s = new Seguridad();
+            s.ValidarUsuario(Usuarios, user, pwd);
+            txtUsuario.setText("");
+            txtPassword.setText("");
+                
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+    
+        
+       
         
     }//GEN-LAST:event_IngresarActionPerformed
 
