@@ -18,7 +18,7 @@ import Procesos.ActualizarCuota;
 import Procesos.GenerarCobro;
 import Procesos.ReversarCobro;
 import Reservas.Reserva;
-import Ventanas.ReservaActividades;
+import ReservaActividades.ReservaActividades;
 import Salas.Salas;
 import javax.swing.JOptionPane;
 

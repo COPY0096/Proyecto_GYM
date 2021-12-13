@@ -3,7 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ventanas;
+package ReservaActividades;
+
+import static Cliente.Cliente.Satigualinea;
+import Cliente.ManejoArchivoCliente;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +26,8 @@ public class ReservaActividades extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+   Boolean crear = false;
+   public static String Satigualinea="";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,7 +44,7 @@ public class ReservaActividades extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         ID_Reserva_Actividad = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        Status = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         Fecha_Reserva = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -88,9 +98,9 @@ public class ReservaActividades extends javax.swing.JFrame {
         jLabel3.setMinimumSize(new java.awt.Dimension(95, 17));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 90, 20));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField2.setEnabled(false);
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 170, -1));
+        Status.setBackground(new java.awt.Color(204, 204, 204));
+        Status.setEnabled(false);
+        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 170, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("Fecha/Reserva");
@@ -181,14 +191,141 @@ public class ReservaActividades extends javax.swing.JFrame {
 
     private void ID_Reserva_ActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_Reserva_ActividadActionPerformed
         // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+
+        cod=Integer.parseInt(ID_Reserva_Actividad.getText());
+
+        Scanner s;
+
+        try {
+            File f=new File("C:archivoReservaActividad1.txt");
+            s = new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+
+                    Scanner sl = new Scanner(linea);
+
+                    sl.useDelimiter("\\s*;\\s*");
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Fecha_Reserva.setText(sl.next());
+                            Fecha_Baja.setText(sl.next());
+                            ID_Estado_Reserva.setText(sl.next());
+                            ID_Cliente.setText(sl.next());
+                            ID_Actividad.setText(sl.next());
+                            ID_Reserva_Horario.setText(sl.next());
+                            encontrado=true;
+                            crear = true;
+                            Satigualinea=(ID_Reserva_Actividad.getText() + ";" +Fecha_Reserva.getText()+ ";" +Fecha_Baja.getText()
+                            + ";" + ID_Estado_Reserva.getText()+ ";" +ID_Cliente.getText()+ ";" + ID_Actividad.getText()
+                            + ";" + ID_Reserva_Horario.getText());
+                            Status.setText("Modificando");
+                        }
+                        else
+                        {  //Salida.setText("Este registro no existe");
+                            Fecha_Reserva.setText("");
+                            Fecha_Baja.setText("");
+                            ID_Estado_Reserva.setText("");
+                            ID_Cliente.setText("");
+                            ID_Actividad.setText("");
+                            ID_Reserva_Horario.setText("");
+                            encontrado=false;
+                            crear = false;
+                            Status.setText("Creando");
+                        }
+                    } // fin try
+                    catch (Exception  e1)
+                    {
+                       // JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                       
+                    }
+                } // fin while
+            }
+
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            //e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
     }//GEN-LAST:event_ID_Reserva_ActividadActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
+        String id_reserva_actividad="";
+        String fecha_reserva="";
+        String fecha_baja="";
+        String id_estado_reserva="";
+        String id_cliente="";
+        String id_actividad="";
+        String id_horario_reserva="";
+        
+        String Snuevalinea="";
+
+        ManejoArchivoReservaActividades MARA=new ManejoArchivoReservaActividades();
+        id_reserva_actividad=ID_Reserva_Actividad.getText();
+        fecha_reserva=Fecha_Reserva.getText();
+        fecha_baja=Fecha_Baja.getText();
+        id_estado_reserva=ID_Estado_Reserva.getText();
+        id_cliente=ID_Cliente.getText();
+        id_actividad=ID_Actividad.getText();
+        id_horario_reserva=ID_Reserva_Horario.getText();
+
+        try {
+
+            if (crear==false)
+            {
+                MARA.GuardarDatos (id_reserva_actividad,fecha_reserva,fecha_baja,
+                id_estado_reserva,id_cliente,id_actividad,id_horario_reserva);
+            }
+            else
+            {
+                Snuevalinea=(id_reserva_actividad + ";" + fecha_reserva + ";" + fecha_baja 
+                + ";" + id_estado_reserva+ ";" + id_cliente + ";" + id_actividad + ";" + id_horario_reserva);
+                MARA.ModificaDatos(Satigualinea,Snuevalinea, id_reserva_actividad);
+            }
+            ID_Reserva_Actividad.setText("");
+            Fecha_Reserva.setText("");
+            Fecha_Baja.setText("");
+            ID_Estado_Reserva.setText("");
+            ID_Cliente.setText("");
+            ID_Actividad.setText("");
+            ID_Reserva_Horario.setText("");
+            Status.setText("");
+            //Salida.setText("");
+        } // fin try
+        catch (IOException e1)
+        {
+            e1.printStackTrace();
+        }
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
         // TODO add your handling code here:
+        ID_Reserva_Actividad.setText("");
+        Fecha_Reserva.setText("");
+        Fecha_Baja.setText("");
+        ID_Estado_Reserva.setText("");
+        ID_Cliente.setText("");
+        ID_Actividad.setText("");
+        ID_Reserva_Horario.setText("");
+        Status.setText("");
     }//GEN-LAST:event_LimpiarActionPerformed
 
     /**
@@ -236,6 +373,7 @@ public class ReservaActividades extends javax.swing.JFrame {
     private javax.swing.JTextField ID_Reserva_Actividad;
     private javax.swing.JTextField ID_Reserva_Horario;
     private javax.swing.JButton Limpiar;
+    private javax.swing.JTextField Status;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -247,6 +385,5 @@ public class ReservaActividades extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

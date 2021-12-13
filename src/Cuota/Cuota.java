@@ -5,6 +5,14 @@
  */
 package Cuota;
 
+import ReservaActividades.ManejoArchivoReservaActividades;
+import static ReservaActividades.ReservaActividades.Satigualinea;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jhoan
@@ -18,6 +26,9 @@ public class Cuota extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    
+   Boolean crear = false;
+   public static String Satigualinea="";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,13 +48,14 @@ public class Cuota extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        ID_Cuota = new javax.swing.JTextField();
+        Fecha_Cuota = new javax.swing.JTextField();
+        ID_Cliente = new javax.swing.JTextField();
+        Valor_Cuota = new javax.swing.JTextField();
+        Status_Cuota = new javax.swing.JTextField();
+        Status = new javax.swing.JTextField();
+        Guardar = new javax.swing.JButton();
+        Limpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -88,57 +100,45 @@ public class Cuota extends javax.swing.JFrame {
         jLabel7.setText("Comprobador");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 140, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        ID_Cuota.setBackground(new java.awt.Color(204, 204, 204));
+        ID_Cuota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                ID_CuotaActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 190, -1));
+        jPanel1.add(ID_Cuota, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 190, -1));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        Fecha_Cuota.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Fecha_Cuota, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 190, -1));
+
+        ID_Cliente.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(ID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 190, -1));
+
+        Valor_Cuota.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Valor_Cuota, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 190, -1));
+
+        Status_Cuota.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Status_Cuota, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 190, -1));
+
+        Status.setBackground(new java.awt.Color(204, 204, 204));
+        Status.setEnabled(false);
+        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 180, -1));
+
+        Guardar.setText("Guardar");
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                GuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 190, -1));
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 370, -1, 30));
 
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        Limpiar.setText("Limpiar");
+        Limpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                LimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 190, -1));
-
-        jTextField4.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 190, -1));
-
-        jTextField5.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 190, -1));
-
-        jTextField6.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField6.setEnabled(false);
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 180, -1));
-
-        jButton2.setText("Guardar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 370, -1, 30));
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 320, 70, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,29 +163,131 @@ public class Cuota extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void ID_CuotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_CuotaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        int cod;
+        boolean encontrado=false;
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+        cod=Integer.parseInt(ID_Cuota.getText());
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+        Scanner s;
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+        try {
+            File f=new File("C:archivoCuota1.txt");
+            s = new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+                    Scanner sl = new Scanner(linea);
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+                    sl.useDelimiter("\\s*;\\s*");
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Fecha_Cuota.setText(sl.next());
+                            ID_Cliente.setText(sl.next());
+                            Valor_Cuota.setText(sl.next());
+                            Status_Cuota.setText(sl.next());
+                            encontrado=true;
+                            crear = true;
+                            Satigualinea=(ID_Cuota.getText() + ";" +Fecha_Cuota.getText()+ ";" +ID_Cliente.getText()
+                            + ";" + Valor_Cuota.getText()+ ";" + Status_Cuota.getText());
+                            Status.setText("Modificando");
+                        }
+                        else
+                        {  //Salida.setText("Este registro no existe");
+                            Fecha_Cuota.setText("");
+                            ID_Cliente.setText("");
+                            Valor_Cuota.setText("");
+                            Status_Cuota.setText("");
+                            encontrado=false;
+                            crear = false;
+                            Status.setText("Creando");
+                        }
+                    } // fin try
+                    catch (Exception  e1)
+                    {
+                       // JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                       
+                    }
+                } // fin while
+            }
+
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            //e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }//GEN-LAST:event_ID_CuotaActionPerformed
+
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+        String id_cuota="";
+        String fecha_cuota="";
+        String id_cliente="";
+        String valor_cuota="";
+        String status_cuota="";
+        
+        String Snuevalinea="";
+
+        ManejoArchivoCuota MACU=new ManejoArchivoCuota();
+        id_cuota=ID_Cuota.getText();
+        fecha_cuota=Fecha_Cuota.getText();
+        id_cliente=ID_Cliente.getText();
+        valor_cuota=Valor_Cuota.getText();
+        status_cuota=Status_Cuota.getText();
+
+        try {
+
+            if (crear==false)
+            {
+                MACU.GuardarDatos (id_cuota,fecha_cuota,id_cliente,
+                valor_cuota,status_cuota);
+            }
+            else
+            {
+                Snuevalinea=(id_cuota + ";" + fecha_cuota + ";" + id_cliente 
+                + ";" + valor_cuota + ";" + status_cuota);
+                MACU.ModificaDatos(Satigualinea,Snuevalinea, id_cuota);
+            }
+            ID_Cuota.setText("");
+            Fecha_Cuota.setText("");
+            ID_Cliente.setText("");
+            Valor_Cuota.setText("");
+            Status_Cuota.setText("");
+            Status.setText("");
+            //Salida.setText("");
+        } // fin try
+        catch (IOException e1)
+        {
+            e1.printStackTrace();
+        }
+    }//GEN-LAST:event_GuardarActionPerformed
+
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
+        // TODO add your handling code here:
+        ID_Cuota.setText("");
+        Fecha_Cuota.setText("");
+        ID_Cliente.setText("");
+        Valor_Cuota.setText("");
+        Status_Cuota.setText("");
+        Status.setText("");
+    }//GEN-LAST:event_LimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,8 +325,15 @@ public class Cuota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Fecha_Cuota;
+    private javax.swing.JButton Guardar;
+    private javax.swing.JTextField ID_Cliente;
+    private javax.swing.JTextField ID_Cuota;
+    private javax.swing.JButton Limpiar;
+    private javax.swing.JTextField Status;
+    private javax.swing.JTextField Status_Cuota;
+    private javax.swing.JTextField Valor_Cuota;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -233,11 +342,5 @@ public class Cuota extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }

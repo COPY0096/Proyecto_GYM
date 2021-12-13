@@ -5,8 +5,6 @@
  */
 package Reservas;
 
-import Salas.ManejoArchivoSala;
-import static Salas.Salas.Satigualinea;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
