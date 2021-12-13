@@ -196,7 +196,7 @@ public class Salas extends javax.swing.JFrame {
             }
             else
             {
-                Snuevalinea=(id_sala + "; " + nombre_sala + "; " + descripcion + "; " + id_localizacion_sala);
+                Snuevalinea=(id_sala + ";" + nombre_sala + ";" + descripcion + ";" + id_localizacion_sala);
                 MAS.ModificaDatos(Satigualinea,Snuevalinea,id_sala);
             }
             ID_Sala.setText("");

@@ -32,22 +32,23 @@ public class ReservaActividades extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        ID_Reserva_Actividad = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        Fecha_Reserva = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        Fecha_Baja = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        ID_Estado_Reserva = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        ID_Actividad = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jTextField9 = new javax.swing.JTextField();
+        ID_Reserva_Horario = new javax.swing.JTextField();
+        Guardar = new javax.swing.JButton();
+        ID_Cliente = new javax.swing.JTextField();
+        Limpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -73,13 +74,13 @@ public class ReservaActividades extends javax.swing.JFrame {
         jLabel2.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 140, -1));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        ID_Reserva_Actividad.setBackground(new java.awt.Color(204, 204, 204));
+        ID_Reserva_Actividad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                ID_Reserva_ActividadActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 190, -1));
+        jPanel1.add(ID_Reserva_Actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 190, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Comprobador");
@@ -96,39 +97,24 @@ public class ReservaActividades extends javax.swing.JFrame {
         jLabel4.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 90, -1));
 
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 190, -1));
+        Fecha_Reserva.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Fecha_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 190, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Fecha/Baja");
         jLabel5.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 70, -1));
 
-        jTextField4.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 190, -1));
+        Fecha_Baja.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Fecha_Baja, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 190, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("ID Estado/Reserva");
         jLabel6.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 120, -1));
 
-        jTextField5.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 190, -1));
+        ID_Estado_Reserva.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(ID_Estado_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 190, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("ID Cliente");
@@ -140,37 +126,35 @@ public class ReservaActividades extends javax.swing.JFrame {
         jLabel8.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 80, -1));
 
-        jTextField7.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 190, -1));
+        ID_Actividad.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(ID_Actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 190, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setText("ID Reserva/Horario");
         jLabel9.setPreferredSize(new java.awt.Dimension(91, 17));
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 130, -1));
 
-        jTextField8.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        ID_Reserva_Horario.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(ID_Reserva_Horario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 190, -1));
+
+        Guardar.setText("Guardar");
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                GuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 190, -1));
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, -1, 30));
 
-        jButton2.setText("Guardar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, -1, 30));
+        ID_Cliente.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(ID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 190, -1));
 
-        jTextField9.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        Limpiar.setText("Limpiar");
+        Limpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                LimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 190, -1));
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 330, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -195,33 +179,17 @@ public class ReservaActividades extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void ID_Reserva_ActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_Reserva_ActividadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_ID_Reserva_ActividadActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_GuardarActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_LimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,8 +227,16 @@ public class ReservaActividades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Fecha_Baja;
+    private javax.swing.JTextField Fecha_Reserva;
+    private javax.swing.JButton Guardar;
+    private javax.swing.JTextField ID_Actividad;
+    private javax.swing.JTextField ID_Cliente;
+    private javax.swing.JTextField ID_Estado_Reserva;
+    private javax.swing.JTextField ID_Reserva_Actividad;
+    private javax.swing.JTextField ID_Reserva_Horario;
+    private javax.swing.JButton Limpiar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -271,13 +247,6 @@ public class ReservaActividades extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }

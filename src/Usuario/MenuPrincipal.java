@@ -13,7 +13,7 @@ import Usuario.Usuario;
 import EstadoReserva.EstadoReserva;
 import HorarioActividades.HorarioActividades;
 import Localizacion.Localizacion;
-import Ventanas.Reserva;
+import Reservas.Reserva;
 import Ventanas.ReservaActividades;
 import Salas.Salas;
 import javax.swing.JOptionPane;

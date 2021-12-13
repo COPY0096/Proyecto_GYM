@@ -3,7 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ventanas;
+package Reservas;
+
+import Salas.ManejoArchivoSala;
+import static Salas.Salas.Satigualinea;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +26,8 @@ public class Reserva extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    Boolean crear = false;
+   public static String Satigualinea="";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -172,14 +182,137 @@ public class Reserva extends javax.swing.JFrame {
 
     private void ID_ReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ReservaActionPerformed
         // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+
+        cod=Integer.parseInt(ID_Reserva.getText());
+
+        Scanner s;
+
+        try {
+            File f=new File("C:archivoReserva1.txt");
+            s = new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+
+                    Scanner sl = new Scanner(linea);
+
+                    sl.useDelimiter("\\s*;\\s*");
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            ID_Sala.setText(sl.next());
+                            ID_Cliente.setText(sl.next());
+                            Fecha_Reserva.setText(sl.next());
+                            ID_Horario_Reserva.setText(sl.next());
+                            ID_Estado_Reserva.setText(sl.next());
+
+                            encontrado=true;
+                            crear = true;
+                            Satigualinea=(ID_Reserva.getText() + ";" +ID_Sala.getText()+ ";" + ID_Cliente.getText() + ";" + Fecha_Reserva.getText() 
+                            +";"+ID_Horario_Reserva.getText()+ ";" +ID_Estado_Reserva.getText());
+                            Status.setText("Modificando");
+                        }
+                        else
+                        {  //Salida.setText("Este registro no existe");
+                            ID_Sala.setText("");
+                            ID_Cliente.setText("");
+                            Fecha_Reserva.setText("");
+                            ID_Horario_Reserva.setText("");
+                            ID_Estado_Reserva.setText("");
+
+                            encontrado=false;
+                            crear = false;
+                            Status.setText("Creando");
+                        }
+                    } // fin try
+                    catch (Exception  e1)
+                    {
+                       // JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                       
+                    }
+                } // fin while
+            }
+
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            //e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        
     }//GEN-LAST:event_ID_ReservaActionPerformed
 
     private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
         // TODO add your handling code here:
+        ID_Reserva.setText("");
+        ID_Sala.setText("");
+        ID_Cliente.setText("");
+        Fecha_Reserva.setText("");
+        ID_Horario_Reserva.setText("");
+        ID_Estado_Reserva.setText("");
+        Status.setText("");
     }//GEN-LAST:event_LimpiarActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
+        String id_reserva="";
+        String id_sala="";
+        String id_cliente="";
+        String fecha_reserva="";
+        String id_horario_reserva="";
+        String id_estado_reserva="";
+        String Snuevalinea="";
+
+        ManejoArchivoReserva MAR=new ManejoArchivoReserva();
+        id_reserva=ID_Reserva.getText();
+        id_sala=ID_Sala.getText();
+        id_cliente=ID_Cliente.getText();
+        fecha_reserva=Fecha_Reserva.getText();
+        id_horario_reserva=ID_Horario_Reserva.getText();
+        id_estado_reserva=ID_Estado_Reserva.getText();
+        
+
+        try {
+
+            if (crear==false)
+            {
+                MAR.GuardarDatos (id_reserva,id_sala,id_cliente,fecha_reserva
+                ,id_horario_reserva,id_estado_reserva);
+            }
+            else
+            {
+                Snuevalinea=(id_reserva + ";" + id_sala + ";" + id_cliente + ";" + fecha_reserva
+                + ";" + id_horario_reserva + ";" + id_estado_reserva);
+                MAR.ModificaDatos(Satigualinea,Snuevalinea,id_reserva);
+            }
+            ID_Reserva.setText("");
+            ID_Sala.setText("");
+            ID_Cliente.setText("");
+            Fecha_Reserva.setText("");
+            ID_Horario_Reserva.setText("");
+            ID_Estado_Reserva.setText("");
+            Status.setText("");
+            //Salida.setText("");
+        } // fin try
+        catch (IOException e1)
+        {
+            e1.printStackTrace();
+        }
     }//GEN-LAST:event_GuardarActionPerformed
 
     /**
