@@ -57,7 +57,7 @@
               <Font name="Times New Roman" size="48" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/mantenimiento-web.png"/>
+              <Image iconType="3" name="/Imagenes/procesamiento-por-lotes.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Reversar Cobro"/>
           </Properties>
