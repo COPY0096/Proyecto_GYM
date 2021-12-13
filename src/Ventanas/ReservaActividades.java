@@ -72,7 +72,7 @@ public class ReservaActividades extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("ID Reserva/Actividad");
         jLabel2.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 140, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 140, -1));
 
         ID_Reserva_Actividad.setBackground(new java.awt.Color(204, 204, 204));
         ID_Reserva_Actividad.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +86,7 @@ public class ReservaActividades extends javax.swing.JFrame {
         jLabel3.setText("Comprobador");
         jLabel3.setMaximumSize(new java.awt.Dimension(95, 17));
         jLabel3.setMinimumSize(new java.awt.Dimension(95, 17));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 90, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 90, 20));
 
         jTextField2.setBackground(new java.awt.Color(204, 204, 204));
         jTextField2.setEnabled(false);
@@ -154,7 +154,7 @@ public class ReservaActividades extends javax.swing.JFrame {
                 LimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 330, -1, 30));
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 330, 70, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

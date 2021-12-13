@@ -7,12 +7,16 @@ package Usuario;
 
 import Cliente.Cliente;
 import Actividades.Actividades;
+import Cuota.Cuota;
 import Entrenador.Entrenador;
 import Usuario.InicioSesion;
 import Usuario.Usuario;
 import EstadoReserva.EstadoReserva;
 import HorarioActividades.HorarioActividades;
 import Localizacion.Localizacion;
+import Procesos.ActualizarCuota;
+import Procesos.GenerarCobro;
+import Procesos.ReversarCobro;
 import Reservas.Reserva;
 import Ventanas.ReservaActividades;
 import Salas.Salas;
@@ -180,6 +184,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
 
         jMenuItem11.setText("Cuota");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem11);
 
         jMenuBar1.add(jMenu2);
@@ -197,9 +206,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu3.add(jMenuItem12);
 
         jMenuItem13.setText("Reversar Cobro");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem13);
 
         jMenuItem14.setText("Actualiza Cuota");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem14);
 
         jMenuBar1.add(jMenu3);
@@ -282,6 +301,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
+        new GenerarCobro().setVisible(true);
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem_MUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_MUsuarioActionPerformed
@@ -351,6 +371,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         new HorarioActividades().setVisible(true);
     }//GEN-LAST:event_jMenuItem_MHorarioActividadesActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+        new Cuota().setVisible(true);
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        // TODO add your handling code here:
+        new ReversarCobro().setVisible(true);
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        // TODO add your handling code here:
+        new ActualizarCuota().setVisible(true);
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     /**
      * @param args the command line arguments
