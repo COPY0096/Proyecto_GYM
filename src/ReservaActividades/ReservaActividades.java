@@ -59,6 +59,10 @@ public class ReservaActividades extends javax.swing.JFrame {
         Guardar = new javax.swing.JButton();
         ID_Cliente = new javax.swing.JTextField();
         Limpiar = new javax.swing.JButton();
+        Estado_reserva = new javax.swing.JLabel();
+        Nombre_cliente = new javax.swing.JLabel();
+        Nombre_actividad = new javax.swing.JLabel();
+        Fecha_actividad = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -82,7 +86,7 @@ public class ReservaActividades extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("ID Reserva/Actividad");
         jLabel2.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 140, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 140, -1));
 
         ID_Reserva_Actividad.setBackground(new java.awt.Color(204, 204, 204));
         ID_Reserva_Actividad.addActionListener(new java.awt.event.ActionListener() {
@@ -90,62 +94,77 @@ public class ReservaActividades extends javax.swing.JFrame {
                 ID_Reserva_ActividadActionPerformed(evt);
             }
         });
-        jPanel1.add(ID_Reserva_Actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 190, -1));
+        jPanel1.add(ID_Reserva_Actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 190, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Comprobador");
         jLabel3.setMaximumSize(new java.awt.Dimension(95, 17));
         jLabel3.setMinimumSize(new java.awt.Dimension(95, 17));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 90, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 110, 90, 20));
 
         Status.setBackground(new java.awt.Color(204, 204, 204));
         Status.setEnabled(false);
-        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 170, -1));
+        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 140, 170, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("Fecha/Reserva");
         jLabel4.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 90, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 90, -1));
 
         Fecha_Reserva.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Fecha_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 190, -1));
+        jPanel1.add(Fecha_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 190, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Fecha/Baja");
         jLabel5.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 70, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 70, -1));
 
         Fecha_Baja.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Fecha_Baja, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 190, -1));
+        jPanel1.add(Fecha_Baja, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 190, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("ID Estado/Reserva");
         jLabel6.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 120, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 120, -1));
 
         ID_Estado_Reserva.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(ID_Estado_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 190, -1));
+        ID_Estado_Reserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_Estado_ReservaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ID_Estado_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 190, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("ID Cliente");
         jLabel7.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 70, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 70, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setText("ID Actividad");
         jLabel8.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 80, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 80, -1));
 
         ID_Actividad.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(ID_Actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 190, -1));
+        ID_Actividad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_ActividadActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ID_Actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 190, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setText("ID Reserva/Horario");
         jLabel9.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 130, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 130, -1));
 
         ID_Reserva_Horario.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(ID_Reserva_Horario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 190, -1));
+        ID_Reserva_Horario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_Reserva_HorarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ID_Reserva_Horario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 190, -1));
 
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -153,10 +172,15 @@ public class ReservaActividades extends javax.swing.JFrame {
                 GuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, -1, 30));
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, -1, 30));
 
         ID_Cliente.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(ID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 190, -1));
+        ID_Cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_ClienteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 190, -1));
 
         Limpiar.setText("Limpiar");
         Limpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +188,11 @@ public class ReservaActividades extends javax.swing.JFrame {
                 LimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 330, 70, 30));
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, 70, 30));
+        jPanel1.add(Estado_reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 210, 20));
+        jPanel1.add(Nombre_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 210, 20));
+        jPanel1.add(Nombre_actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 210, 20));
+        jPanel1.add(Fecha_actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 210, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -307,6 +335,10 @@ public class ReservaActividades extends javax.swing.JFrame {
             ID_Cliente.setText("");
             ID_Actividad.setText("");
             ID_Reserva_Horario.setText("");
+            Estado_reserva.setText("");
+            Nombre_cliente.setText("");
+            Nombre_actividad.setText("");
+            Fecha_actividad.setText("");
             Status.setText("");
             //Salida.setText("");
         } // fin try
@@ -325,8 +357,232 @@ public class ReservaActividades extends javax.swing.JFrame {
         ID_Cliente.setText("");
         ID_Actividad.setText("");
         ID_Reserva_Horario.setText("");
+        Estado_reserva.setText("");
+        Nombre_cliente.setText("");
+        Nombre_actividad.setText("");
+        Fecha_actividad.setText("");
         Status.setText("");
     }//GEN-LAST:event_LimpiarActionPerformed
+
+    private void ID_Estado_ReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_Estado_ReservaActionPerformed
+        // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+ 
+        cod=Integer.parseInt(ID_Estado_Reserva.getText());
+ 
+        Scanner s;
+ 
+        try {
+            File f = new File("C:archivoEstadoReserva1.txt");
+            s= new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+                    Scanner sl = new Scanner(linea);
+ 
+                    sl.useDelimiter("\\s*;\\s*");
+ 
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Estado_reserva.setText(sl.next());
+                            encontrado=true;
+                        }
+                    } // fin try
+                    catch (NumberFormatException e1)
+                    {
+                        JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                    }
+                } // fin while
+                if(encontrado==false){
+                    JOptionPane.showMessageDialog(this, "Error, ID Estado Reserva no existe en el archivo ");
+                    Estado_reserva.setText("");
+                }
+            }
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+        }
+    }//GEN-LAST:event_ID_Estado_ReservaActionPerformed
+
+    private void ID_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ClienteActionPerformed
+        // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+ 
+        cod=Integer.parseInt(ID_Cliente.getText());
+ 
+        Scanner s;
+ 
+        try {
+            File f = new File("C:archivoCliente1.txt");
+            s= new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+                    Scanner sl = new Scanner(linea);
+ 
+                    sl.useDelimiter("\\s*;\\s*");
+ 
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Nombre_cliente.setText(sl.next());
+                            encontrado=true;
+                        }
+                    } // fin try
+                    catch (NumberFormatException e1)
+                    {
+                        JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                    }
+                } // fin while
+                if(encontrado==false){
+                    JOptionPane.showMessageDialog(this, "Error, ID Cliente no existe en el archivo ");
+                    Nombre_cliente.setText("");
+                }
+            }
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+        }
+    }//GEN-LAST:event_ID_ClienteActionPerformed
+
+    private void ID_ActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ActividadActionPerformed
+        // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+ 
+        cod=Integer.parseInt(ID_Actividad.getText());
+ 
+        Scanner s;
+ 
+        try {
+            File f = new File("C:archivoActividad1.txt");
+            s= new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+                    Scanner sl = new Scanner(linea);
+ 
+                    sl.useDelimiter("\\s*;\\s*");
+ 
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Nombre_actividad.setText(sl.next());
+                            encontrado=true;
+                        }
+                    } // fin try
+                    catch (NumberFormatException e1)
+                    {
+                        JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                    }
+                } // fin while
+                if(encontrado==false){
+                    JOptionPane.showMessageDialog(this, "Error, ID Actividad no existe en el archivo ");
+                    Nombre_actividad.setText("");
+                }
+            }
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+        }
+    }//GEN-LAST:event_ID_ActividadActionPerformed
+
+    private void ID_Reserva_HorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_Reserva_HorarioActionPerformed
+        // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+ 
+        cod=Integer.parseInt(ID_Reserva_Horario.getText());
+ 
+        Scanner s;
+ 
+        try {
+            File f = new File("C:archivoHorario1.txt");
+            s= new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+                    Scanner sl = new Scanner(linea);
+ 
+                    sl.useDelimiter("\\s*;\\s*");
+ 
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Fecha_actividad.setText(sl.next());
+                            encontrado=true;
+                        }
+                    } // fin try
+                    catch (NumberFormatException e1)
+                    {
+                        JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                    }
+                } // fin while
+                if(encontrado==false){
+                    JOptionPane.showMessageDialog(this, "Error, ID Horario Actividad no existe en el archivo ");
+                    Fecha_actividad.setText("");
+                }
+            }
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+        }
+    }//GEN-LAST:event_ID_Reserva_HorarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -364,8 +620,10 @@ public class ReservaActividades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Estado_reserva;
     private javax.swing.JTextField Fecha_Baja;
     private javax.swing.JTextField Fecha_Reserva;
+    private javax.swing.JLabel Fecha_actividad;
     private javax.swing.JButton Guardar;
     private javax.swing.JTextField ID_Actividad;
     private javax.swing.JTextField ID_Cliente;
@@ -373,6 +631,8 @@ public class ReservaActividades extends javax.swing.JFrame {
     private javax.swing.JTextField ID_Reserva_Actividad;
     private javax.swing.JTextField ID_Reserva_Horario;
     private javax.swing.JButton Limpiar;
+    private javax.swing.JLabel Nombre_actividad;
+    private javax.swing.JLabel Nombre_cliente;
     private javax.swing.JTextField Status;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

@@ -53,6 +53,8 @@ public class Actividades extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Descripcion_Actividad = new javax.swing.JTextArea();
         Limpiar = new javax.swing.JButton();
+        Tipo_localizacion = new javax.swing.JLabel();
+        Nombre_entrenador = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -77,37 +79,42 @@ public class Actividades extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("Nombre Actividad");
         jLabel6.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 120, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 120, -1));
 
         Nombre_Actividad.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Nombre_Actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 450, 30));
+        jPanel1.add(Nombre_Actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 450, 30));
 
         Status.setBackground(new java.awt.Color(204, 204, 204));
         Status.setEnabled(false);
-        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, 160, -1));
+        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 160, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Comprobador");
         jLabel3.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, 100, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 100, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("ID Entrenador");
         jLabel7.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 120, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 120, -1));
 
         ID_Entrenador.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(ID_Entrenador, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 220, -1));
+        ID_Entrenador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_EntrenadorActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ID_Entrenador, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 220, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("Descripción Actividad");
         jLabel2.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 140, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 140, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setText("ID Actividad");
         jLabel8.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 90, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 90, -1));
 
         ID_Actividad.setBackground(new java.awt.Color(204, 204, 204));
         ID_Actividad.addActionListener(new java.awt.event.ActionListener() {
@@ -115,15 +122,20 @@ public class Actividades extends javax.swing.JFrame {
                 ID_ActividadActionPerformed(evt);
             }
         });
-        jPanel1.add(ID_Actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 220, -1));
+        jPanel1.add(ID_Actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 220, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setText("ID Localización");
         jLabel9.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 120, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 120, -1));
 
         ID_Localizacion.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(ID_Localizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 220, -1));
+        ID_Localizacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_LocalizacionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ID_Localizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, 220, -1));
 
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -131,14 +143,14 @@ public class Actividades extends javax.swing.JFrame {
                 GuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 400, 90, 30));
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 290, 90, 30));
 
         Descripcion_Actividad.setBackground(new java.awt.Color(204, 204, 204));
         Descripcion_Actividad.setColumns(20);
         Descripcion_Actividad.setRows(5);
         jScrollPane1.setViewportView(Descripcion_Actividad);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 450, 100));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 450, 100));
 
         Limpiar.setText("Limpiar");
         Limpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +158,9 @@ public class Actividades extends javax.swing.JFrame {
                 LimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 363, 90, 30));
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, 90, 30));
+        jPanel1.add(Tipo_localizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 200, 20));
+        jPanel1.add(Nombre_entrenador, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, 190, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -207,6 +221,8 @@ public class Actividades extends javax.swing.JFrame {
             ID_Localizacion.setText("");
             ID_Entrenador.setText("");
             Status.setText("");
+            Tipo_localizacion.setText("");
+            Nombre_entrenador.setText("");
             //Salida.setText("");
         } // fin try
         catch (IOException e1)
@@ -222,6 +238,8 @@ public class Actividades extends javax.swing.JFrame {
         Descripcion_Actividad.setText("");
         ID_Localizacion.setText("");
         ID_Entrenador.setText("");
+        Nombre_entrenador.setText("");
+        Tipo_localizacion.setText("");
         Status.setText("");
     }//GEN-LAST:event_LimpiarActionPerformed
 
@@ -299,6 +317,119 @@ public class Actividades extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ID_ActividadActionPerformed
 
+    private void ID_LocalizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_LocalizacionActionPerformed
+        // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+ 
+        cod=Integer.parseInt(ID_Localizacion.getText());
+ 
+        Scanner s;
+ 
+        try {
+            File f = new File("C:archivoLocalizacion1.txt");
+            s= new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+                    Scanner sl = new Scanner(linea);
+ 
+                    sl.useDelimiter("\\s*;\\s*");
+ 
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Tipo_localizacion.setText(sl.next());
+                            encontrado=true;
+                            break;
+                        }
+                        
+                    } // fin try
+                    catch (NumberFormatException e1)
+                    {
+                        JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                    }
+                    
+                } // fin while
+                if(encontrado==false){
+                            JOptionPane.showMessageDialog(this, "Error, ID Localizacion no existe en el archivo ");
+                            Tipo_localizacion.setText("");
+                    }
+            }
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+        }
+    }//GEN-LAST:event_ID_LocalizacionActionPerformed
+
+    private void ID_EntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_EntrenadorActionPerformed
+        // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+ 
+        cod=Integer.parseInt(ID_Entrenador.getText());
+ 
+        Scanner s;
+ 
+        try {
+            File f = new File("C:archivoEntrenador1.txt");
+            s= new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+                    Scanner s2 = new Scanner(linea);
+ 
+                    s2.useDelimiter("\\s*;\\s*");
+ 
+                    try {
+                        if(cod==Integer.parseInt(s2.next()))
+                        {
+                            Nombre_entrenador.setText(s2.next());
+                            encontrado=true;
+                        }
+                    } // fin try
+                    catch (NumberFormatException e1)
+                    {
+                        JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                    }
+                } // fin while
+                if(encontrado==false){
+                    JOptionPane.showMessageDialog(this, "Error, ID Entrenador no existe en el archivo ");
+                    Nombre_entrenador.setText("");
+                }
+            }
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+        }
+    }//GEN-LAST:event_ID_EntrenadorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -342,7 +473,9 @@ public class Actividades extends javax.swing.JFrame {
     private javax.swing.JTextField ID_Localizacion;
     private javax.swing.JButton Limpiar;
     private javax.swing.JTextField Nombre_Actividad;
+    private javax.swing.JLabel Nombre_entrenador;
     private javax.swing.JTextField Status;
+    private javax.swing.JLabel Tipo_localizacion;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

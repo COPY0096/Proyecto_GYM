@@ -1,7 +1,6 @@
 
-package Usuario;
+package Ventanas;
 
-import Usuario.Seguridad;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;

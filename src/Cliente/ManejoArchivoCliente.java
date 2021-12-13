@@ -28,7 +28,7 @@ public class ManejoArchivoCliente {
     
         try
         {
-            FileWriter F1=new FileWriter("c:archivoCliente1.txt", true);
+            FileWriter F1=new FileWriter("C:archivoCliente1.txt", true);
             PrintWriter pw=new PrintWriter(F1);
             pw.println(id_cliente +";"+ nombre_cliente +";"+ apellido_p +";"+ apellido_m 
             +";"+direccion +";"+ celular+";"+ telefono+";"+ fecha_n+";"+ fecha_ingreso
@@ -61,8 +61,8 @@ public class ManejoArchivoCliente {
     public void ModificaDatos(String LineaAntigua, String LineaNueva, String id_cliente )
     {
         
-        File fNuevo= new File("c:archivoCliente2.txt");
-        File fAntiguo= new File("c:archivoCliente1.txt");
+        File fNuevo= new File("C:archivoCliente2.txt");
+        File fAntiguo= new File("C:archivoCliente1.txt");
         
        boolean encontrado = false;
         String aCadena=LineaAntigua;

@@ -12,7 +12,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-import Usuario.ManejoArchivoUsuario;
 
 /**
  *
@@ -399,9 +398,25 @@ public class Cliente extends javax.swing.JFrame {
         fecha_ingreso=Fecha_Ingreso.getText();
         status_c=Status_Cliente.getText();
         tipo_c=Tipo_Cliente.getText();
+        
+        if(Correo_Cliente.getText().isEmpty()){
+           correo="--"; 
+        }
+        else{
         correo=Correo_Cliente.getText();
+         }
+        if(Balance_Cliente.getText().isEmpty()){
+           balance="--"; 
+        }
+        else{
         balance=Balance_Cliente.getText();
+         }
+        if(Valor_Cuota_Cliente.getText().isEmpty()){
+           valor_cuota="--"; 
+        }
+        else{
         valor_cuota=Valor_Cuota_Cliente.getText();
+         }
 
         try {
 
@@ -413,9 +428,9 @@ public class Cliente extends javax.swing.JFrame {
             }
             else
             {
-                Snuevalinea=(id_cliente + "; " + nombre_cliente + "; " + apellido_p + "; " + apellido_m 
-                + "; " + direccion + "; " + celular + "; " + telefono + "; " + fecha_n + "; " +fecha_ingreso
-                + "; " + status_c + "; " + tipo_c + "; " + correo + "; " + balance + "; " +valor_cuota);
+                Snuevalinea=(id_cliente + ";" + nombre_cliente + ";" + apellido_p + ";" + apellido_m 
+                + ";" + direccion + ";" + celular + ";" + telefono + ";" + fecha_n + ";" +fecha_ingreso
+                + ";" + status_c + ";" + tipo_c + ";" + correo + ";" + balance + ";" +valor_cuota);
                 MAC.ModificaDatos(Satigualinea,Snuevalinea, id_cliente);
             }
             ID_Cliente.setText("");

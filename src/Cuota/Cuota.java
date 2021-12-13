@@ -5,8 +5,6 @@
  */
 package Cuota;
 
-import ReservaActividades.ManejoArchivoReservaActividades;
-import static ReservaActividades.ReservaActividades.Satigualinea;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -56,6 +54,7 @@ public class Cuota extends javax.swing.JFrame {
         Status = new javax.swing.JTextField();
         Guardar = new javax.swing.JButton();
         Limpiar = new javax.swing.JButton();
+        Nombre_cliente = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -78,23 +77,23 @@ public class Cuota extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("ID Cuota");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Fecha");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("ID Cliente");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Valor");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("Status");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("Comprobador");
@@ -106,19 +105,24 @@ public class Cuota extends javax.swing.JFrame {
                 ID_CuotaActionPerformed(evt);
             }
         });
-        jPanel1.add(ID_Cuota, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 190, -1));
+        jPanel1.add(ID_Cuota, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 190, -1));
 
         Fecha_Cuota.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Fecha_Cuota, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 190, -1));
+        jPanel1.add(Fecha_Cuota, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 190, -1));
 
         ID_Cliente.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(ID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 190, -1));
+        ID_Cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_ClienteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 190, -1));
 
         Valor_Cuota.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Valor_Cuota, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 190, -1));
+        jPanel1.add(Valor_Cuota, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 190, -1));
 
         Status_Cuota.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Status_Cuota, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 190, -1));
+        jPanel1.add(Status_Cuota, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 190, -1));
 
         Status.setBackground(new java.awt.Color(204, 204, 204));
         Status.setEnabled(false);
@@ -139,6 +143,7 @@ public class Cuota extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 320, 70, 30));
+        jPanel1.add(Nombre_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, 190, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -270,6 +275,7 @@ public class Cuota extends javax.swing.JFrame {
             ID_Cliente.setText("");
             Valor_Cuota.setText("");
             Status_Cuota.setText("");
+            Nombre_cliente.setText("");
             Status.setText("");
             //Salida.setText("");
         } // fin try
@@ -286,8 +292,64 @@ public class Cuota extends javax.swing.JFrame {
         ID_Cliente.setText("");
         Valor_Cuota.setText("");
         Status_Cuota.setText("");
+        Nombre_cliente.setText("");
         Status.setText("");
     }//GEN-LAST:event_LimpiarActionPerformed
+
+    private void ID_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ClienteActionPerformed
+        // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+ 
+        cod=Integer.parseInt(ID_Cliente.getText());
+ 
+        Scanner s;
+ 
+        try {
+            File f = new File("C:archivoCliente1.txt");
+            s= new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+                    Scanner sl = new Scanner(linea);
+ 
+                    sl.useDelimiter("\\s*;\\s*");
+ 
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Nombre_cliente.setText(sl.next());
+                            encontrado=true;
+                        }
+                    } // fin try
+                    catch (NumberFormatException e1)
+                    {
+                        JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                    }
+                } // fin while
+                if(encontrado==false){
+                    JOptionPane.showMessageDialog(this, "Error, ID Cliente no existe en el archivo ");
+                    Nombre_cliente.setText("");
+                }
+            }
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+        }
+    }//GEN-LAST:event_ID_ClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -330,6 +392,7 @@ public class Cuota extends javax.swing.JFrame {
     private javax.swing.JTextField ID_Cliente;
     private javax.swing.JTextField ID_Cuota;
     private javax.swing.JButton Limpiar;
+    private javax.swing.JLabel Nombre_cliente;
     private javax.swing.JTextField Status;
     private javax.swing.JTextField Status_Cuota;
     private javax.swing.JTextField Valor_Cuota;

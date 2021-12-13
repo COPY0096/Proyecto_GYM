@@ -183,9 +183,14 @@ public class Entrenador extends javax.swing.JFrame {
         id_Entrenador=ID_entrenador.getText();
         nombre=Nombre_entrenador.getText();
         apellidos=Apellido_entrenador.getText();
+        if(Telefono_entrenador.getText().isEmpty()){
+           telef="--"; 
+        }
+        else{
         telef=Telefono_entrenador.getText();
+         }
         
-         if(Correo_entrenador.getText().isEmpty()){
+        if(Correo_entrenador.getText().isEmpty()){
            correo="--"; 
         }
         else{
@@ -237,7 +242,7 @@ public class Entrenador extends javax.swing.JFrame {
         Scanner s;
 
         try {
-            File f=new File("C:archivo01Entrenador.txt");
+            File f=new File("C:archivoEntrenador1.txt");
             s = new Scanner(f);
             if(!f.exists())
             {
@@ -262,7 +267,7 @@ public class Entrenador extends javax.swing.JFrame {
 
                             encontrado=true;
                             crear = true;
-                            Satigualinea=(ID_entrenador.getText() + "; " +Nombre_entrenador.getText()+ "; " +Apellido_entrenador.getText()+ "; " + Telefono_entrenador.getText()+ "; " +Correo_entrenador.getText());
+                            Satigualinea=(ID_entrenador.getText() + ";" +Nombre_entrenador.getText()+ ";" +Apellido_entrenador.getText()+ ";" + Telefono_entrenador.getText()+ ";" +Correo_entrenador.getText());
                             Status.setText("Modificando");
                         }
                         else

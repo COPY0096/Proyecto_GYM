@@ -214,7 +214,12 @@ public class Usuario extends javax.swing.JFrame {
         nivelacceso=NivelAcceso_Usuario.getText();
         nombre=Nombre_Usuario.getText();
         apellidos=Apeliidos_Usuario.getText();
+        if(Correo_Usuario.getText().isEmpty()){
+           correo="--"; 
+        }
+        else{
         correo=Correo_Usuario.getText();
+         }
 
         try {
 
@@ -224,7 +229,7 @@ public class Usuario extends javax.swing.JFrame {
             }
             else
             {
-                Snuevalinea=(login + "; " + pass + "; " + nivelacceso + "; " + nombre + "; " + apellidos + "; " + correo);
+                Snuevalinea=(login + ";" + pass + ";" + nivelacceso + ";" + nombre + ";" + apellidos + ";" + correo);
                 MAU.ModificaDatos(Satigualinea,Snuevalinea,login);
             }
             Login_Usuario.setText("");

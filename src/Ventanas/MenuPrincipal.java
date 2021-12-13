@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Usuario;
+package Ventanas;
 
 import Cliente.Cliente;
 import Actividades.Actividades;
 import Cuota.Cuota;
 import Entrenador.Entrenador;
-import Usuario.InicioSesion;
+import Ventanas.InicioSesion;
 import Usuario.Usuario;
 import EstadoReserva.EstadoReserva;
 import HorarioActividades.HorarioActividades;
@@ -20,6 +20,7 @@ import Procesos.ReversarCobro;
 import Reservas.Reserva;
 import ReservaActividades.ReservaActividades;
 import Salas.Salas;
+import Usuario.Usuario;
 import javax.swing.JOptionPane;
 
 /**

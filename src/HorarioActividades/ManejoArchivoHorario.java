@@ -25,9 +25,9 @@ public class ManejoArchivoHorario {
     
         try
         {
-            FileWriter F1=new FileWriter("c:archivoHorario1.txt", true);
+            FileWriter F1=new FileWriter("C:archivoHorario1.txt", true);
             PrintWriter pw=new PrintWriter(F1);
-            pw.println(id_horario +";"+ dia +";"+ hora +";"+ id_actividad );
+            pw.println(id_horario +";"+ dia +";"+ hora +";"+id_actividad );
             pw.close();
         }catch(Exception ex) {
             JOptionPane.showMessageDialog(null,"Error al guardar archivo"+ ex);
@@ -56,8 +56,8 @@ public class ManejoArchivoHorario {
     public void ModificaDatos(String LineaAntigua, String LineaNueva,String id_horario )
     {
         
-        File fNuevo= new File("c:archivoHorario2.txt");
-        File fAntiguo= new File("c:archivoHorario1.txt");
+        File fNuevo= new File("C:archivoHorario2.txt");
+        File fAntiguo= new File("C:archivoHorario1.txt");
         
         boolean encontrado = false;
         String aCadena=LineaAntigua;
@@ -122,11 +122,11 @@ public class ManejoArchivoHorario {
             if(Ffichero.exists())
             {
                 Ffichero.delete();
-                //JOptionPane.showMessageDialog(null,"Ficherro Borrado.");
+               
             }
         }catch(Exception e)
     {
-        JOptionPane.showMessageDialog(null,"Error al Borrar." + e);
+       // JOptionPane.showMessageDialog(null,"Error al Borrar." + e);
     }
 
     } // fin metodo borrar

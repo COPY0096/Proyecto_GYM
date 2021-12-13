@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Usuario;
+package Ventanas;
 
+import Ventanas.MenuPrincipal;
+import Ventanas.InicioSesion;
 import javax.swing.JOptionPane;
 
 /**

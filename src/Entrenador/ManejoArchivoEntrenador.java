@@ -26,7 +26,7 @@ public class ManejoArchivoEntrenador {
     
         try
         {
-            FileWriter F1=new FileWriter("c:archivo01Entrenador.txt", true);
+            FileWriter F1=new FileWriter("c:archivoEntrenador1.txt", true);
             PrintWriter pw=new PrintWriter(F1);
             pw.println(id_Entrenador +";"+ nombre +";"+apellido +";"+telef +";"+ correo );
             pw.close();
@@ -57,8 +57,8 @@ public class ManejoArchivoEntrenador {
     public void ModificaDatos(String LineaAntigua, String LineaNueva, String id_Entrenador )
     {
         
-        File fNuevo= new File("c:archivo02Entrenador.txt");
-        File fAntiguo= new File("c:archivo01Entrenador.txt");
+        File fNuevo= new File("c:archivoEntrenador2.txt");
+        File fAntiguo= new File("c:archivoEntrenador1.txt");
         
         boolean encontrado = false;
         String aCadena=LineaAntigua;

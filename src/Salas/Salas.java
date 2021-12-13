@@ -204,6 +204,7 @@ public class Salas extends javax.swing.JFrame {
             Descripcion_Sala.setText("");
             ID_Localizacion_Sala.setText("");
             Status.setText("");
+            Nombre_Localizacion.setText("");
             //Salida.setText("");
         } // fin try
         catch (IOException e1)
@@ -256,6 +257,7 @@ public class Salas extends javax.swing.JFrame {
                             Nombre_Sala.setText("");
                             Descripcion_Sala.setText("");
                             ID_Localizacion_Sala.setText("");
+                            
 
                             encontrado=false;
                             crear = false;
@@ -292,6 +294,7 @@ public class Salas extends javax.swing.JFrame {
         Nombre_Sala.setText("");
         Descripcion_Sala.setText("");
         ID_Localizacion_Sala.setText("");
+        Nombre_Localizacion.setText("");
         Status.setText("");
     }//GEN-LAST:event_LimpiarActionPerformed
 
@@ -326,18 +329,16 @@ public class Salas extends javax.swing.JFrame {
                             Nombre_Localizacion.setText(sl.next());
                             encontrado=true;
                         }
-                        else
-                        { 
-                            if(encontrado==false){
-                            JOptionPane.showMessageDialog(this, "Error, ID Localizacion no existe en el archivo ");
-                            }
-                        }
                     } // fin try
                     catch (NumberFormatException e1)
                     {
                         JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
                     }
                 } // fin while
+                if(encontrado==false){
+                    JOptionPane.showMessageDialog(this, "Error, ID Localizacion no existe en el archivo ");
+                    Nombre_Localizacion.setText("");
+                }
             }
             s.close();
         } // fin try

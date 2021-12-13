@@ -55,6 +55,10 @@ public class Reserva extends javax.swing.JFrame {
         ID_Estado_Reserva = new javax.swing.JTextField();
         Guardar = new javax.swing.JButton();
         Limpiar = new javax.swing.JButton();
+        Nombre_sala = new javax.swing.JLabel();
+        Fecha_actividad = new javax.swing.JLabel();
+        Estado_reserva = new javax.swing.JLabel();
+        Nombre_cliente = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -79,7 +83,7 @@ public class Reserva extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("ID Reserva");
         jLabel2.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 80, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 80, -1));
 
         ID_Reserva.setBackground(new java.awt.Color(204, 204, 204));
         ID_Reserva.addActionListener(new java.awt.event.ActionListener() {
@@ -87,57 +91,77 @@ public class Reserva extends javax.swing.JFrame {
                 ID_ReservaActionPerformed(evt);
             }
         });
-        jPanel1.add(ID_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 190, -1));
+        jPanel1.add(ID_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 190, -1));
 
         Status.setBackground(new java.awt.Color(204, 204, 204));
         Status.setEnabled(false);
-        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 170, -1));
+        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 140, 170, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Comprobador");
         jLabel3.setMaximumSize(new java.awt.Dimension(95, 17));
         jLabel3.setMinimumSize(new java.awt.Dimension(95, 17));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 90, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, 90, 20));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("ID Sala");
         jLabel4.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 50, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 50, -1));
 
         ID_Sala.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(ID_Sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 190, -1));
+        ID_Sala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_SalaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ID_Sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 190, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("ID Cliente");
         jLabel5.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 70, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 70, -1));
 
         ID_Cliente.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(ID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 190, -1));
+        ID_Cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_ClienteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 190, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("Fecha");
         jLabel6.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 40, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 40, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("ID Horario/Reserva");
         jLabel7.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 130, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 130, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setText("ID Estado/Reserva");
         jLabel8.setPreferredSize(new java.awt.Dimension(91, 17));
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 120, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 120, -1));
 
         Fecha_Reserva.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Fecha_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 190, -1));
+        jPanel1.add(Fecha_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 190, -1));
 
         ID_Horario_Reserva.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(ID_Horario_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 190, -1));
+        ID_Horario_Reserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_Horario_ReservaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ID_Horario_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 190, -1));
 
         ID_Estado_Reserva.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(ID_Estado_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 190, -1));
+        ID_Estado_Reserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_Estado_ReservaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ID_Estado_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 190, -1));
 
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +169,7 @@ public class Reserva extends javax.swing.JFrame {
                 GuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, -1, 30));
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, -1, 30));
 
         Limpiar.setText("Limpiar");
         Limpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +177,11 @@ public class Reserva extends javax.swing.JFrame {
                 LimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 300, 70, 30));
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, 70, 30));
+        jPanel1.add(Nombre_sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 210, 20));
+        jPanel1.add(Fecha_actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, 210, 20));
+        jPanel1.add(Estado_reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 210, 20));
+        jPanel1.add(Nombre_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 210, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -263,6 +291,10 @@ public class Reserva extends javax.swing.JFrame {
         Fecha_Reserva.setText("");
         ID_Horario_Reserva.setText("");
         ID_Estado_Reserva.setText("");
+        Nombre_sala.setText("");
+        Nombre_cliente.setText("");
+        Fecha_actividad.setText("");
+        Estado_reserva.setText("");
         Status.setText("");
     }//GEN-LAST:event_LimpiarActionPerformed
 
@@ -304,6 +336,10 @@ public class Reserva extends javax.swing.JFrame {
             Fecha_Reserva.setText("");
             ID_Horario_Reserva.setText("");
             ID_Estado_Reserva.setText("");
+            Nombre_sala.setText("");
+            Nombre_cliente.setText("");
+            Fecha_actividad.setText("");
+            Estado_reserva.setText("");
             Status.setText("");
             //Salida.setText("");
         } // fin try
@@ -312,6 +348,226 @@ public class Reserva extends javax.swing.JFrame {
             e1.printStackTrace();
         }
     }//GEN-LAST:event_GuardarActionPerformed
+
+    private void ID_SalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_SalaActionPerformed
+        // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+ 
+        cod=Integer.parseInt(ID_Sala.getText());
+ 
+        Scanner s;
+ 
+        try {
+            File f = new File("C:archivoSala1.txt");
+            s= new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+                    Scanner sl = new Scanner(linea);
+ 
+                    sl.useDelimiter("\\s*;\\s*");
+ 
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Nombre_sala.setText(sl.next());
+                            encontrado=true;
+                        }
+                    } // fin try
+                    catch (NumberFormatException e1)
+                    {
+                        JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                    }
+                } // fin while
+                if(encontrado==false){
+                    JOptionPane.showMessageDialog(this, "Error, ID Sala no existe en el archivo ");
+                    Nombre_sala.setText("");
+                }
+            }
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+        }
+    }//GEN-LAST:event_ID_SalaActionPerformed
+
+    private void ID_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ClienteActionPerformed
+        // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+ 
+        cod=Integer.parseInt(ID_Cliente.getText());
+ 
+        Scanner s;
+ 
+        try {
+            File f = new File("C:archivoCliente1.txt");
+            s= new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+                    Scanner sl = new Scanner(linea);
+ 
+                    sl.useDelimiter("\\s*;\\s*");
+ 
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Nombre_cliente.setText(sl.next());
+                            encontrado=true;
+                        }
+                    } // fin try
+                    catch (NumberFormatException e1)
+                    {
+                        JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                    }
+                } // fin while
+                if(encontrado==false){
+                    JOptionPane.showMessageDialog(this, "Error, ID Cliente no existe en el archivo ");
+                    Nombre_cliente.setText("");
+                }
+            }
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+        }
+    }//GEN-LAST:event_ID_ClienteActionPerformed
+
+    private void ID_Horario_ReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_Horario_ReservaActionPerformed
+        // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+ 
+        cod=Integer.parseInt(ID_Horario_Reserva.getText());
+ 
+        Scanner s;
+ 
+        try {
+            File f = new File("C:archivoReservaActividad1.txt");
+            s= new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+                    Scanner sl = new Scanner(linea);
+ 
+                    sl.useDelimiter("\\s*;\\s*");
+ 
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Fecha_actividad.setText(sl.next());
+                            encontrado=true;
+                        }
+                    } // fin try
+                    catch (NumberFormatException e1)
+                    {
+                        JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                    }
+                } // fin while
+                if(encontrado==false){
+                    JOptionPane.showMessageDialog(this, "Error, ID Reserva Actividad no existe en el archivo ");
+                    Fecha_actividad.setText("");
+                }
+            }
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+        }
+    }//GEN-LAST:event_ID_Horario_ReservaActionPerformed
+
+    private void ID_Estado_ReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_Estado_ReservaActionPerformed
+        // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+ 
+        cod=Integer.parseInt(ID_Estado_Reserva.getText());
+ 
+        Scanner s;
+ 
+        try {
+            File f = new File("C:archivoEstadoReserva1.txt");
+            s= new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+                    Scanner sl = new Scanner(linea);
+ 
+                    sl.useDelimiter("\\s*;\\s*");
+ 
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Estado_reserva.setText(sl.next());
+                            encontrado=true;
+                        }
+                    } // fin try
+                    catch (NumberFormatException e1)
+                    {
+                        JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                    }
+                } // fin while
+                if(encontrado==false){
+                    JOptionPane.showMessageDialog(this, "Error, ID Estado Reserva no existe en el archivo ");
+                    Estado_reserva.setText("");
+                }
+            }
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+        }
+    }//GEN-LAST:event_ID_Estado_ReservaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,7 +605,9 @@ public class Reserva extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Estado_reserva;
     private javax.swing.JTextField Fecha_Reserva;
+    private javax.swing.JLabel Fecha_actividad;
     private javax.swing.JButton Guardar;
     private javax.swing.JTextField ID_Cliente;
     private javax.swing.JTextField ID_Estado_Reserva;
@@ -357,6 +615,8 @@ public class Reserva extends javax.swing.JFrame {
     private javax.swing.JTextField ID_Reserva;
     private javax.swing.JTextField ID_Sala;
     private javax.swing.JButton Limpiar;
+    private javax.swing.JLabel Nombre_cliente;
+    private javax.swing.JLabel Nombre_sala;
     private javax.swing.JTextField Status;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
