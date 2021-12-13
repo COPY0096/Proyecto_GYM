@@ -3,9 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ventanas;
+package Usuario;
 
-import proyecto.gym.*;
+import Cliente.Cliente;
+import Actividades.Actividades;
+import Entrenador.Entrenador;
+import Usuario.InicioSesion;
+import Usuario.Usuario;
+import EstadoReserva.EstadoReserva;
+import HorarioActividades.HorarioActividades;
+import Localizacion.Localizacion;
+import Ventanas.Reserva;
+import Ventanas.ReservaActividades;
+import Salas.Salas;
 import javax.swing.JOptionPane;
 
 /**

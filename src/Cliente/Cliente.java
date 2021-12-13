@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Ventanas;
+package Cliente;
 
 
 import java.io.File;
@@ -12,8 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-import proyecto.gym.ManejoArchivoCliente;
-import proyecto.gym.ManejoArchivoUsuario;
+import Usuario.ManejoArchivoUsuario;
 
 /**
  *
@@ -318,11 +317,11 @@ public class Cliente extends javax.swing.JFrame {
                             Valor_Cuota_Cliente.setText(sl.next());
                             encontrado=true;
                             crear = true;
-                            Satigualinea=(ID_Cliente.getText() + "; " +Nombre_Cliente.getText()+ "; " +Apellido_P.getText()
-                            + "; " + Apellido_M.getText()+ "; " +Direccion_Cliente.getText()+ "; " + Celular_Cliente.getText()
-                            + "; " + Telefono_Cliente.getText()+ "; " + Fecha_Nacimiento_Cliente.getText()+ "; " + Fecha_Ingreso.getText()
-                            + "; " + Status_Cliente.getText()+ "; " + Tipo_Cliente.getText()+ "; " + Correo_Cliente.getText()
-                            + "; " + Balance_Cliente.getText()+ "; " + Valor_Cuota_Cliente.getText());
+                            Satigualinea=(ID_Cliente.getText() + ";" +Nombre_Cliente.getText()+ ";" +Apellido_P.getText()
+                            + ";" + Apellido_M.getText()+ ";" +Direccion_Cliente.getText()+ ";" + Celular_Cliente.getText()
+                            + ";" + Telefono_Cliente.getText()+ ";" + Fecha_Nacimiento_Cliente.getText()+ ";" + Fecha_Ingreso.getText()
+                            + ";" + Status_Cliente.getText()+ ";" + Tipo_Cliente.getText()+ ";" + Correo_Cliente.getText()
+                            + ";" + Balance_Cliente.getText()+ ";" + Valor_Cuota_Cliente.getText());
                             Status.setText("Modificando");
                         }
                         else

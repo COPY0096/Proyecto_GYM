@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ventanas;
+package Salas;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-import proyecto.gym.ManejoArchivoSala;
 
 
 /**
@@ -56,6 +55,7 @@ public class Salas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Descripcion_Sala = new javax.swing.JTextArea();
         Limpiar = new javax.swing.JButton();
+        Nombre_Localizacion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -115,7 +115,7 @@ public class Salas extends javax.swing.JFrame {
                 ID_Localizacion_SalaActionPerformed(evt);
             }
         });
-        jPanel1.add(ID_Localizacion_Sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 450, 30));
+        jPanel1.add(ID_Localizacion_Sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 230, 30));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("ID Sala");
@@ -147,6 +147,7 @@ public class Salas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 430, 80, 30));
+        jPanel1.add(Nombre_Localizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 384, 150, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -247,7 +248,7 @@ public class Salas extends javax.swing.JFrame {
 
                             encontrado=true;
                             crear = true;
-                            Satigualinea=(ID_Sala.getText() + "; " +Nombre_Sala.getText()+ "; " +Descripcion_Sala.getText()+ "; " + ID_Localizacion_Sala.getText());
+                            Satigualinea=(ID_Sala.getText() + ";" +Nombre_Sala.getText()+ ";" +Descripcion_Sala.getText()+ ";" + ID_Localizacion_Sala.getText());
                             Status.setText("Modificando");
                         }
                         else
@@ -296,46 +297,58 @@ public class Salas extends javax.swing.JFrame {
 
     private void ID_Localizacion_SalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_Localizacion_SalaActionPerformed
         // TODO add your handling code here:
-        boolean encontrado = false;
-        String id_localizacion="";
-        id_localizacion=ID_Localizacion_Sala.getText();
-        int cod=Integer.parseInt(ID_Localizacion_Sala.getText());
-
+        int cod;
+        boolean encontrado=false;
+ 
+        cod=Integer.parseInt(ID_Localizacion_Sala.getText());
+ 
         Scanner s;
-
+ 
         try {
             File f = new File("C:archivoLocalizacion1.txt");
-            s = new Scanner(f);
-            if (!f.exists()) {
-                JOptionPane.showMessageDialog(null, "No se a registrado ninguna localizacion.");
-            } else {
-                while (s.hasNextLine() && !encontrado) {
+            s= new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
                     String linea = s.nextLine();
-                    Scanner s1 = new Scanner(linea);
-
-                    s1.useDelimiter("\\s*;\\s*");
+                    Scanner sl = new Scanner(linea);
+ 
+                    sl.useDelimiter("\\s*;\\s*");
+ 
                     try {
-                        if (cod==Integer.parseInt(s1.next())) { 
-                            encontrado = true;
-                            
-                        } else {
-                            //este registro no existe
-                            
-                            encontrado = false;
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Nombre_Localizacion.setText(sl.next());
+                            encontrado=true;
                         }
-                        if (encontrado==false){
-                            JOptionPane.showMessageDialog(null, "El ID localizacion no existe.");
+                        else
+                        { 
+                            if(encontrado==false){
+                            JOptionPane.showMessageDialog(this, "Error, ID Localizacion no existe en el archivo ");
+                            }
                         }
-                    }//fin try
-                    catch (Exception el) {
+                    } // fin try
+                    catch (NumberFormatException e1)
+                    {
+                        JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
                     }
-                }//fin del while
+                } // fin while
             }
             s.close();
-        }//fin try
-        catch (FileNotFoundException el) {
-            JOptionPane.showMessageDialog(null, "Error al leer el archivo " + el);
-        } catch (IOException el) {
+        } // fin try
+        catch (FileNotFoundException e1)
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
         }
     }//GEN-LAST:event_ID_Localizacion_SalaActionPerformed
 
@@ -380,6 +393,7 @@ public class Salas extends javax.swing.JFrame {
     private javax.swing.JTextField ID_Localizacion_Sala;
     private javax.swing.JTextField ID_Sala;
     private javax.swing.JButton Limpiar;
+    private javax.swing.JLabel Nombre_Localizacion;
     private javax.swing.JTextField Nombre_Sala;
     private javax.swing.JTextField Status;
     private javax.swing.JButton jButton1;

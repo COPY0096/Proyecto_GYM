@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto.gym;
+package Usuario;
 
-import Ventanas.InicioSesion;
-import Ventanas.MenuPrincipal;
 import javax.swing.JOptionPane;
 
 /**

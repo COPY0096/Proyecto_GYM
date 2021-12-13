@@ -1,6 +1,6 @@
-package Ventanas;
+package Usuario;
 
-import proyecto.gym.*;
+import Usuario.ManejoArchivoUsuario;
 import java.io.*;
 import java.util.ArrayList;
 import java.awt.BorderLayout;

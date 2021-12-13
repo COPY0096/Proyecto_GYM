@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto.gym;
+package Actividades;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,20 +19,15 @@ import javax.swing.JOptionPane;
  *
  * @author jerem
  */
-public class ManejoArchivoCliente {
-    public void GuardarDatos (String id_cliente,String nombre_cliente
-    ,String apellido_p,String apellido_m,String direccion,String celular,String telefono
-    ,String fecha_n,String fecha_ingreso,String status_c,String tipo_c,String correo
-    ,String balance,String valor_cuota) throws IOException
+public class ManejoArchivoActividad {
+    public void GuardarDatos (String id_actividad,String nombre,String descripcion,String id_localizacion,String id_entrenador) throws IOException
     {
     
         try
         {
-            FileWriter F1=new FileWriter("c:archivoCliente1.txt", true);
+            FileWriter F1=new FileWriter("c:archivoActividad1.txt", true);
             PrintWriter pw=new PrintWriter(F1);
-            pw.println(id_cliente +";"+ nombre_cliente +";"+ apellido_p +";"+ apellido_m 
-            +";"+direccion +";"+ celular+";"+ telefono+";"+ fecha_n+";"+ fecha_ingreso
-            +";"+ status_c+";"+ tipo_c+";"+ correo+";"+ balance+";"+ valor_cuota);
+            pw.println(id_actividad +";"+ nombre +";"+ descripcion +";"+id_localizacion +";"+ id_entrenador );
             pw.close();
         }catch(Exception ex) {
             JOptionPane.showMessageDialog(null,"Error al guardar archivo"+ ex);
@@ -58,16 +53,16 @@ public class ManejoArchivoCliente {
         }
     }
     
-    public void ModificaDatos(String LineaAntigua, String LineaNueva, String id_cliente )
+    public void ModificaDatos(String LineaAntigua, String LineaNueva,String id_actividad )
     {
         
-        File fNuevo= new File("c:archivoCliente2.txt");
-        File fAntiguo= new File("c:archivoCliente1.txt");
+        File fNuevo= new File("c:archivoActividad2.txt");
+        File fAntiguo= new File("c:archivoActividad1.txt");
         
-       boolean encontrado = false;
+        boolean encontrado = false;
         String aCadena=LineaAntigua;
         String nCadena=LineaNueva;
-        int cod=Integer.parseInt(id_cliente); 
+        int cod=Integer.parseInt(id_actividad); 
         
 
        
@@ -127,7 +122,7 @@ public class ManejoArchivoCliente {
             if(Ffichero.exists())
             {
                 Ffichero.delete();
-                //JOptionPane.showMessageDialog(null,"Ficherro Borrado.");
+               // JOptionPane.showMessageDialog(null,"Ficherro Borrado.");
             }
         }catch(Exception e)
     {

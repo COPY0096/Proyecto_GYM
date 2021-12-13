@@ -1,31 +1,33 @@
-
-package proyecto.gym;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Salas;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
-
-public class ManejoArchivoUsuario {
-    public void GuardarDatos (String id_usuario,String contraseña,String nivel,String nombre,String apellido, String correo) throws IOException
+/**
+ *
+ * @author jerem
+ */
+public class ManejoArchivoSala {
+    public void GuardarDatos (String id_sala,String nombre_sala,String descripcion,String id_localizacion_sala) throws IOException
     {
     
         try
         {
-            FileWriter F1=new FileWriter("c:archivoUsuario1.txt", true);
+            FileWriter F1=new FileWriter("c:archivoSala1.txt", true);
             PrintWriter pw=new PrintWriter(F1);
-            pw.println(id_usuario +";"+ contraseña +";"+ nivel +";"+ nombre +";"+apellido +";"+ correo );
+            pw.println(id_sala +";"+ nombre_sala +";"+ descripcion +";"+id_localizacion_sala );
             pw.close();
         }catch(Exception ex) {
             JOptionPane.showMessageDialog(null,"Error al guardar archivo"+ ex);
@@ -51,16 +53,16 @@ public class ManejoArchivoUsuario {
         }
     }
     
-    public void ModificaDatos(String LineaAntigua, String LineaNueva,String id_usuario )
+    public void ModificaDatos(String LineaAntigua, String LineaNueva,String id_sala )
     {
         
-        File fNuevo= new File("c:archivoUsuario2.txt");
-        File fAntiguo= new File("c:archivoUsuario1.txt");
+        File fNuevo= new File("c:archivoSala2.txt");
+        File fAntiguo= new File("c:archivoSala1.txt");
         
         boolean encontrado = false;
         String aCadena=LineaAntigua;
         String nCadena=LineaNueva;
-        int cod=Integer.parseInt(id_usuario); 
+        int cod=Integer.parseInt(id_sala); 
         
 
        
@@ -120,11 +122,11 @@ public class ManejoArchivoUsuario {
             if(Ffichero.exists())
             {
                 Ffichero.delete();
-                //JOptionPane.showMessageDialog(null,"Ficherro Borrado.");
+               
             }
         }catch(Exception e)
     {
-        JOptionPane.showMessageDialog(null,"Error al Borrar." + e);
+       // JOptionPane.showMessageDialog(null,"Error al Borrar." + e);
     }
 
     } // fin metodo borrar
@@ -137,4 +139,5 @@ public class ManejoArchivoUsuario {
             e.printStackTrace();
         }
     } // fin metodo delay
+    
 }

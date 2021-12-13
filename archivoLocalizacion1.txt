@@ -1,4 +1,4 @@
 001;Gimnasio
-1515; Sala principal
-1717; Sala Secundaria 1
-1111; Sala 
+1515;Sala principal
+1717;Sala Secundaria 1
+1111;Sala 

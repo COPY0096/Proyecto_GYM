@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto.gym;
+package Entrenador;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,15 +19,16 @@ import javax.swing.JOptionPane;
  *
  * @author jerem
  */
-public class ManejoArchivoHorario {
-    public void GuardarDatos (String id_horario,String dia,String hora,String id_actividad) throws IOException
+public class ManejoArchivoEntrenador {
+    
+    public void GuardarDatos (String id_Entrenador,String nombre,String apellido,String telef, String correo) throws IOException
     {
     
         try
         {
-            FileWriter F1=new FileWriter("c:archivoHorario1.txt", true);
+            FileWriter F1=new FileWriter("c:archivo01Entrenador.txt", true);
             PrintWriter pw=new PrintWriter(F1);
-            pw.println(id_horario +";"+ dia +";"+ hora +";"+ id_actividad );
+            pw.println(id_Entrenador +";"+ nombre +";"+apellido +";"+telef +";"+ correo );
             pw.close();
         }catch(Exception ex) {
             JOptionPane.showMessageDialog(null,"Error al guardar archivo"+ ex);
@@ -53,16 +54,16 @@ public class ManejoArchivoHorario {
         }
     }
     
-    public void ModificaDatos(String LineaAntigua, String LineaNueva,String id_horario )
+    public void ModificaDatos(String LineaAntigua, String LineaNueva, String id_Entrenador )
     {
         
-        File fNuevo= new File("c:archivoHorario2.txt");
-        File fAntiguo= new File("c:archivoHorario1.txt");
+        File fNuevo= new File("c:archivo02Entrenador.txt");
+        File fAntiguo= new File("c:archivo01Entrenador.txt");
         
         boolean encontrado = false;
         String aCadena=LineaAntigua;
         String nCadena=LineaNueva;
-        int cod=Integer.parseInt(id_horario); 
+        int cod=Integer.parseInt(id_Entrenador); 
         
 
        

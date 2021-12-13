@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto.gym;
+package EstadoReserva;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,15 +19,15 @@ import javax.swing.JOptionPane;
  *
  * @author jerem
  */
-public class ManejoArchivoLocalizacion {
-    public void GuardarDatos (String id_localizacion,String tipo) throws IOException
+public class ManejoArchivoEstadoReserva {
+    public void GuardarDatos (String id_estado_reserva,String estado) throws IOException
     {
     
         try
         {
-            FileWriter F1=new FileWriter("c:archivoLocalizacion1.txt", true);
+            FileWriter F1=new FileWriter("c:archivoEstadoReserva1.txt", true);
             PrintWriter pw=new PrintWriter(F1);
-            pw.println(id_localizacion +";"+ tipo);
+            pw.println(id_estado_reserva +";"+ estado);
             pw.close();
         }catch(Exception ex) {
             JOptionPane.showMessageDialog(null,"Error al guardar archivo"+ ex);
@@ -53,16 +53,19 @@ public class ManejoArchivoLocalizacion {
         }
     }
     
-    public void ModificaDatos(String LineaAntigua, String LineaNueva, String id_localizacion )
+    public void ModificaDatos(String LineaAntigua, String LineaNueva, String id_estado_reserva )
     {
         
-        File fNuevo= new File("c:archivoLocalizacion2.txt");
-        File fAntiguo= new File("c:archivoLocalizacion1.txt");
+        File fNuevo= new File("c:archivoEstadoReserva2.txt");
+        File fAntiguo= new File("c:archivoEstadoReserva1.txt");
         
         boolean encontrado = false;
         String aCadena=LineaAntigua;
         String nCadena=LineaNueva;
-        int cod=Integer.parseInt(id_localizacion); 
+        int cod=Integer.parseInt(id_estado_reserva); 
+        
+
+       
     try
     {
         

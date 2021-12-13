@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ventanas;
+package Entrenador;
 
 
 import java.io.File;
@@ -11,7 +11,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-import proyecto.gym.ManejoArchivoEntrenador;
 
 
 /**
@@ -201,7 +200,7 @@ public class Entrenador extends javax.swing.JFrame {
             }
             else
             {
-                Snuevalinea=(id_Entrenador + "; " + nombre + "; " + apellidos + "; " + telef + "; " + correo);
+                Snuevalinea=(id_Entrenador + ";" + nombre + ";" + apellidos + ";" + telef + ";" + correo);
                 MAE.ModificaDatos(Satigualinea,Snuevalinea, id_Entrenador);
             }
             ID_entrenador.setText("");

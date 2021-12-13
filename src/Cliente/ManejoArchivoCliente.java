@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto.gym;
+package Cliente;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,15 +19,20 @@ import javax.swing.JOptionPane;
  *
  * @author jerem
  */
-public class ManejoArchivoEstadoReserva {
-    public void GuardarDatos (String id_estado_reserva,String estado) throws IOException
+public class ManejoArchivoCliente {
+    public void GuardarDatos (String id_cliente,String nombre_cliente
+    ,String apellido_p,String apellido_m,String direccion,String celular,String telefono
+    ,String fecha_n,String fecha_ingreso,String status_c,String tipo_c,String correo
+    ,String balance,String valor_cuota) throws IOException
     {
     
         try
         {
-            FileWriter F1=new FileWriter("c:archivoEstadoReserva1.txt", true);
+            FileWriter F1=new FileWriter("c:archivoCliente1.txt", true);
             PrintWriter pw=new PrintWriter(F1);
-            pw.println(id_estado_reserva +";"+ estado);
+            pw.println(id_cliente +";"+ nombre_cliente +";"+ apellido_p +";"+ apellido_m 
+            +";"+direccion +";"+ celular+";"+ telefono+";"+ fecha_n+";"+ fecha_ingreso
+            +";"+ status_c+";"+ tipo_c+";"+ correo+";"+ balance+";"+ valor_cuota);
             pw.close();
         }catch(Exception ex) {
             JOptionPane.showMessageDialog(null,"Error al guardar archivo"+ ex);
@@ -53,16 +58,16 @@ public class ManejoArchivoEstadoReserva {
         }
     }
     
-    public void ModificaDatos(String LineaAntigua, String LineaNueva, String id_estado_reserva )
+    public void ModificaDatos(String LineaAntigua, String LineaNueva, String id_cliente )
     {
         
-        File fNuevo= new File("c:archivoEstadoReserva2.txt");
-        File fAntiguo= new File("c:archivoEstadoReserva1.txt");
+        File fNuevo= new File("c:archivoCliente2.txt");
+        File fAntiguo= new File("c:archivoCliente1.txt");
         
-        boolean encontrado = false;
+       boolean encontrado = false;
         String aCadena=LineaAntigua;
         String nCadena=LineaNueva;
-        int cod=Integer.parseInt(id_estado_reserva); 
+        int cod=Integer.parseInt(id_cliente); 
         
 
        
