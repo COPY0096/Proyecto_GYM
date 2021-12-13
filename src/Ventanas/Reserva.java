@@ -97,11 +97,6 @@ public class Reserva extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 50, -1));
 
         ID_Sala.setBackground(new java.awt.Color(204, 204, 204));
-        ID_Sala.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ID_SalaActionPerformed(evt);
-            }
-        });
         jPanel1.add(ID_Sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 190, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -110,11 +105,6 @@ public class Reserva extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 70, -1));
 
         ID_Cliente.setBackground(new java.awt.Color(204, 204, 204));
-        ID_Cliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ID_ClienteActionPerformed(evt);
-            }
-        });
         jPanel1.add(ID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 190, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -136,19 +126,9 @@ public class Reserva extends javax.swing.JFrame {
         jPanel1.add(Fecha_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 190, -1));
 
         ID_Horario_Reserva.setBackground(new java.awt.Color(204, 204, 204));
-        ID_Horario_Reserva.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ID_Horario_ReservaActionPerformed(evt);
-            }
-        });
         jPanel1.add(ID_Horario_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 190, -1));
 
         ID_Estado_Reserva.setBackground(new java.awt.Color(204, 204, 204));
-        ID_Estado_Reserva.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ID_Estado_ReservaActionPerformed(evt);
-            }
-        });
         jPanel1.add(ID_Estado_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 190, -1));
 
         Guardar.setText("Guardar");
@@ -193,22 +173,6 @@ public class Reserva extends javax.swing.JFrame {
     private void ID_ReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ReservaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ID_ReservaActionPerformed
-
-    private void ID_SalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_SalaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ID_SalaActionPerformed
-
-    private void ID_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ID_ClienteActionPerformed
-
-    private void ID_Horario_ReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_Horario_ReservaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ID_Horario_ReservaActionPerformed
-
-    private void ID_Estado_ReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_Estado_ReservaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ID_Estado_ReservaActionPerformed
 
     private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
         // TODO add your handling code here:

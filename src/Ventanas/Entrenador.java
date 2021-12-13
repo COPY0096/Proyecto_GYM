@@ -185,7 +185,13 @@ public class Entrenador extends javax.swing.JFrame {
         nombre=Nombre_entrenador.getText();
         apellidos=Apellido_entrenador.getText();
         telef=Telefono_entrenador.getText();
+        
+         if(Correo_entrenador.getText().isEmpty()){
+           correo="--"; 
+        }
+        else{
         correo=Correo_entrenador.getText();
+         }
 
         try {
 

@@ -32,18 +32,10 @@ public class Seguridad {
                    IS.setVisible(false);
                     //new MenuPrincipal().setVisible(true);
                 }
-                
-                
-                
             }
-            
         }
-        
         if(encontrado==false){
             JOptionPane.showMessageDialog(null, "Clave y/o Usuarios erroneos.", "Inicio de sesion.", JOptionPane.ERROR_MESSAGE);
-
         } 
     }
-    
-    
 }

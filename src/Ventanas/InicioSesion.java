@@ -108,8 +108,6 @@ public class InicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirActionPerformed
 
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
-        
-        
         FileReader fr=null;
         try {
             int nLineas=0;
@@ -149,10 +147,6 @@ public class InicioSesion extends javax.swing.JFrame {
                 Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    
-        
-       
-        
     }//GEN-LAST:event_IngresarActionPerformed
 
     public static void main(String args[]) {

@@ -7,7 +7,9 @@ package Ventanas;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import proyecto.gym.ManejoArchivoSala;
@@ -108,6 +110,11 @@ public class Salas extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 90, -1));
 
         ID_Localizacion_Sala.setBackground(new java.awt.Color(204, 204, 204));
+        ID_Localizacion_Sala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_Localizacion_SalaActionPerformed(evt);
+            }
+        });
         jPanel1.add(ID_Localizacion_Sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 450, 30));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -116,7 +123,7 @@ public class Salas extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 60, -1));
 
         Nombre_Sala.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Nombre_Sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 440, 20));
+        jPanel1.add(Nombre_Sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 440, 30));
 
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -286,6 +293,51 @@ public class Salas extends javax.swing.JFrame {
         ID_Localizacion_Sala.setText("");
         Status.setText("");
     }//GEN-LAST:event_LimpiarActionPerformed
+
+    private void ID_Localizacion_SalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_Localizacion_SalaActionPerformed
+        // TODO add your handling code here:
+        boolean encontrado = false;
+        String id_localizacion="";
+        id_localizacion=ID_Localizacion_Sala.getText();
+        int cod=Integer.parseInt(ID_Localizacion_Sala.getText());
+
+        Scanner s;
+
+        try {
+            File f = new File("C:archivoLocalizacion1.txt");
+            s = new Scanner(f);
+            if (!f.exists()) {
+                JOptionPane.showMessageDialog(null, "No se a registrado ninguna localizacion.");
+            } else {
+                while (s.hasNextLine() && !encontrado) {
+                    String linea = s.nextLine();
+                    Scanner s1 = new Scanner(linea);
+
+                    s1.useDelimiter("\\s*;\\s*");
+                    try {
+                        if (cod==Integer.parseInt(s1.next())) { 
+                            encontrado = true;
+                            
+                        } else {
+                            //este registro no existe
+                            
+                            encontrado = false;
+                        }
+                        if (encontrado==false){
+                            JOptionPane.showMessageDialog(null, "El ID localizacion no existe.");
+                        }
+                    }//fin try
+                    catch (Exception el) {
+                    }
+                }//fin del while
+            }
+            s.close();
+        }//fin try
+        catch (FileNotFoundException el) {
+            JOptionPane.showMessageDialog(null, "Error al leer el archivo " + el);
+        } catch (IOException el) {
+        }
+    }//GEN-LAST:event_ID_Localizacion_SalaActionPerformed
 
     /**
      * @param args the command line arguments
