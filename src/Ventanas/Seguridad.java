@@ -30,7 +30,7 @@ public class Seguridad {
                     new MenuPrincipal().setVisible(true);
                 }else{
                    IS.setVisible(false);
-                    //new MenuPrincipal().setVisible(true);
+                    new MenuPrincipal1().setVisible(true);
                 }
             }
         }

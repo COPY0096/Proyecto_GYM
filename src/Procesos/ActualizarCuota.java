@@ -39,8 +39,8 @@ public class ActualizarCuota extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        ID_Cuota = new javax.swing.JTextField();
+        Fecha_Cuota = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
@@ -91,21 +91,21 @@ public class ActualizarCuota extends javax.swing.JFrame {
         jLabel7.setText("Comprobador");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 140, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        ID_Cuota.setBackground(new java.awt.Color(204, 204, 204));
+        ID_Cuota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                ID_CuotaActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 190, -1));
+        jPanel1.add(ID_Cuota, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 190, -1));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        Fecha_Cuota.setBackground(new java.awt.Color(204, 204, 204));
+        Fecha_Cuota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                Fecha_CuotaActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 190, -1));
+        jPanel1.add(Fecha_Cuota, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 190, -1));
 
         jTextField3.setBackground(new java.awt.Color(204, 204, 204));
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -174,13 +174,13 @@ public class ActualizarCuota extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void ID_CuotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_CuotaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_ID_CuotaActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void Fecha_CuotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Fecha_CuotaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_Fecha_CuotaActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
@@ -239,6 +239,8 @@ public class ActualizarCuota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Fecha_Cuota;
+    private javax.swing.JTextField ID_Cuota;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -250,8 +252,6 @@ public class ActualizarCuota extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
