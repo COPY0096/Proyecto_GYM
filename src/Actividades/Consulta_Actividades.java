@@ -3,7 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Consultas;
+package Actividades;
+
+import Actividades.ManejoArchivoActividad;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,9 +22,23 @@ public class Consulta_Actividades extends javax.swing.JFrame {
     /**
      * Creates new form Consulta_Actividades
      */
+    
+    DefaultTableModel MTabla;
+    Vector vcabeceras = new Vector();
+    ManejoArchivoActividad MAA=new ManejoArchivoActividad();
     public Consulta_Actividades() {
         initComponents();
         this.setLocationRelativeTo(null);
+        vcabeceras.addElement("ID Actividad");
+        vcabeceras.addElement("Nombre");
+        vcabeceras.addElement("Descripcion");
+        vcabeceras.addElement("ID Localizacion");
+        vcabeceras.addElement("ID Entrenador");
+        MTabla = new DefaultTableModel(vcabeceras,0);
+        TablaActividad.setModel(MTabla);
+        
+        TablaActividad.setModel(MAA.listaUsuarios());
+        
     }
 
     /**
@@ -30,11 +52,11 @@ public class Consulta_Actividades extends javax.swing.JFrame {
 
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TablaActividad = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        Busqueda = new javax.swing.JTextField();
+        Buscar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,7 +65,7 @@ public class Consulta_Actividades extends javax.swing.JFrame {
         jPanel4.setPreferredSize(new java.awt.Dimension(1110, 488));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TablaActividad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -54,9 +76,9 @@ public class Consulta_Actividades extends javax.swing.JFrame {
                 "ID actividad", "Nombre", "Descripcion", "ID localizacion", "ID entrenador"
             }
         ));
-        jTable2.setEnabled(false);
-        jTable2.setRowHeight(30);
-        jScrollPane2.setViewportView(jTable2);
+        TablaActividad.setEnabled(false);
+        TablaActividad.setRowHeight(30);
+        jScrollPane2.setViewportView(TablaActividad);
 
         jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 180, 1070, 290));
 
@@ -69,11 +91,16 @@ public class Consulta_Actividades extends javax.swing.JFrame {
         jLabel5.setText("Busqueda");
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, 20));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 390, -1));
+        Busqueda.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel4.add(Busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 390, -1));
 
-        jButton4.setText("Buscar");
-        jPanel4.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 130, -1, 30));
+        Buscar.setText("Buscar");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 130, -1, 30));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton.png"))); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +132,39 @@ public class Consulta_Actividades extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        // TODO add your handling code here:
+        try {
+            boolean encontrado=false;
+            String log; 
+            log = Busqueda.getText();
+            Scanner s;
+            File f = new File("c:archivoActividad1.txt"); 
+            s= new Scanner(f);
+            
+            while(s.hasNextLine() && !encontrado){   
+                String linea = s.nextLine();
+                Scanner sl = new Scanner(linea);
+                sl.useDelimiter("\\s*;\\s*");     
+                
+                if(sl.next().equals(log))
+                {
+                    JOptionPane.showMessageDialog(null, "Login encontrado ");
+                    TablaActividad.setModel(MTabla);
+                    TablaActividad.setModel(MAA.listaUsuarios());
+                    encontrado = true;
+                }   
+            }//Fin while 
+            if(encontrado==false){
+                JOptionPane.showMessageDialog(null, "Login no existe en el archivo de Usuarios ");
+                TablaActividad.setModel(MTabla);
+            }
+            s.close();
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null,"Error, No se encuentra el archivo TXT ");
+        }
+    }//GEN-LAST:event_BuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,13 +202,13 @@ public class Consulta_Actividades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton Buscar;
+    private javax.swing.JTextField Busqueda;
+    private javax.swing.JTable TablaActividad;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,31 +3,43 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Consultas;
+package Entrenador;
 
-import Usuario.ManejoArchivoUsuario;
+
+import Entrenador.ManejoArchivoEntrenador;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 
 /**
  *
  * @author Jhoan
  */
-public class Consulta_Usuario extends javax.swing.JFrame {
-    
-    DefaultTableModel MTabla;
-    ManejoArchivoUsuario MAU=new ManejoArchivoUsuario();
+public class Consulta_Entrenador extends javax.swing.JFrame {
 
     /**
-     * Creates new form Consulta_Usuario
+     * Creates new form Consulta_Entrenador
      */
-    public Consulta_Usuario() {
+    
+    DefaultTableModel MTabla;
+    Vector vcabeceras = new Vector();
+    ManejoArchivoEntrenador MAE=new ManejoArchivoEntrenador();
+    public Consulta_Entrenador() {
         initComponents();
         this.setLocationRelativeTo(null);
+        vcabeceras.addElement("ID entrenador");
+        vcabeceras.addElement("Nombre");
+        vcabeceras.addElement("Apellido");
+        vcabeceras.addElement("Telefono");
+        vcabeceras.addElement("Correo");
+
+        MTabla = new DefaultTableModel(vcabeceras,0);
+        TablaEntrenador.setModel(MTabla);
+        
+        TablaEntrenador.setModel(MAE.listaUsuarios());
     }
 
     /**
@@ -44,7 +56,7 @@ public class Consulta_Usuario extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         Busqueda = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TablaUsuario = new javax.swing.JTable();
+        TablaEntrenador = new javax.swing.JTable();
         Buscar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
@@ -56,8 +68,8 @@ public class Consulta_Usuario extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta.png"))); // NOI18N
-        jLabel1.setText("Consulta Usuario");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, 100));
+        jLabel1.setText("Consulta Entrenador");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, 100));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -70,20 +82,20 @@ public class Consulta_Usuario extends javax.swing.JFrame {
         Busqueda.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(Busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 390, -1));
 
-        TablaUsuario.setModel(new javax.swing.table.DefaultTableModel(
+        TablaEntrenador.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Login Usuario", "Contraseña", "Nivel acceso", "Nombre", "Apellido", "Correo"
+                "ID entrenador", "Nombre", "Apellido", "Telefono", "Correo"
             }
         ));
-        TablaUsuario.setEnabled(false);
-        TablaUsuario.setRowHeight(30);
-        jScrollPane1.setViewportView(TablaUsuario);
+        TablaEntrenador.setEnabled(false);
+        TablaEntrenador.setRowHeight(30);
+        jScrollPane1.setViewportView(TablaEntrenador);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 180, 1070, 290));
 
@@ -129,7 +141,7 @@ public class Consulta_Usuario extends javax.swing.JFrame {
             String log; 
             log = Busqueda.getText();
             Scanner s;
-            File f = new File("c:archivoUsuario1.txt"); 
+            File f = new File("c:archivoEntrenador1.txt"); 
             s= new Scanner(f);
             
             while(s.hasNextLine() && !encontrado){   
@@ -140,14 +152,14 @@ public class Consulta_Usuario extends javax.swing.JFrame {
                 if(sl.next().equals(log))
                 {
                     JOptionPane.showMessageDialog(null, "Login encontrado ");
-                    TablaUsuario.setModel(MTabla);
-                    TablaUsuario.setModel(MAU.listaUsuarios());
+                    TablaEntrenador.setModel(MTabla);
+                    TablaEntrenador.setModel(MAE.listaUsuarios());
                     encontrado = true;
                 }   
             }//Fin while 
             if(encontrado==false){
                 JOptionPane.showMessageDialog(null, "Login no existe en el archivo de Usuarios ");
-                TablaUsuario.setModel(MTabla);
+                TablaEntrenador.setModel(MTabla);
             }
             s.close();
         } catch (FileNotFoundException ex) {
@@ -172,20 +184,20 @@ public class Consulta_Usuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_Entrenador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_Entrenador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_Entrenador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_Entrenador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Consulta_Usuario().setVisible(true);
+                new Consulta_Entrenador().setVisible(true);
             }
         });
     }
@@ -193,7 +205,7 @@ public class Consulta_Usuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Buscar;
     private javax.swing.JTextField Busqueda;
-    private javax.swing.JTable TablaUsuario;
+    private javax.swing.JTable TablaEntrenador;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;

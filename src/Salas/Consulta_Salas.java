@@ -3,20 +3,40 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Consultas;
+package Salas;
+
+
+import Salas.ManejoArchivoSala;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Jhoan
  */
-public class Consulta_Localizacion extends javax.swing.JFrame {
+public class Consulta_Salas extends javax.swing.JFrame {
 
+    DefaultTableModel MTabla;
+    Vector vcabeceras = new Vector();
+    ManejoArchivoSala MAS=new ManejoArchivoSala();
     /**
-     * Creates new form Consulta_Sala
+     * Creates new form Consulta_Salas
      */
-    public Consulta_Localizacion() {
+    public Consulta_Salas() {
         initComponents();
         this.setLocationRelativeTo(null);
+        vcabeceras.addElement("ID Sala");
+        vcabeceras.addElement("Nombre");
+        vcabeceras.addElement("Descripcion");
+        vcabeceras.addElement("ID Localizacion");
+        MTabla = new DefaultTableModel(vcabeceras,0);
+        TablaSala.setModel(MTabla);
+        
+        TablaSala.setModel(MAS.listaUsuarios());
     }
 
     /**
@@ -29,12 +49,12 @@ public class Consulta_Localizacion extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        Busqueda = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaSala = new javax.swing.JTable();
+        Buscar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,27 +63,10 @@ public class Consulta_Localizacion extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1110, 488));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "ID Localizacion", "Tipo"
-            }
-        ));
-        jTable1.setEnabled(false);
-        jTable1.setRowHeight(30);
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 180, 1070, 290));
-
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta.png"))); // NOI18N
-        jLabel1.setText("Consulta Localizacion");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, 100));
+        jLabel1.setText("Consulta Salas");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, 100));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -73,11 +76,33 @@ public class Consulta_Localizacion extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 40));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 390, -1));
+        Busqueda.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 390, -1));
 
-        jButton2.setText("Buscar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 130, -1, 30));
+        TablaSala.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID sala", "Nombre", "Descripcion", "ID localizacion"
+            }
+        ));
+        TablaSala.setEnabled(false);
+        TablaSala.setRowHeight(30);
+        jScrollPane1.setViewportView(TablaSala);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 180, 1070, 290));
+
+        Buscar.setText("Buscar");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 130, -1, 30));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Busqueda");
@@ -106,6 +131,39 @@ public class Consulta_Localizacion extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        // TODO add your handling code here:
+        try {
+            boolean encontrado=false;
+            String log;
+            log = Busqueda.getText();
+            Scanner s;
+            File f = new File("c:archivoSala1.txt");
+            s= new Scanner(f);
+
+            while(s.hasNextLine() && !encontrado){
+                String linea = s.nextLine();
+                Scanner sl = new Scanner(linea);
+                sl.useDelimiter("\\s*;\\s*");
+
+                if(sl.next().equals(log))
+                {
+                    JOptionPane.showMessageDialog(null, "Login encontrado ");
+                    TablaSala.setModel(MTabla);
+                    TablaSala.setModel(MAS.listaUsuarios());
+                    encontrado = true;
+                }
+            }//Fin while
+            if(encontrado==false){
+                JOptionPane.showMessageDialog(null, "Login no existe en el archivo de Usuarios ");
+                TablaSala.setModel(MTabla);
+            }
+            s.close();
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null,"Error, No se encuentra el archivo TXT ");
+        }
+    }//GEN-LAST:event_BuscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -123,33 +181,32 @@ public class Consulta_Localizacion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Localizacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_Salas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Localizacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_Salas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Localizacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_Salas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Localizacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_Salas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Consulta_Localizacion().setVisible(true);
+                new Consulta_Salas().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Buscar;
+    private javax.swing.JTextField Busqueda;
+    private javax.swing.JTable TablaSala;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

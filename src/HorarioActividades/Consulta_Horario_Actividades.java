@@ -3,7 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Consultas;
+package HorarioActividades;
+
+
+import HorarioActividades.ManejoArchivoHorario;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,9 +23,21 @@ public class Consulta_Horario_Actividades extends javax.swing.JFrame {
     /**
      * Creates new form Consulta_Horario_Actividades
      */
+    DefaultTableModel MTabla;
+    Vector vcabeceras = new Vector();
+    ManejoArchivoHorario MAH=new ManejoArchivoHorario();
     public Consulta_Horario_Actividades() {
         initComponents();
         this.setLocationRelativeTo(null);
+        vcabeceras.addElement("ID Horario");
+        vcabeceras.addElement("Dia");
+        vcabeceras.addElement("Hora");
+        vcabeceras.addElement("ID Actividad");
+        MTabla = new DefaultTableModel(vcabeceras,0);
+        TablaHorario.setModel(MTabla);
+        
+        TablaHorario.setModel(MAH.listaUsuarios());
+        
     }
 
     /**
@@ -30,11 +51,11 @@ public class Consulta_Horario_Actividades extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TablaHorario = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        Busqueda = new javax.swing.JTextField();
+        Buscar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,7 +64,7 @@ public class Consulta_Horario_Actividades extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1110, 488));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TablaHorario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -54,9 +75,9 @@ public class Consulta_Horario_Actividades extends javax.swing.JFrame {
                 "ID Horario", "Dia", "Hora", "ID actividad"
             }
         ));
-        jTable2.setEnabled(false);
-        jTable2.setRowHeight(30);
-        jScrollPane2.setViewportView(jTable2);
+        TablaHorario.setEnabled(false);
+        TablaHorario.setRowHeight(30);
+        jScrollPane2.setViewportView(TablaHorario);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 180, 1070, 290));
 
@@ -73,11 +94,11 @@ public class Consulta_Horario_Actividades extends javax.swing.JFrame {
         jLabel4.setText("Consulta Horarios Actividad");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, 100));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 390, -1));
+        Busqueda.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 390, -1));
 
-        jButton4.setText("Buscar");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 130, -1, 30));
+        Buscar.setText("Buscar");
+        jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 130, -1, 30));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Busqueda");
@@ -106,6 +127,42 @@ public class Consulta_Horario_Actividades extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    
+   private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        
+      
+        try {
+            boolean encontrado=false;
+            String log; 
+            log = Busqueda.getText();
+            Scanner s;
+            File f = new File("c:archivoHorario1.txt"); 
+            s= new Scanner(f);
+            
+            while(s.hasNextLine() && !encontrado){   
+                String linea = s.nextLine();
+                Scanner sl = new Scanner(linea);
+                sl.useDelimiter("\\s*;\\s*");     
+                
+                if(sl.next().equals(log))
+                {
+                    JOptionPane.showMessageDialog(null, "Login encontrado ");
+                    TablaHorario.setModel(MTabla);
+                    TablaHorario.setModel(MAH.listaUsuarios());
+                    encontrado = true;
+                }   
+            }//Fin while 
+            if(encontrado==false){
+                JOptionPane.showMessageDialog(null, "Login no existe en el archivo de Usuarios ");
+                TablaHorario.setModel(MTabla);
+            }
+            s.close();
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null,"Error, No se encuentra el archivo TXT ");
+        }
+        
+    }    
     /**
      * @param args the command line arguments
      */
@@ -142,13 +199,13 @@ public class Consulta_Horario_Actividades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton Buscar;
+    private javax.swing.JTextField Busqueda;
+    private javax.swing.JTable TablaHorario;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

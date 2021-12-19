@@ -13,7 +13,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.StringTokenizer;
+import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -131,13 +134,35 @@ public class ManejoArchivoActividad {
 
     } // fin metodo borrar
     
-    public void Delay(long milis)
-    {
-        try {
-            Thread.sleep(milis);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+
+    public DefaultTableModel listaUsuarios(){
+        Vector cabeceras = new Vector();
+        cabeceras.addElement("ID Actividad");
+        cabeceras.addElement("Nombre");
+        cabeceras.addElement("Descripcion");
+        cabeceras.addElement("ID Localizacion");
+        cabeceras.addElement("ID Entrenador");
+
+        
+        DefaultTableModel MTabla = new DefaultTableModel(cabeceras,0);
+        
+        try{
+            FileReader fr = new FileReader("c:archivoActividad1.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String d;
+            while((d=br.readLine())!=null){
+                StringTokenizer dato = new StringTokenizer(d,";");
+                Vector x = new Vector();
+                while(dato.hasMoreTokens()){
+                    x.addElement(dato.nextToken());
+                }
+                MTabla.addRow(x);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
         }
-    } // fin metodo delay
+    
+        return MTabla;
+    }
     
 }
