@@ -5,11 +5,22 @@
  */
 package Consultas;
 
+import Usuario.ManejoArchivoUsuario;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+
 /**
  *
  * @author Jhoan
  */
 public class Consulta_Usuario extends javax.swing.JFrame {
+    
+    DefaultTableModel MTabla;
+    ManejoArchivoUsuario MAU=new ManejoArchivoUsuario();
 
     /**
      * Creates new form Consulta_Usuario
@@ -31,11 +42,11 @@ public class Consulta_Usuario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        Busqueda = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaUsuario = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        Buscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -56,10 +67,10 @@ public class Consulta_Usuario extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 40));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 390, -1));
+        Busqueda.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 390, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -70,9 +81,9 @@ public class Consulta_Usuario extends javax.swing.JFrame {
                 "Nombre", "Apellido", "Nivel de acceso", "Correo"
             }
         ));
-        jTable1.setEnabled(false);
-        jTable1.setRowHeight(30);
-        jScrollPane1.setViewportView(jTable1);
+        TablaUsuario.setEnabled(false);
+        TablaUsuario.setRowHeight(30);
+        jScrollPane1.setViewportView(TablaUsuario);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 180, 1070, 290));
 
@@ -80,8 +91,13 @@ public class Consulta_Usuario extends javax.swing.JFrame {
         jLabel2.setText("Ingrese ID/Nombre");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, -1, 20));
 
-        jButton4.setText("Buscar");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 130, -1, 30));
+        Buscar.setText("Buscar");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 130, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,6 +121,39 @@ public class Consulta_Usuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        // TODO add your handling code here:
+        try {
+            boolean encontrado=false;
+            String log; 
+            log = Busqueda.getText();
+            Scanner s;
+            File f = new File("c:archivoUsuario1.txt"); 
+            s= new Scanner(f);
+            
+            while(s.hasNextLine() && !encontrado){   
+                String linea = s.nextLine();
+                Scanner sl = new Scanner(linea);
+                sl.useDelimiter("\\s*;\\s*");     
+                
+                if(sl.next().equals(log))
+                {
+                    JOptionPane.showMessageDialog(null, "Login encontrado ");
+                    TablaUsuario.setModel(MTabla);
+                    TablaUsuario.setModel(MAU.listaUsuarios());
+                    encontrado = true;
+                }   
+            }//Fin while 
+            if(encontrado==false){
+                JOptionPane.showMessageDialog(null, "Login no existe en el archivo de Usuarios ");
+                TablaUsuario.setModel(MTabla);
+            }
+            s.close();
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null,"Error, No se encuentra el archivo TXT ");
+        }
+    }//GEN-LAST:event_BuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,13 +191,13 @@ public class Consulta_Usuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Buscar;
+    private javax.swing.JTextField Busqueda;
+    private javax.swing.JTable TablaUsuario;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
