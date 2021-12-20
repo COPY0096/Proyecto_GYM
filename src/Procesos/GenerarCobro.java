@@ -40,8 +40,6 @@ int n;
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        Status = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         ID_Cobro = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -76,17 +74,9 @@ int n;
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 40));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel2.setText("Comprobador");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, -1, -1));
-
-        Status.setBackground(new java.awt.Color(204, 204, 204));
-        Status.setEnabled(false);
-        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 150, 150, -1));
-
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("ID Cobro");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
 
         ID_Cobro.setBackground(new java.awt.Color(204, 204, 204));
         ID_Cobro.addActionListener(new java.awt.event.ActionListener() {
@@ -94,11 +84,11 @@ int n;
                 ID_CobroActionPerformed(evt);
             }
         });
-        jPanel1.add(ID_Cobro, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 170, -1));
+        jPanel1.add(ID_Cobro, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 340, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("Fecha");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
 
         Fecha_Cobro.setBackground(new java.awt.Color(204, 204, 204));
         Fecha_Cobro.addActionListener(new java.awt.event.ActionListener() {
@@ -106,11 +96,11 @@ int n;
                 Fecha_CobroActionPerformed(evt);
             }
         });
-        jPanel1.add(Fecha_Cobro, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 170, -1));
+        jPanel1.add(Fecha_Cobro, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 340, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("ID Cliente");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, -1, -1));
 
         ID_Cliente.setBackground(new java.awt.Color(204, 204, 204));
         ID_Cliente.addActionListener(new java.awt.event.ActionListener() {
@@ -118,28 +108,28 @@ int n;
                 ID_ClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(ID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 170, -1));
+        jPanel1.add(ID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 340, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("Valor");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, -1));
 
         Valor_Cobro.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Valor_Cobro, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 170, -1));
+        jPanel1.add(Valor_Cobro, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 340, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("Concepto");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, -1, -1));
 
         Concepto.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Concepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 170, -1));
+        jPanel1.add(Concepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 340, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setText("Status");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, -1, -1));
 
         Status_Cobro.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Status_Cobro, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 170, -1));
+        jPanel1.add(Status_Cobro, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, 340, -1));
 
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +137,7 @@ int n;
                 GuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 400, -1, 30));
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, -1, 30));
         jPanel1.add(Nombre_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 180, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -232,12 +222,10 @@ int n;
     private javax.swing.JTextField ID_Cliente;
     private javax.swing.JTextField ID_Cobro;
     private javax.swing.JLabel Nombre_cliente;
-    private javax.swing.JTextField Status;
     private javax.swing.JTextField Status_Cobro;
     private javax.swing.JTextField Valor_Cobro;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

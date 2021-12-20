@@ -222,6 +222,7 @@ public class Cliente extends javax.swing.JFrame {
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 330, -1, 20));
 
         Balance_Cliente.setBackground(new java.awt.Color(204, 204, 204));
+        Balance_Cliente.setEnabled(false);
         jPanel1.add(Balance_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 260, -1));
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
