@@ -5,21 +5,25 @@
  */
 package Procesos;
 
+
+
 import java.awt.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Jhoan
  */
 public class GenerarCobro extends javax.swing.JFrame {
+    Boolean crear = false;
+   public static String Satigualinea="";
 
-boolean encontrado=false;
-boolean crear =false;
-double valor;
-double bala,bl;
-double b=0;
-int num;
-int n;
     /**
      * Creates new form GenerarCobro
      */
@@ -138,7 +142,7 @@ int n;
             }
         });
         jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, -1, 30));
-        jPanel1.add(Nombre_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 180, 20));
+        jPanel1.add(Nombre_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, 180, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,7 +169,80 @@ int n;
 
     private void ID_CobroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_CobroActionPerformed
         // TODO add your handling code here:
-        
+        int cod;
+        boolean encontrado=false;
+
+        cod=Integer.parseInt(ID_Cobro.getText());
+
+        Scanner s;
+
+        try {
+            File f=new File("C:archivoCobro1.txt");
+            s = new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+
+                    Scanner sl = new Scanner(linea);
+
+                    sl.useDelimiter("\\s*;\\s*");
+                    Fecha_Cobro.setText(fechaActual());
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Fecha_Cobro.setText(sl.next());
+                            ID_Cliente.setText(sl.next());
+                            Valor_Cobro.setText(sl.next());
+                            Concepto.setText(sl.next());
+                            Status_Cobro.setText(sl.next());
+
+                            encontrado=true;
+                            crear = true;
+                            Satigualinea=(ID_Cobro.getText() + ";" +Fecha_Cobro.getText()
+                            + ";" +ID_Cliente.getText()+ ";" + Valor_Cobro.getText()+ ";" 
+                            + Concepto.getText()+ ";" + Status_Cobro.getText());
+
+                        }
+                        else
+                        {  //Salida.setText("Este registro no existe");
+                            Fecha_Cobro.setText(fechaActual());
+                            ID_Cliente.setText("");
+                            Valor_Cobro.setText("");
+                            Concepto.setText("");
+                            Status_Cobro.setText("");
+
+                            encontrado=false;
+                            crear = false;
+
+                        }
+                    } // fin try
+                    catch (Exception  e1)
+                    {
+                        // JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+
+                    }
+                } // fin while
+            }
+
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            //e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
     }//GEN-LAST:event_ID_CobroActionPerformed
 
     private void Fecha_CobroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Fecha_CobroActionPerformed
@@ -174,12 +251,112 @@ int n;
 
     private void ID_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ClienteActionPerformed
         // TODO add your handling code here:
+        int cod;
+        boolean encontrado=false;
+ 
+        cod=Integer.parseInt(ID_Cliente.getText());
+ 
+        Scanner s;
+ 
+        try {
+            File f = new File("C:archivoCliente1.txt");
+            s= new Scanner(f);
+            if(!f.exists())
+            {
+                f.createNewFile();
+            }
+            else
+            {
+                while (s.hasNextLine() && !encontrado)
+                {
+                    String linea = s.nextLine();
+                    Scanner sl = new Scanner(linea);
+ 
+                    sl.useDelimiter("\\s*;\\s*");
+ 
+                    try {
+                        if(cod==Integer.parseInt(sl.next()))
+                        {
+                            Nombre_cliente.setText(sl.next());
+                            encontrado=true;
+                        }
+                    } // fin try
+                    catch (NumberFormatException e1)
+                    {
+                        JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+                    }
+                } // fin while
+                if(encontrado==false){
+                    JOptionPane.showMessageDialog(this, "Error, ID Localizacion no existe en el archivo ");
+                    Nombre_cliente.setText("");
+                }
+            }
+            s.close();
+        } // fin try
+        catch (FileNotFoundException e1)
+        {
+            JOptionPane.showMessageDialog(null,"Error al leer Archivo " + e1);
+            e1.printStackTrace();
+        }
+        catch (IOException e1)
+        {
+            // TODO Auto-generated catch block
+        }
     }//GEN-LAST:event_ID_ClienteActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
+        String id_cobro="";
+        String fecha="";
+        String id_cliente="";
+        String valor="";
+        String concepto="";
+        String status="";
+        String Snuevalinea="";
+
+        ManejoArchivoCobro MAC=new ManejoArchivoCobro();
+        id_cobro=ID_Cobro.getText();
+        fecha=Fecha_Cobro.getText();
+        id_cliente=ID_Cliente.getText();
+        valor=Valor_Cobro.getText();
+        concepto=Concepto.getText();
+        status=Status_Cobro.getText();
+        
+
+        try {
+
+            if (crear==false)
+            {
+                MAC.GuardarDatos (id_cobro,fecha,id_cliente
+               ,valor,concepto,status);
+            }
+            else
+            {
+                Snuevalinea=(id_cobro + ";" + fecha + ";" + id_cliente + ";" 
+                + valor+ concepto + ";" + status);
+                MAC.ModificaDatos(Satigualinea,Snuevalinea,id_cobro);
+            }
+            ID_Cobro.setText("");
+            Fecha_Cobro.setText("");
+            ID_Cliente.setText("");
+            Valor_Cobro.setText("");
+            Concepto.setText("");
+            Status_Cobro.setText("");
+            Nombre_cliente.setText("");
+            //Salida.setText("");
+        } // fin try
+        catch (IOException e1)
+        {
+            e1.printStackTrace();
+        }
     }//GEN-LAST:event_GuardarActionPerformed
 
+    public static String fechaActual(){
+        Date fecha = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/YYYY");
+        
+        return formatoFecha.format(fecha);
+    }
     /**
      * @param args the command line arguments
      */
