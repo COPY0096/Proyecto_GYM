@@ -7,11 +7,14 @@ package Ventanas;
 
 import Cliente.Cliente;
 import Actividades.Actividades;
+import Actividades.Consulta_Actividades;
+import Cliente.Consulta_de_cliente;
 import Cuota.Cuota;
 import Entrenador.Entrenador;
 import Ventanas.InicioSesion;
 import Usuario.Usuario;
 import EstadoReserva.EstadoReserva;
+import HorarioActividades.Consulta_Horario_Actividades;
 import HorarioActividades.HorarioActividades;
 import Localizacion.Localizacion;
 import Procesos.ActualizarCuota;
@@ -19,7 +22,9 @@ import Procesos.GenerarCobro;
 import Procesos.ReversarCobro;
 import Reservas.Reserva;
 import ReservaActividades.ReservaActividades;
+import Salas.Consulta_Salas;
 import Salas.Salas;
+import Usuario.Consulta_Usuario;
 import Usuario.Usuario;
 import javax.swing.JOptionPane;
 
@@ -66,18 +71,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem15 = new javax.swing.JMenuItem();
-        jMenuItem16 = new javax.swing.JMenuItem();
-        jMenuItem17 = new javax.swing.JMenuItem();
-        jMenuItem18 = new javax.swing.JMenuItem();
-        jMenuItem19 = new javax.swing.JMenuItem();
-        jMenuItem20 = new javax.swing.JMenuItem();
+        Consultas = new javax.swing.JMenu();
+        CUsuario = new javax.swing.JMenuItem();
+        CEntrenador = new javax.swing.JMenuItem();
+        CLocalizacion = new javax.swing.JMenuItem();
+        CSalas = new javax.swing.JMenuItem();
+        CActividades = new javax.swing.JMenuItem();
+        CHorarioActividaes = new javax.swing.JMenuItem();
         jMenuItem21 = new javax.swing.JMenuItem();
         jMenuItem22 = new javax.swing.JMenuItem();
         jMenuItem23 = new javax.swing.JMenuItem();
         jMenuItem24 = new javax.swing.JMenuItem();
-        jMenuItem25 = new javax.swing.JMenuItem();
+        CClientes = new javax.swing.JMenuItem();
         jMenuItem26 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
 
@@ -224,52 +229,77 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta.png"))); // NOI18N
-        jMenu5.setText("Consultas");
-        jMenu5.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        Consultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta.png"))); // NOI18N
+        Consultas.setText("Consultas");
+        Consultas.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
 
-        jMenuItem15.setText("De Usuario");
-        jMenu5.add(jMenuItem15);
-
-        jMenuItem16.setText("De Entrenador");
-        jMenu5.add(jMenuItem16);
-
-        jMenuItem17.setText("De Localización");
-        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+        CUsuario.setText("De Usuario");
+        CUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem17ActionPerformed(evt);
+                CUsuarioActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem17);
+        Consultas.add(CUsuario);
 
-        jMenuItem18.setText("De Salas");
-        jMenu5.add(jMenuItem18);
+        CEntrenador.setText("De Entrenador");
+        Consultas.add(CEntrenador);
 
-        jMenuItem19.setText("De Actividades");
-        jMenu5.add(jMenuItem19);
+        CLocalizacion.setText("De Localización");
+        CLocalizacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CLocalizacionActionPerformed(evt);
+            }
+        });
+        Consultas.add(CLocalizacion);
 
-        jMenuItem20.setText("De Horarios Actividades");
-        jMenu5.add(jMenuItem20);
+        CSalas.setText("De Salas");
+        CSalas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CSalasActionPerformed(evt);
+            }
+        });
+        Consultas.add(CSalas);
+
+        CActividades.setText("De Actividades");
+        CActividades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CActividadesActionPerformed(evt);
+            }
+        });
+        Consultas.add(CActividades);
+
+        CHorarioActividaes.setText("De Horarios Actividades");
+        CHorarioActividaes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CHorarioActividaesActionPerformed(evt);
+            }
+        });
+        Consultas.add(CHorarioActividaes);
 
         jMenuItem21.setText("De Cobro por Rango de Fecha");
-        jMenu5.add(jMenuItem21);
+        Consultas.add(jMenuItem21);
 
         jMenuItem22.setText("De Cobro por Cliente");
-        jMenu5.add(jMenuItem22);
+        Consultas.add(jMenuItem22);
 
         jMenuItem23.setText("De Cuota por Fecha");
-        jMenu5.add(jMenuItem23);
+        Consultas.add(jMenuItem23);
 
         jMenuItem24.setText("De Cuota por Clientes");
-        jMenu5.add(jMenuItem24);
+        Consultas.add(jMenuItem24);
 
-        jMenuItem25.setText("De Clientes");
-        jMenu5.add(jMenuItem25);
+        CClientes.setText("De Clientes");
+        CClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CClientesActionPerformed(evt);
+            }
+        });
+        Consultas.add(CClientes);
 
         jMenuItem26.setText("De Clientes con Balance pendiente");
-        jMenu5.add(jMenuItem26);
+        Consultas.add(jMenuItem26);
 
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(Consultas);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar-sesion.png"))); // NOI18N
         jMenu4.setText("Cerrar sesion");
@@ -310,9 +340,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         new Usuario().setVisible(true);
     }//GEN-LAST:event_jMenuItem_MUsuarioActionPerformed
 
-    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+    private void CLocalizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLocalizacionActionPerformed
 
-    }//GEN-LAST:event_jMenuItem17ActionPerformed
+    }//GEN-LAST:event_CLocalizacionActionPerformed
 
     private void jMenu4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseExited
 
@@ -388,6 +418,31 @@ public class MenuPrincipal extends javax.swing.JFrame {
         new ActualizarCuota().setVisible(true);
     }//GEN-LAST:event_jMenuItem14ActionPerformed
 
+    private void CUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CUsuarioActionPerformed
+        // TODO add your handling code here:
+        new Consulta_Usuario().setVisible(true);
+    }//GEN-LAST:event_CUsuarioActionPerformed
+
+    private void CSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CSalasActionPerformed
+        // TODO add your handling code here:
+        new Consulta_Salas().setVisible(true);
+    }//GEN-LAST:event_CSalasActionPerformed
+
+    private void CActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CActividadesActionPerformed
+        // TODO add your handling code here:
+        new Consulta_Actividades().setVisible(true);
+    }//GEN-LAST:event_CActividadesActionPerformed
+
+    private void CHorarioActividaesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CHorarioActividaesActionPerformed
+        // TODO add your handling code here:
+        new Consulta_Horario_Actividades().setVisible(true);
+    }//GEN-LAST:event_CHorarioActividaesActionPerformed
+
+    private void CClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CClientesActionPerformed
+        // TODO add your handling code here:
+        new Consulta_de_cliente().setVisible(true);
+    }//GEN-LAST:event_CClientesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -425,6 +480,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem CActividades;
+    private javax.swing.JMenuItem CClientes;
+    private javax.swing.JMenuItem CEntrenador;
+    private javax.swing.JMenuItem CHorarioActividaes;
+    private javax.swing.JMenuItem CLocalizacion;
+    private javax.swing.JMenuItem CSalas;
+    private javax.swing.JMenuItem CUsuario;
+    private javax.swing.JMenu Consultas;
     private javax.swing.JMenuItem MEntrenador;
     private javax.swing.JMenuItem MLocalizacion;
     private javax.swing.JMenuItem MSalas;
@@ -434,23 +497,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem17;
-    private javax.swing.JMenuItem jMenuItem18;
-    private javax.swing.JMenuItem jMenuItem19;
-    private javax.swing.JMenuItem jMenuItem20;
     private javax.swing.JMenuItem jMenuItem21;
     private javax.swing.JMenuItem jMenuItem22;
     private javax.swing.JMenuItem jMenuItem23;
     private javax.swing.JMenuItem jMenuItem24;
-    private javax.swing.JMenuItem jMenuItem25;
     private javax.swing.JMenuItem jMenuItem26;
     private javax.swing.JMenuItem jMenuItem_MActividades;
     private javax.swing.JMenuItem jMenuItem_MClientes;
