@@ -13,7 +13,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.StringTokenizer;
+import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -136,13 +139,42 @@ public class ManejoArchivoCliente {
 
     } // fin metodo borrar
     
-    public void Delay(long milis)
-    {
-        try {
-            Thread.sleep(milis);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+public DefaultTableModel listaUsuarios(){
+        Vector cabeceras = new Vector();
+        cabeceras.addElement("ID Cliente");
+        cabeceras.addElement("Nombre");
+        cabeceras.addElement("Apellido Padre");
+        cabeceras.addElement("Apellido Madre");
+        cabeceras.addElement("Direccion");
+        cabeceras.addElement("Fecha Nacimiento");
+        cabeceras.addElement("Telefono");
+        cabeceras.addElement("Celular");
+        cabeceras.addElement("Fecha");
+        cabeceras.addElement("Status");
+        cabeceras.addElement("Tipo");
+        cabeceras.addElement("Correo");
+        cabeceras.addElement("Balance");
+        cabeceras.addElement("Valor");
+
+        
+        DefaultTableModel MTabla = new DefaultTableModel(cabeceras,0);
+        
+        try{
+            FileReader fr = new FileReader("c:archivoCliente1.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String d;
+            while((d=br.readLine())!=null){
+                StringTokenizer dato = new StringTokenizer(d,";");
+                Vector x = new Vector();
+                while(dato.hasMoreTokens()){
+                    x.addElement(dato.nextToken());
+                }
+                MTabla.addRow(x);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
         }
-    } // fin metodo delay
     
+        return MTabla;
+    }
 }

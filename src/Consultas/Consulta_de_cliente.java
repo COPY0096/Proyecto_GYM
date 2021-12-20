@@ -5,11 +5,22 @@
  */
 package Consultas;
 
+import Cliente.ManejoArchivoCliente;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Jhoan
  */
 public class Consulta_de_cliente extends javax.swing.JFrame {
+    DefaultTableModel MTabla;
+    Vector vcabeceras = new Vector();
+    ManejoArchivoCliente MAC=new ManejoArchivoCliente();
 
     /**
      * Creates new form Consulta_Cobro_Cliente
@@ -17,6 +28,24 @@ public class Consulta_de_cliente extends javax.swing.JFrame {
     public Consulta_de_cliente() {
         initComponents();
         this.setLocationRelativeTo(null);
+        vcabeceras.addElement("ID Cliente");
+        vcabeceras.addElement("Nombre");
+        vcabeceras.addElement("Apellido Padre");
+        vcabeceras.addElement("Apellido Madre");
+        vcabeceras.addElement("Direccion");
+        vcabeceras.addElement("Fecha Nacimiento");
+        vcabeceras.addElement("Telefono");
+        vcabeceras.addElement("Celular");
+        vcabeceras.addElement("Fecha");
+        vcabeceras.addElement("Status");
+        vcabeceras.addElement("Tipo");
+        vcabeceras.addElement("Correo");
+        vcabeceras.addElement("Balance");
+        vcabeceras.addElement("Valor");
+        MTabla = new DefaultTableModel(vcabeceras,0);
+        TablaCliente.setModel(MTabla);
+        
+        TablaCliente.setModel(MAC.listaUsuarios());
     }
 
     /**
@@ -31,11 +60,11 @@ public class Consulta_de_cliente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        Busqueda = new javax.swing.JTextField();
+        Buscar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TablaCliente = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -56,17 +85,22 @@ public class Consulta_de_cliente extends javax.swing.JFrame {
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 40));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 390, -1));
+        Busqueda.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 390, -1));
 
-        jButton2.setText("Buscar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 130, -1, 30));
+        Buscar.setText("Buscar");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 130, -1, 30));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Por cliente");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, 20));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TablaCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
@@ -77,9 +111,9 @@ public class Consulta_de_cliente extends javax.swing.JFrame {
                 "ID Cliente", "Nombre", "Apellido padre", "Apellido madre", "Direccion", "Fecha/Nacimiento", "Telefono", "Celular", "Fecha", "Status", "Tipo", "Correo", "Balance", "Valor"
             }
         ));
-        jTable2.setEnabled(false);
-        jTable2.setRowHeight(30);
-        jScrollPane2.setViewportView(jTable2);
+        TablaCliente.setEnabled(false);
+        TablaCliente.setRowHeight(30);
+        jScrollPane2.setViewportView(TablaCliente);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 180, 1070, 290));
 
@@ -105,6 +139,39 @@ public class Consulta_de_cliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        // TODO add your handling code here:
+        try {
+            boolean encontrado=false;
+            String log; 
+            log = Busqueda.getText();
+            Scanner s;
+            File f = new File("c:archivoCliente1.txt"); 
+            s= new Scanner(f);
+            
+            while(s.hasNextLine() && !encontrado){   
+                String linea = s.nextLine();
+                Scanner sl = new Scanner(linea);
+                sl.useDelimiter("\\s*;\\s*");     
+                
+                if(sl.next().equals(log))
+                {
+                    JOptionPane.showMessageDialog(null, "Login encontrado ");
+                    TablaCliente.setModel(MTabla);
+                    TablaCliente.setModel(MAC.listaUsuarios());
+                    encontrado = true;
+                }   
+            }//Fin while 
+            if(encontrado==false){
+                JOptionPane.showMessageDialog(null, "Login no existe en el archivo de Usuarios ");
+                TablaCliente.setModel(MTabla);
+            }
+            s.close();
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null,"Error, No se encuentra el archivo TXT ");
+        }
+    }//GEN-LAST:event_BuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,13 +210,13 @@ public class Consulta_de_cliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton Buscar;
+    private javax.swing.JTextField Busqueda;
+    private javax.swing.JTable TablaCliente;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

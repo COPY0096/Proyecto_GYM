@@ -10,6 +10,8 @@ package Cliente;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -299,6 +301,7 @@ public class Cliente extends javax.swing.JFrame {
                     Scanner sl = new Scanner(linea);
 
                     sl.useDelimiter("\\s*;\\s*");
+                    Fecha_Ingreso.setText(fechaActual());
                     try {
                         if(cod==Integer.parseInt(sl.next()))
                         {
@@ -333,7 +336,7 @@ public class Cliente extends javax.swing.JFrame {
                             Celular_Cliente.setText("");
                             Telefono_Cliente.setText("");
                             Fecha_Nacimiento_Cliente.setText("");
-                            Fecha_Ingreso.setText("");
+                            Fecha_Ingreso.setText(fechaActual());
                             Status_Cliente.setText("");
                             Tipo_Cliente.setText("");
                             Correo_Cliente.setText("");
@@ -476,6 +479,12 @@ public class Cliente extends javax.swing.JFrame {
         Status.setText("");
     }//GEN-LAST:event_LimpiarActionPerformed
 
+    public static String fechaActual(){
+        Date fecha = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/YYYY");
+        
+        return formatoFecha.format(fecha);
+    }
     /**
      * @param args the command line arguments
      */

@@ -1,3 +1,1 @@
 1213; Marines; Suriel; Vargas; Calle Prof #15; 8095887878; 8093698521; 08/08/2000; 20/12/2020; Activo; Corriente; M@gmail.com; 8000; 450
-1213; Marines; Suriel; Vargas; Calle Prof #15; 8095887878; 8093698521; 08/08/2000; 20/12/2020; Activo; Corriente; M@gmail.com; 8000; 450
-1213;Marines;Suriel;Vargas;Calle Prof #25;8095887878;8093698521;08/08/2000;20/12/2020;Activo;Corriente;M@gmail.com;8000;450
