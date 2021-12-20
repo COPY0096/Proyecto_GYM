@@ -5,12 +5,21 @@
  */
 package Procesos;
 
+import java.awt.Color;
+
 /**
  *
  * @author Jhoan
  */
 public class GenerarCobro extends javax.swing.JFrame {
 
+boolean encontrado=false;
+boolean crear =false;
+double valor;
+double bala,bl;
+double b=0;
+int num;
+int n;
     /**
      * Creates new form GenerarCobro
      */
