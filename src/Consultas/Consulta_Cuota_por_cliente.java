@@ -9,12 +9,12 @@ package Consultas;
  *
  * @author Jhoan
  */
-public class Consulta_Cobro_Fecha extends javax.swing.JFrame {
+public class Consulta_Cuota_por_cliente extends javax.swing.JFrame {
 
     /**
      * Creates new form Consulta_Cobro_Fecha
      */
-    public Consulta_Cobro_Fecha() {
+    public Consulta_Cuota_por_cliente() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -45,13 +45,13 @@ public class Consulta_Cobro_Fecha extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID cobro", "Fecha", "ID cliente", "Valor", "Concepto", "Status"
+                "ID Cuota", "Fecha", "ID cliente", "Valor", "Status"
             }
         ));
         jTable2.setEnabled(false);
@@ -62,7 +62,7 @@ public class Consulta_Cobro_Fecha extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta.png"))); // NOI18N
-        jLabel4.setText("Consulta Cobro por fecha");
+        jLabel4.setText("Consulta Cuota por cliente");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, 100));
 
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
@@ -80,7 +80,7 @@ public class Consulta_Cobro_Fecha extends javax.swing.JFrame {
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 40));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel5.setText("Por fecha");
+        jLabel5.setText("Por cliente");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,20 +123,23 @@ public class Consulta_Cobro_Fecha extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Cobro_Fecha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_Cuota_por_cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Cobro_Fecha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_Cuota_por_cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Cobro_Fecha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_Cuota_por_cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Cobro_Fecha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_Cuota_por_cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Consulta_Cobro_Fecha().setVisible(true);
+                new Consulta_Cuota_por_cliente().setVisible(true);
             }
         });
     }
